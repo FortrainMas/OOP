@@ -1,8 +1,8 @@
 package ru.nsu.shebanov;
 
-/** Class for heapsort */
+/** Class for heapsort. */
 public class HeapSort {
-    /** Internal function to heapify the array */
+    /** Internal function to heapify the array. */
     private static void heapify(int[] arr, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;
@@ -24,7 +24,7 @@ public class HeapSort {
         }
     }
 
-    /** Sorts an array inplace and returns it */
+    /** Sorts an array inplace and returns it. */
     public static int[] sort(int[] arr) {
         int n = arr.length;
 
