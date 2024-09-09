@@ -25,10 +25,10 @@ class HeapSortTest {
 
     @Test
     void checkOneElement() {
-      int[] arr = {2};
-      int[] expected = {2};
-      int[] actual = HeapSort.sort(arr);
-      assertArrayEquals(actual, expected);
+        int[] arr = {2};
+        int[] expected = {2};
+        int[] actual = HeapSort.sort(arr);
+        assertArrayEquals(actual, expected);
     }
 
     @Test
