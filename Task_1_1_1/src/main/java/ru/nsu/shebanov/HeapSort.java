@@ -1,7 +1,8 @@
 package ru.nsu.shebanov;
 
-/** Sample class to simulate 1.1 task functionality */
+/** Class for heapsort */
 public class HeapSort {
+    /** Internal function to heapify the array */
     private static void heapify(int[] arr, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;
@@ -23,11 +24,12 @@ public class HeapSort {
         }
     }
 
+    /** Sorts an array inplace and returns it */
     public static int[] sort(int[] arr) {
         int n = arr.length;
 
-        for (int i = n / 2 - 1; i >= 0; i--){
-          heapify(arr, n, i);
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arr, n, i);
         }
 
         for (int i = n - 1; i > 0; i--) {
