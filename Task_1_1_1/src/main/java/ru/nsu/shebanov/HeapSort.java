@@ -1,5 +1,9 @@
 package ru.nsu.shebanov;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+
 /** Class for heapsort. */
 public class HeapSort {
     /** Internal function to heapify the array. */
@@ -41,5 +45,27 @@ public class HeapSort {
         }
 
         return arr;
+    }
+
+    public static void main(String[] args) {
+
+        int[] ns = new int[]{10, 100, 1000, 10000, 1000000, 10000000, 100000000, 1000000000};
+        for(int n : ns){
+            long timeBefore = System.nanoTime();
+            Random random = new Random();
+            int[] arr = new int[n];
+
+            for (int i = 0; i < arr.length; i++) {
+                int val = random.nextInt();
+                arr[i] = val;
+            }
+            HeapSort.sort(arr);
+            long timeAfter = System.nanoTime();
+
+            long delta = timeAfter - timeBefore;
+            System.out.println(n + " " + delta);
+        }
+
+        System.out.println("Damn");
     }
 }
