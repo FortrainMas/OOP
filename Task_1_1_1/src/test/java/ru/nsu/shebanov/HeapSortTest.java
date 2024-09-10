@@ -1,24 +1,24 @@
-package ru.nsu.shadrina;
+package ru.nsu.shebanov;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SampleTest {
+class HeapSortTest {
 
     @Test
     void checkMain() {
-        Sample.main(new String[] {});
+        HeapSort.main(new String[] {});
         assertTrue(true);
     }
 
     @Test
     void checkPrinting() {
-        Sample.printHelloWorld();
+        HeapSort.printHelloWorld();
     }
 
     @Test
     void doINeedToCheckDefaultConstructor() {
-        final var sampleInstance = new Sample();
+        final var sampleInstance = new HeapSort();
     }
 }
