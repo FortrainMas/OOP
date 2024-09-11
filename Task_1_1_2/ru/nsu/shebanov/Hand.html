@@ -136,6 +136,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public abstract class <span class="typeNameLabel">Hand</span>
 extends java.lang.Object</pre>
+<div class="block">Controls hand behaviour.</div>
 </li>
 </ul>
 </div>
@@ -182,17 +183,23 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#aceWeight()">aceWeight</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Estimates with which weight aces should be treated.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add_card(ru.nsu.shebanov.Card)">add_card</a></span>&#8203;(<a href="Card.html" title="class in ru.nsu.shebanov">Card</a>&nbsp;card)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds new card in the hand.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#count_cards()">count_cards</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#countCards()">countCards</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Counts score of cards in hand.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -244,15 +251,25 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>add_card</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;add_card&#8203;(<a href="Card.html" title="class in ru.nsu.shebanov">Card</a>&nbsp;card)</pre>
+<div class="block">Adds new card in the hand.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>card</code> - added card</dd>
+</dl>
 </li>
 </ul>
-<a id="count_cards()">
+<a id="countCards()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>count_cards</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;count_cards()</pre>
+<h4>countCards</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;countCards()</pre>
+<div class="block">Counts score of cards in hand.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>score</dd>
+</dl>
 </li>
 </ul>
 <a id="aceWeight()">
@@ -262,6 +279,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>aceWeight</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;aceWeight()</pre>
+<div class="block">Estimates with which weight aces should be treated.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>1 or 11</dd>
+</dl>
 </li>
 </ul>
 </li>
