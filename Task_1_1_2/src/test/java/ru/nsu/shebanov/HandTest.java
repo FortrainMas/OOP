@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Tests for abstract class Hand.
+ */
 public class HandTest {
     private static class ConcreteHand extends Hand {
         ConcreteHand(Card card1, Card card2) {
@@ -19,56 +22,71 @@ public class HandTest {
 
     private Hand hand;
 
+    /**
+     * Setups variables and make certain class for hands.
+     */
     @BeforeEach
     public void setUp() {
-        // Assuming Card class has a constructor Card(String name, int weight)
         cardAce = new Card("туз черви", 11);
         cardTen = new Card("десятка пики", 10);
         cardNine = new Card("девятка буби", 9);
         cardFive = new Card("пятёрка пики", 5);
 
-        hand = new ConcreteHand(cardAce, cardTen); // Use a concrete implementation
+        hand = new ConcreteHand(cardAce, cardTen);
     }
 
+    /**
+     * Check countCards.
+     */
     @Test
     public void testCountCardsWithAceAndTen() {
-        assertEquals(21, hand.count_cards());
+        assertEquals(21, hand.countCards());
     }
 
+    /**
+     * Check countCards.
+     */
     @Test
     public void testCountCardsWithMultipleAces() {
         hand.add_card(cardAce);
-        assertEquals(12, hand.count_cards());
+        assertEquals(12, hand.countCards());
 
         // Adding another ace
         hand.add_card(cardAce);
-        assertEquals(13, hand.count_cards()); // This goes over 21, should return a value of 23
+        assertEquals(13, hand.countCards());
     }
 
+    /**
+     * Check countCards.
+     */
     @Test
     public void testCountCardsWithoutAces() {
         Hand simpleHand = new ConcreteHand(cardNine, cardFive);
-        assertEquals(14, simpleHand.count_cards()); // 9 + 5 = 14
+        assertEquals(14, simpleHand.countCards());
     }
 
+    /**
+     * Check countCards.
+     */
     @Test
     public void testAce11Counter() {
-        assertEquals(11, hand.aceWeight()); // Should return 1 as we have one Ace
+        assertEquals(11, hand.aceWeight());
 
         hand.add_card(cardFive);
-        assertEquals(1, hand.aceWeight()); // Still should return 1
+        assertEquals(1, hand.aceWeight());
 
         hand.add_card(new Card("Another Ace", 11));
-        assertEquals(1, hand.aceWeight()); // Still should return 1 for ace count
+        assertEquals(1, hand.aceWeight());
     }
 
-    // If we add more than 1 ace, it should still return 1
+    /**
+     * Check countCards.
+     */
     @Test
     public void testMultipleAcesCount() {
         hand.add_card(cardAce);
-        assertEquals(1, hand.aceWeight()); // Should return 1
+        assertEquals(1, hand.aceWeight());
     }
 
-    // Concrete class for testing since Hand is abstract
 
 }

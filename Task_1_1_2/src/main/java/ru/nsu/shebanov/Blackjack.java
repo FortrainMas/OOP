@@ -2,6 +2,9 @@ package ru.nsu.shebanov;
 
 import java.util.Scanner;
 
+/**
+ * Class which runs the game.
+ */
 public class Blackjack {
     private static Deck deck;
     private static int gameRound = 1;
@@ -11,6 +14,10 @@ public class Blackjack {
     private static UserHand userHand;
     private static DealerHand dealerHand;
 
+    /**
+     * Behaviour of the game when it is user turn.
+     * @return if user won or lost the game on his turn
+     */
     static boolean playerTurn() {
         if (checkBlackjack()) {
             return true;
@@ -28,7 +35,7 @@ public class Blackjack {
             System.out.println(userHand.toString());
             System.out.println(dealerHand.toString() + "\n");
 
-            if (userHand.count_cards() > 21) {
+            if (userHand.countCards() > 21) {
                 return results(false);
             }
 
@@ -39,6 +46,10 @@ public class Blackjack {
         return results(false);
     }
 
+    /**
+     * Behaviour of the game when it is dealer turn.
+     * @return if dealer won or lost the game on his turn
+     */
     static boolean dealerTurn() {
         dealerHand.handRevealed = true;
         System.out.println("Дилер открывает закрытую карту " + dealerHand.cards.get(1));
@@ -49,7 +60,7 @@ public class Blackjack {
             return true;
         }
 
-        while (dealerHand.count_cards() < 17) {
+        while (dealerHand.countCards() < 17) {
             Card newCard = deck.getCard();
             dealerHand.add_card(newCard);
             System.out.println("Дилер открывает карту " + newCard.toString());
@@ -60,16 +71,22 @@ public class Blackjack {
         return results(true);
     }
 
+    /**
+     * Checks for blackjack.
+     * if dealerHand revealed works for dealer
+     * otherwise for player
+     * @return did some player one the game
+     */
     private static boolean checkBlackjack() {
         if (dealerHand.handRevealed) {
-            if (dealerHand.count_cards() == 21) {
+            if (dealerHand.countCards() == 21) {
                 dealerGameScore += 1;
                 System.out.println(
                         "Раунд выиграл дилер! Счет " + playerGameScore + ":" + dealerGameScore);
                 return true;
             }
         } else {
-            if (userHand.count_cards() == 21) {
+            if (userHand.countCards() == 21) {
                 playerGameScore += 1;
                 System.out.println(
                         "Вы выиграли раунд! Счет " + playerGameScore + ":" + dealerGameScore);
@@ -79,9 +96,14 @@ public class Blackjack {
         return false;
     }
 
+    /**
+     * Check for game results.
+     * @param forcedFinish should the game be finished even if both players have <21
+     * @return results of the game
+     */
     private static boolean results(boolean forcedFinish) {
-        int userScore = userHand.count_cards();
-        int dealerScore = dealerHand.count_cards();
+        int userScore = userHand.countCards();
+        int dealerScore = dealerHand.countCards();
 
         if ((forcedFinish && userScore > dealerScore && userScore < 22) || dealerScore > 21) {
             playerGameScore += 1;
@@ -104,6 +126,9 @@ public class Blackjack {
         return false;
     }
 
+    /**
+     * Controls order of action in game round.
+     */
     public static void round() {
         userHand = new UserHand(deck.getCard(), deck.getCard());
         dealerHand = new DealerHand(deck.getCard(), deck.getCard());
@@ -122,6 +147,9 @@ public class Blackjack {
         }
     }
 
+    /**
+     * initialize everything and controls rounds.
+     */
     public static void main(String[] args) {
         deck = new Deck();
         scanner = new Scanner(System.in);

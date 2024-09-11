@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Tests dealer hand.
+ */
 public class DealerHandTest {
 
     private Card aceCard;
@@ -12,25 +15,37 @@ public class DealerHandTest {
     private Card faceCard;
     private DealerHand dealerHand;
 
+    /**
+     * Setups basic dealer hand.
+     */
     @BeforeEach
     public void setUp() {
-        aceCard = new Card("туз черви", 11); // Assuming you have a Card constructor
+        aceCard = new Card("туз черви", 11);
         numberCard = new Card("пятёрка черви", 5);
         faceCard = new Card("король пики", 10);
         dealerHand = new DealerHand(aceCard, numberCard);
     }
 
+    /**
+     * Tests initial score.
+     */
     @Test
     public void testInitialCountCards() {
-        assertEquals(16, dealerHand.count_cards()); // 11 (Ace) + 5 = 16
+        assertEquals(16, dealerHand.countCards());
     }
 
+    /**
+     * Tests score after adding car.
+     */
     @Test
     public void testAddCard() {
         dealerHand.add_card(faceCard);
-        assertEquals(16, dealerHand.count_cards());
+        assertEquals(16, dealerHand.countCards());
     }
 
+    /**
+     * Tests for hand print.
+     */
     @Test
     public void testToStringRevealedHand() {
         dealerHand.handRevealed = true;
@@ -38,6 +53,9 @@ public class DealerHandTest {
         assertEquals(expected, dealerHand.toString());
     }
 
+    /**
+     * Tests for hand print before revealing the card.
+     */
     @Test
     public void testToStringHiddenHand() {
         dealerHand.handRevealed = false;
@@ -45,9 +63,12 @@ public class DealerHandTest {
         assertEquals(expected, dealerHand.toString());
     }
 
+    /**
+     * Tests for hand print with multiple aces.
+     */
     @Test
     public void testCountCardsWithMultipleAces() {
-        dealerHand.add_card(aceCard); // Adding another Ace
-        assertEquals(7, dealerHand.count_cards()); // 11 + 5 + 1 (second Ace as 1) = 17
+        dealerHand.add_card(aceCard);
+        assertEquals(7, dealerHand.countCards());
     }
 }

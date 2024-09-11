@@ -1,10 +1,13 @@
 package ru.nsu.shebanov;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+/**
+ * Tests for user hand.
+ */
 public class UserHandTest {
 
     private Card cardAce;
@@ -15,6 +18,9 @@ public class UserHandTest {
 
     private UserHand userHand;
 
+    /**
+     * Set up basic conditions for tests.
+     */
     @BeforeEach
     public void setUp() {
         cardAce = new Card("туз пики", 11);
@@ -23,28 +29,32 @@ public class UserHandTest {
         cardFive = new Card("пятёрка пики", 5);
         cardAnotherAce = new Card("туз черви", 11);
 
-        userHand = new UserHand(cardAce, cardTen); // initial hand with Ace and Ten
+        userHand = new UserHand(cardAce, cardTen);
     }
 
+    /**
+     * Tests for string which gets proceeded if we add ace and ten to the basic hand.
+     */
     @Test
     public void testToStringWithAceAndTen() {
         String expected = "Ваши карты: [туз пики (11), десятка пики (10)] => 21";
         assertEquals(expected, userHand.toString());
     }
 
+    /**
+     * Tests for string which gets proceeded if we add another ace.
+     */
     @Test
     public void testToStringWithMultipleAces() {
-        userHand.add_card(cardAnotherAce); // Adding another Ace
+        userHand.add_card(cardAnotherAce);
         String expected =
-                "Ваши карты: [туз пики (1), десятка пики (10), туз черви (1)] => 12"; // should show
-        // 11 for the
-        // first Ace
-        // and 1 for
-        // the second
-        // Ace
+                "Ваши карты: [туз пики (1), десятка пики (10), туз черви (1)] => 12";
         assertEquals(expected, userHand.toString());
     }
 
+    /**
+     * Test for another hand without aces.
+     */
     @Test
     public void testToStringWithoutAces() {
         UserHand simpleHand = new UserHand(cardNine, cardFive);
@@ -52,6 +62,9 @@ public class UserHandTest {
         assertEquals(expected, simpleHand.toString());
     }
 
+    /**
+     * Tests for string which gets proceeded if we make hand of two aces.
+     */
     @Test
     public void testToStringWithTwoAces() {
         UserHand doubleAceHand = new UserHand(cardAce, cardAnotherAce);
@@ -59,17 +72,21 @@ public class UserHandTest {
         assertEquals(expected, doubleAceHand.toString());
     }
 
-    // Test with more diverse cards
+
+    /**
+     * Tests for string which gets proceeded if we make hand of diverse cards.
+     */
     @Test
     public void testToStringWithMixedCards() {
-        userHand.add_card(cardNine); // add a nine to the hand
+        userHand.add_card(cardNine);
         String expected =
-                "Ваши карты: [туз пики (1), десятка пики (10), девятка пики (9)] => 20"; // 11 + 10
-        // + 9 = 30
+                "Ваши карты: [туз пики (1), десятка пики (10), девятка пики (9)] => 20";
         assertEquals(expected, userHand.toString());
     }
 
-    // Test with Ace that would be counted as 1
+    /**
+     * Tests for string which gets proceeded if we make a string where aces should be counted as 1.
+     */
     @Test
     public void testToStringWithCountedAceAsOne() {
         userHand.add_card(cardAce); // Add another Ace

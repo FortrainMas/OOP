@@ -2,6 +2,9 @@ package ru.nsu.shebanov;
 
 import java.util.ArrayList;
 
+/**
+ * Dealer hand realisation.
+ */
 public class DealerHand extends Hand {
     boolean handRevealed = false;
 
@@ -9,6 +12,9 @@ public class DealerHand extends Hand {
         super(card1, card2);
     }
 
+    /**
+     * Makes specified print type of dealer hand.
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("Карты диллера: [ ");
@@ -26,7 +32,7 @@ public class DealerHand extends Hand {
             }
             result.append(String.join(", ", cardStrings));
             result.append("] => ");
-            result.append(this.count_cards());
+            result.append(this.countCards());
         } else {
             result.append(this.cards.get(0).toString());
             result.append(", <закрытая карта> ]");

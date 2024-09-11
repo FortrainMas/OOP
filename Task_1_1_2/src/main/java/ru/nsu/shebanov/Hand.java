@@ -2,6 +2,9 @@ package ru.nsu.shebanov;
 
 import java.util.ArrayList;
 
+/**
+ * Controls hand behaviour.
+ */
 public abstract class Hand {
     public ArrayList<Card> cards;
 
@@ -11,11 +14,19 @@ public abstract class Hand {
         this.cards.add(card2);
     }
 
+    /**
+     * Adds new card in the hand.
+     * @param card added card
+     */
     public void add_card(Card card) {
         this.cards.add(card);
     }
 
-    public int count_cards() {
+    /**
+     * Counts score of cards in hand.
+     * @return score
+     */
+    public int countCards() {
         int sum = 0;
         int aceCounter = 0;
         for (Card card : this.cards) {
@@ -28,12 +39,16 @@ public abstract class Hand {
 
         if (aceCounter > 0 && aceCounter * 11 + sum <= 21) {
             sum += 11;
-        }else if(aceCounter > 0){
+        } else if(aceCounter > 0) {
             sum += aceCounter;
         }
         return sum;
     }
 
+    /**
+     * Estimates with which weight aces should be treated.
+     * @return 1 or 11
+     */
     public int aceWeight() {
         int sum = 0;
         int aceCounter = 0;

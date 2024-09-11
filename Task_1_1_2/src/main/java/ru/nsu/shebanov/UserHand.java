@@ -2,12 +2,18 @@ package ru.nsu.shebanov;
 
 import java.util.ArrayList;
 
+/**
+ * UserHand realisation.
+ */
 public class UserHand extends Hand {
 
     UserHand(Card card1, Card card2) {
         super(card1, card2);
     }
 
+    /**
+     * Makes specified print type of dealer hand.
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("Ваши карты: [");
@@ -23,7 +29,7 @@ public class UserHand extends Hand {
         }
         result.append(String.join(", ", cardStrings));
         result.append("] => ");
-        result.append(this.count_cards());
+        result.append(this.countCards());
 
         return result.toString();
     }

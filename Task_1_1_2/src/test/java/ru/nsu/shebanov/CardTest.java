@@ -4,8 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Tests for card class.
+ */
 public class CardTest {
 
+    /**
+     * Check for card print.
+     */
     @Test
     public void testCardCreation() {
         String expectedName = "король черви";
@@ -17,6 +23,9 @@ public class CardTest {
         assertEquals(expectedWeight, card.weight);
     }
 
+    /**
+     * Check for card print.
+     */
     @Test
     public void testToString() {
         String name = "король трефы";
