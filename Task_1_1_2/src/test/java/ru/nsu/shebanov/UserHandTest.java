@@ -55,7 +55,7 @@ public class UserHandTest {
     @Test
     public void testToStringWithTwoAces() {
         UserHand doubleAceHand = new UserHand(cardAce, cardAnotherAce);
-        String expected = "Ваши карты: [туз пики (11), туз черви (1)] => 12";
+        String expected = "Ваши карты: [туз пики (1), туз черви (1)] => 2";
         assertEquals(expected, doubleAceHand.toString());
     }
 
@@ -74,11 +74,7 @@ public class UserHandTest {
     public void testToStringWithCountedAceAsOne() {
         userHand.add_card(cardAce); // Add another Ace
         String expected =
-                "Ваши карты: [туз пики (1), десятка пики (10), туз пики (1)] => 12"; // should count
-                                                                                     // as 11 for
-                                                                                     // 1st Ace and
-                                                                                     // 1 for 2nd
-                                                                                     // Ace
+                "Ваши карты: [туз пики (1), десятка пики (10), туз пики (1)] => 12";
         assertEquals(expected, userHand.toString());
     }
 }

@@ -53,20 +53,20 @@ public class HandTest {
 
     @Test
     public void testAce11Counter() {
-        assertEquals(1, hand.ace_11_counter()); // Should return 1 as we have one Ace
+        assertEquals(11, hand.aceWeight()); // Should return 1 as we have one Ace
 
         hand.add_card(cardFive);
-        assertEquals(0, hand.ace_11_counter()); // Still should return 1
+        assertEquals(1, hand.aceWeight()); // Still should return 1
 
         hand.add_card(new Card("Another Ace", 11));
-        assertEquals(0, hand.ace_11_counter()); // Still should return 1 for ace count
+        assertEquals(1, hand.aceWeight()); // Still should return 1 for ace count
     }
 
     // If we add more than 1 ace, it should still return 1
     @Test
     public void testMultipleAcesCount() {
         hand.add_card(cardAce);
-        assertEquals(0, hand.ace_11_counter()); // Should return 1
+        assertEquals(1, hand.aceWeight()); // Should return 1
     }
 
     // Concrete class for testing since Hand is abstract

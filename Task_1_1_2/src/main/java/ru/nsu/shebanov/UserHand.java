@@ -13,15 +13,10 @@ public class UserHand extends Hand {
         StringBuilder result = new StringBuilder("Ваши карты: [");
         ArrayList<String> cardStrings = new ArrayList<>();
 
-        int ace_11_counter = this.ace_11_counter();
+        int aceWeight = this.aceWeight();
         for (Card card : this.cards) {
             if (card.weight == 11) {
-                if (ace_11_counter > 0) {
-                    ace_11_counter -= 1;
-                    cardStrings.add(card.name + " (" + card.weight + ")");
-                } else {
-                    cardStrings.add(card.name + " (" + 1 + ")");
-                }
+                cardStrings.add(card.name + " (" + aceWeight + ")");
             } else {
                 cardStrings.add(card.name + " (" + card.weight + ")");
             }

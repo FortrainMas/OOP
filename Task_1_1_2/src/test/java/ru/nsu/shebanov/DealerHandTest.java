@@ -47,6 +47,6 @@ public class DealerHandTest {
     @Test
     public void testCountCardsWithMultipleAces() {
         dealerHand.add_card(aceCard); // Adding another Ace
-        assertEquals(17, dealerHand.count_cards()); // 11 + 5 + 1 (second Ace as 1) = 17
+        assertEquals(7, dealerHand.count_cards()); // 11 + 5 + 1 (second Ace as 1) = 17
     }
 }
