@@ -2,8 +2,9 @@ package ru.nsu.shebanov;
 
 import java.util.ArrayList;
 
-public class DealerHand extends Hand{
+public class DealerHand extends Hand {
     boolean handRevealed = false;
+
     DealerHand(Card card1, Card card2) {
         super(card1, card2);
     }
@@ -15,7 +16,7 @@ public class DealerHand extends Hand{
 
         int ace_11_counter = this.ace_11_counter();
 
-        if(this.handRevealed){
+        if (this.handRevealed) {
             for (Card card : this.cards) {
                 if (card.weight == 11) {
                     if (ace_11_counter > 0) {
@@ -31,7 +32,7 @@ public class DealerHand extends Hand{
             result.append(String.join(", ", cardStrings));
             result.append("] => ");
             result.append(this.count_cards());
-        }else{
+        } else {
             result.append(this.cards.get(0).toString());
             result.append(", <закрытая карта> ]");
         }

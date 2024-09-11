@@ -12,7 +12,6 @@ public class HandTest {
         }
     }
 
-
     private Card cardAce;
     private Card cardTen;
     private Card cardNine;
@@ -71,6 +70,5 @@ public class HandTest {
     }
 
     // Concrete class for testing since Hand is abstract
-
 
 }

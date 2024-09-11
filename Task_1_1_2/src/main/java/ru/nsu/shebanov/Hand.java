@@ -21,7 +21,7 @@ public abstract class Hand {
         for (Card card : this.cards) {
             if (card.weight != 11) {
                 sum += card.weight;
-            }else{
+            } else {
                 aceCounter += 1;
             }
         }
@@ -29,20 +29,20 @@ public abstract class Hand {
         if (aceCounter >= 1) {
             if (sum + 11 + aceCounter - 1 <= 21) {
                 sum += 11 + aceCounter - 1;
-            }else{
+            } else {
                 sum += aceCounter;
             }
         }
         return sum;
     }
 
-    public int ace_11_counter(){
+    public int ace_11_counter() {
         int sum = 0;
         int aceCounter = 0;
         for (Card card : this.cards) {
             if (card.weight != 11) {
                 sum += card.weight;
-            }else{
+            } else {
                 aceCounter += 1;
             }
         }
@@ -55,4 +55,3 @@ public abstract class Hand {
         return 0;
     }
 }
-

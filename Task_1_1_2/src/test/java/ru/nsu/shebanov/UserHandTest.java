@@ -35,7 +35,13 @@ public class UserHandTest {
     @Test
     public void testToStringWithMultipleAces() {
         userHand.add_card(cardAnotherAce); // Adding another Ace
-        String expected = "Ваши карты: [туз пики (1), десятка пики (10), туз черви (1)] => 12"; // should show 11 for the first Ace and 1 for the second Ace
+        String expected =
+                "Ваши карты: [туз пики (1), десятка пики (10), туз черви (1)] => 12"; // should show
+                                                                                      // 11 for the
+                                                                                      // first Ace
+                                                                                      // and 1 for
+                                                                                      // the second
+                                                                                      // Ace
         assertEquals(expected, userHand.toString());
     }
 
@@ -57,7 +63,9 @@ public class UserHandTest {
     @Test
     public void testToStringWithMixedCards() {
         userHand.add_card(cardNine); // add a nine to the hand
-        String expected = "Ваши карты: [туз пики (1), десятка пики (10), девятка пики (9)] => 20"; // 11 + 10 + 9 = 30
+        String expected =
+                "Ваши карты: [туз пики (1), десятка пики (10), девятка пики (9)] => 20"; // 11 + 10
+                                                                                         // + 9 = 30
         assertEquals(expected, userHand.toString());
     }
 
@@ -65,8 +73,12 @@ public class UserHandTest {
     @Test
     public void testToStringWithCountedAceAsOne() {
         userHand.add_card(cardAce); // Add another Ace
-        String expected = "Ваши карты: [туз пики (1), десятка пики (10), туз пики (1)] => 12"; // should count as 11 for 1st Ace and 1 for 2nd Ace
+        String expected =
+                "Ваши карты: [туз пики (1), десятка пики (10), туз пики (1)] => 12"; // should count
+                                                                                     // as 11 for
+                                                                                     // 1st Ace and
+                                                                                     // 1 for 2nd
+                                                                                     // Ace
         assertEquals(expected, userHand.toString());
     }
-
 }
