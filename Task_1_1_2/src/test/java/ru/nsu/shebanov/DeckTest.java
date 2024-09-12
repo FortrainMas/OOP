@@ -19,7 +19,7 @@ public class DeckTest {
     private Deck deck;
 
     /**
-     * Setups basic deck
+     * Setups basic deck.
      */
     @BeforeEach
     public void setUp() {
@@ -74,7 +74,7 @@ public class DeckTest {
     }
 
     /**
-     * Check behaviour of getting new deck
+     * Check behaviour of getting new deck.
      */
     @Test
     public void testGetCardEmptyDeck() {
