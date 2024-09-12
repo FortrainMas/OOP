@@ -63,6 +63,7 @@ public class Deck {
 
     /**
      * Get upper card from the deck.
+     *
      * @return this card
      */
     public Card getCard() {

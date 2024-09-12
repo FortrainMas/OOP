@@ -14,6 +14,7 @@ public class Card {
 
     /**
      * Prints card.
+     *
      * @return card_name (card_weight)
      */
     @Override
