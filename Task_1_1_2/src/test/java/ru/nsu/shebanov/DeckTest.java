@@ -8,23 +8,35 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+/**
+ * Class to test the deck class.
+ */
 public class DeckTest {
 
     private Deck deck;
 
+    /**
+     * Setups basic deck
+     */
     @BeforeEach
     public void setUp() {
         deck = new Deck();
     }
 
+    /**
+     * Checks deck initialization.
+     */
     @Test
     public void testDeckInitialization() {
         assertEquals(52, deck.cards.size());
     }
 
+    /**
+     * Checks if decks consists of unique cards.
+     */
     @Test
     public void testDeckContainsUniqueCards() {
         HashSet<String> cardSet = new HashSet<>();
@@ -36,6 +48,9 @@ public class DeckTest {
         assertEquals(52, cardSet.size());
     }
 
+    /**
+     * Check does shuffling work.
+     */
     @Test
     public void testShuffle() {
         ArrayList<Card> originalOrder = new ArrayList<>(deck.cards);
@@ -45,6 +60,9 @@ public class DeckTest {
         assertNotEquals(originalOrder, deck.cards);
     }
 
+    /**
+     * Check getting card from the deck.
+     */
     @Test
     public void testGetCard() {
         Card retrievedCard = deck.getCard();
@@ -55,6 +73,9 @@ public class DeckTest {
         assertInstanceOf(Card.class, retrievedCard);
     }
 
+    /**
+     * Check behaviour of getting new deck
+     */
     @Test
     public void testGetCardEmptyDeck() {
         for (int i = 0; i < 52; i++) {
