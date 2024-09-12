@@ -16,6 +16,7 @@ public abstract class Hand {
 
     /**
      * Adds new card in the hand.
+     *
      * @param card added card
      */
     public void add_card(Card card) {
@@ -24,6 +25,7 @@ public abstract class Hand {
 
     /**
      * Counts score of cards in hand.
+     *
      * @return score
      */
     public int countCards() {
@@ -39,7 +41,7 @@ public abstract class Hand {
 
         if (aceCounter > 0 && aceCounter * 11 + sum <= 21) {
             sum += 11;
-        } else if(aceCounter > 0) {
+        } else if (aceCounter > 0) {
             sum += aceCounter;
         }
         return sum;
@@ -47,6 +49,7 @@ public abstract class Hand {
 
     /**
      * Estimates with which weight aces should be treated.
+     *
      * @return 1 or 11
      */
     public int aceWeight() {

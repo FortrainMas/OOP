@@ -16,6 +16,7 @@ public class Blackjack {
 
     /**
      * Behaviour of the game when it is user turn.
+     *
      * @return if user won or lost the game on his turn
      */
     static boolean playerTurn() {
@@ -48,6 +49,7 @@ public class Blackjack {
 
     /**
      * Behaviour of the game when it is dealer turn.
+     *
      * @return if dealer won or lost the game on his turn
      */
     static boolean dealerTurn() {
@@ -75,6 +77,7 @@ public class Blackjack {
      * Checks for blackjack.
      * if dealerHand revealed works for dealer
      * otherwise for player
+     *
      * @return did some player one the game
      */
     private static boolean checkBlackjack() {
@@ -98,7 +101,9 @@ public class Blackjack {
 
     /**
      * Check for game results.
+     *
      * @param forcedFinish should the game be finished even if both players have <21
+     *
      * @return results of the game
      */
     private static boolean results(boolean forcedFinish) {
