@@ -29,7 +29,8 @@ public class EvalTest {
         String expression = "(x+y-long)*story/short";
         double expectation = 10;
         double actually =
-                Notation.getExpression(expression).eval("x = 3; y = 8; long = 1; story = 2; short = 2");
+                Notation.getExpression(expression)
+                        .eval("x = 3; y = 8; long = 1; story = 2; short = 2");
 
         assertEquals(expectation, actually);
     }
