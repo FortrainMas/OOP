@@ -24,7 +24,7 @@ public class RPNTest {
                                 "78", "36", "23", "*", "+", "1", "7", "/", "+", "21", "-", "43",
                                 "12", "*", "+", "90", "120", "*", "12", "/", "12", "/", "12", "/",
                                 "123", "*", "-", "12", "-"));
-        ArrayList<String> actual = RPN.getRPN(expression);
+        ArrayList<String> actual = RPN.getReversePolish(expression);
         assertEquals(expected, actual);
     }
 
@@ -35,7 +35,7 @@ public class RPNTest {
     void RPNWithBracketsTest() {
         String expression = "a*(b+c)";
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("a", "b", "c", "+", "*"));
-        ArrayList<String> actual = RPN.getRPN(expression);
+        ArrayList<String> actual = RPN.getReversePolish(expression);
         assertEquals(expected, actual);
     }
 
@@ -47,7 +47,7 @@ public class RPNTest {
         String expression = "very*(long+names)";
         ArrayList<String> expected =
                 new ArrayList<>(Arrays.asList("very", "long", "names", "+", "*"));
-        ArrayList<String> actual = RPN.getRPN(expression);
+        ArrayList<String> actual = RPN.getReversePolish(expression);
         assertEquals(expected, actual);
     }
 

@@ -3,9 +3,14 @@ package ru.nsu.shebanov;
 import java.util.Scanner;
 
 /**
- * Class handling one console demonstration
+ * Class handling one console demonstration.
  */
 public class Main {
+    /**
+     * The main functions.
+     *
+     * @param args String[] args
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

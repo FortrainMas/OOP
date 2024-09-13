@@ -2,11 +2,11 @@ package ru.nsu.shebanov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests console interactions.
@@ -19,12 +19,7 @@ class MainTest {
     @Test
     void testMain() {
         String input = "((3+(2*x))+1)\nx\nx = 10";
-        String expectedOutput =
-                "((3+(2*x))+1)\n"
-                        + "Expression: ((3+(2*x))+1)\n"
-                        + "Derivative: ((0+((0*x)+(2*1)))+0)\n"
-                        + "Assigned: 24.0\n"
-                        + "Simplified: ((3+(2*x))+1)\n";
+
 
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -34,6 +29,13 @@ class MainTest {
         Main.main(new String[0]);
         String res = out.toString().replaceAll("\\r\\n?", "\n");
 
+
+        String expectedOutput =
+                "((3+(2*x))+1)\n"
+                        + "Expression: ((3+(2*x))+1)\n"
+                        + "Derivative: ((0+((0*x)+(2*1)))+0)\n"
+                        + "Assigned: 24.0\n"
+                        + "Simplified: ((3+(2*x))+1)\n";
         assertEquals(expectedOutput, res);
         assertEquals(expectedOutput.length(), res.length());
 

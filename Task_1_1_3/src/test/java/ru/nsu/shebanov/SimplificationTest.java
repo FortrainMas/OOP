@@ -14,7 +14,7 @@ public class SimplificationTest {
      * It covers A, B, C conditions for simplification
      */
     @Test
-    void SimplificationATest() {
+    void SimplificationTestA() {
         String expression = "((((5-x)*0)+((0-1)*2))/(2*2))";
         String expected = "-0.5";
         String actual = RPN.getExpression(expression).getSimplified().toString();
@@ -26,7 +26,7 @@ public class SimplificationTest {
      * Test which covers B and C conditions.
      * */
     @Test
-    void SimplificationBCTest() {
+    void SimplificationTestB() {
         String expression = "(0+((0*x)+(2*1)))";
         String expected = "2";
         String actual = RPN.getExpression(expression).getSimplified().toString();
@@ -38,7 +38,7 @@ public class SimplificationTest {
      * Test case for D condition.
      * */
     @Test
-    void simplificationDTest() {
+    void simplificationTestD() {
         String expression = "((2+4+x)-(3+3+x))";
         String expected = "0";
         String actual = RPN.getExpression(expression).getSimplified().toString();

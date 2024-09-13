@@ -13,8 +13,10 @@ public class Number extends Expression {
     }
 
     /**
-     * Always is zero
+     * Always is zero.
+     *
      * @param variable gets variable name
+     *
      * @return 0
      */
     @Override
@@ -23,7 +25,8 @@ public class Number extends Expression {
     }
 
     /**
-     * Always returns itself copied
+     * Always returns itself copied.
+     *
      * @return new Number(this.value)
      */
     @Override
@@ -32,8 +35,10 @@ public class Number extends Expression {
     }
 
     /**
-     * just returns its value
+     * just returns its value.
+     *
      * @param assignationString doesn't play a role
+     *
      * @return number's value
      */
     @Override

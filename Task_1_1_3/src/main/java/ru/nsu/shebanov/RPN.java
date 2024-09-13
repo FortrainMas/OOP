@@ -14,6 +14,7 @@ public class RPN {
      *
      * @param exp infix expression
      * @param pos position on which start to find tokens
+     *
      * @return first found token
      */
     private static String getNextToken(String exp, int pos) {
@@ -51,10 +52,12 @@ public class RPN {
 
     /**
      * Produce array of reverse polish notations tokens.
+     *
      * @param exp infix string
+     *
      * @return postfix array of tokens
      */
-    public static ArrayList<String> getRPN(String exp) {
+    public static ArrayList<String> getReversePolish(String exp) {
         ArrayList<String> output = new ArrayList<>();
         Stack<String> stack = new Stack<>();
 
@@ -116,7 +119,7 @@ public class RPN {
      * @return Expression
      */
     public static Expression getExpression(String exp) {
-        ArrayList<String> rpn = getRPN(exp);
+        ArrayList<String> rpn = getReversePolish(exp);
 
         Stack<Expression> result = new Stack<>();
 
