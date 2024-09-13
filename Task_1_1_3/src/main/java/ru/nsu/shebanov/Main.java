@@ -15,7 +15,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         String infix = scanner.nextLine();
-        Expression expression = RPN.getExpression(infix);
+        Expression expression = Notation.getExpression(infix);
         expression.print();
         System.out.println("Expression: " + expression.toString());
         String variable = scanner.nextLine();

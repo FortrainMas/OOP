@@ -16,7 +16,7 @@ public class EvalTest {
     void simpleEvalTest() {
         String expression = "2+x";
         double expectation = 5;
-        double actually = RPN.getExpression(expression).eval("x = 3");
+        double actually = Notation.getExpression(expression).eval("x = 3");
 
         assertEquals(expectation, actually);
     }
@@ -29,7 +29,7 @@ public class EvalTest {
         String expression = "(x+y-long)*story/short";
         double expectation = 10;
         double actually =
-                RPN.getExpression(expression).eval("x = 3; y = 8; long = 1; story = 2; short = 2");
+                Notation.getExpression(expression).eval("x = 3; y = 8; long = 1; story = 2; short = 2");
 
         assertEquals(expectation, actually);
     }
@@ -41,7 +41,7 @@ public class EvalTest {
     void hardEvalTest() {
         String expression = "(((x+y)-2+x)*z)*3";
         double expectation = 180;
-        double actually = RPN.getExpression(expression).eval("x = 3; y = 8; z = 5");
+        double actually = Notation.getExpression(expression).eval("x = 3; y = 8; z = 5");
 
         assertEquals(expectation, actually);
     }

@@ -16,7 +16,7 @@ public class DerivativesTest {
     void basicExpressionTest() {
         String expression = "(2+x*3)*x";
         String expected = "(((0+((1*3)+(x*0)))*x)+((2+(x*3))*1))";
-        String actual = RPN.getExpression(expression).getDerivative("x").toString();
+        String actual = Notation.getExpression(expression).getDerivative("x").toString();
 
         assertEquals(expected, actual);
     }
@@ -28,7 +28,7 @@ public class DerivativesTest {
     void exampleDerivativeTest() {
         String expression = "(3+(2*x))";
         String expected = "(0+((0*x)+(2*1)))";
-        String actual = RPN.getExpression(expression).getDerivative("x").toString();
+        String actual = Notation.getExpression(expression).getDerivative("x").toString();
 
         assertEquals(expected, actual);
     }
@@ -40,7 +40,7 @@ public class DerivativesTest {
     void multipleVariablesTest() {
         String expression = "x+y*2";
         String expected = "(1+((0*2)+(y*0)))";
-        String actual = RPN.getExpression(expression).getDerivative("x").toString();
+        String actual = Notation.getExpression(expression).getDerivative("x").toString();
 
         assertEquals(expected, actual);
     }
@@ -52,7 +52,7 @@ public class DerivativesTest {
     void divisionDerivativeTest() {
         String expression = "(5-x)/2";
         String expected = "((((5-x)*0)+((0-1)*2))/(2*2))";
-        String actual = RPN.getExpression(expression).getDerivative("x").toString();
+        String actual = Notation.getExpression(expression).getDerivative("x").toString();
 
         assertEquals(expected, actual);
     }

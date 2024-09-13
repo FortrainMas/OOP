@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests for reverse polish notation and string input parsing.
  */
-public class RPNTest {
+public class NotationTest {
 
     /**
      * Test of RPN with big input.
@@ -23,7 +23,7 @@ public class RPNTest {
                                 "78", "36", "23", "*", "+", "1", "7", "/", "+", "21", "-", "43",
                                 "12", "*", "+", "90", "120", "*", "12", "/", "12", "/", "12", "/",
                                 "123", "*", "-", "12", "-"));
-        ArrayList<String> actual = RPN.getReversePolish(expression);
+        ArrayList<String> actual = Notation.getReversePolish(expression);
         assertEquals(expected, actual);
     }
 
@@ -34,7 +34,7 @@ public class RPNTest {
     void notationWithBracketsTest() {
         String expression = "a*(b+c)";
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("a", "b", "c", "+", "*"));
-        ArrayList<String> actual = RPN.getReversePolish(expression);
+        ArrayList<String> actual = Notation.getReversePolish(expression);
         assertEquals(expected, actual);
     }
 
@@ -46,7 +46,7 @@ public class RPNTest {
         String expression = "very*(long+names)";
         ArrayList<String> expected =
                 new ArrayList<>(Arrays.asList("very", "long", "names", "+", "*"));
-        ArrayList<String> actual = RPN.getReversePolish(expression);
+        ArrayList<String> actual = Notation.getReversePolish(expression);
         assertEquals(expected, actual);
     }
 
@@ -58,7 +58,7 @@ public class RPNTest {
 
         String expression = "very*(long+names)";
         String expected = "(very*(long+names))";
-        String actual = RPN.getExpression(expression).toString();
+        String actual = Notation.getExpression(expression).toString();
 
         assertEquals(expected, actual);
     }
@@ -70,7 +70,7 @@ public class RPNTest {
     void complicatedExpressionTest() {
         String expression = "x*2+(3*3)/2+1-3+10*(((28+3)*2)/2)";
         String expected = "(((((x*2)+((3*3)/2))+1)-3)+(10*(((28+3)*2)/2)))";
-        String actual = RPN.getExpression(expression).toString();
+        String actual = Notation.getExpression(expression).toString();
 
         assertEquals(expected, actual);
     }

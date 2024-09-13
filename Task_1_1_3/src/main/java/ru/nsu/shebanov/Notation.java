@@ -6,7 +6,7 @@ import java.util.Stack;
 /**
  * Class which uses reverse polish notation to produce original expression.
  */
-public class RPN {
+public class Notation {
     /**
      * Gets the first token in the string from needed position.
      * token is number, variable name or
