@@ -1,10 +1,10 @@
 package ru.nsu.shebanov;
 
-import ru.nsu.shebanov.Expression;
-import ru.nsu.shebanov.RPN;
-
 import java.util.Scanner;
 
+/**
+ * Class handling one console demonstration
+ */
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

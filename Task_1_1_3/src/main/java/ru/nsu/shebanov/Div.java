@@ -21,7 +21,8 @@ public class Div extends Expression {
         return new Div(
                 new Sum(
                         new Mult(this.leftExpression, this.rightExpression.getDerivative(variable)),
-                        new Mult(this.leftExpression.getDerivative(variable), this.rightExpression)),
+                        new Mult(
+                                this.leftExpression.getDerivative(variable), this.rightExpression)),
                 new Mult(this.rightExpression, this.rightExpression));
     }
 
@@ -42,7 +43,8 @@ public class Div extends Expression {
             return new Number(
                     ((Number) simplifiedDiv.leftExpression).value
                             / ((Number) simplifiedDiv.rightExpression).value);
-        } else if (this.leftExpression instanceof Number && ((Number) this.leftExpression).value == 0) {
+        } else if (this.leftExpression instanceof Number
+                && ((Number) this.leftExpression).value == 0) {
             return new Number(0);
         } else {
             return simplifiedDiv;
@@ -50,8 +52,9 @@ public class Div extends Expression {
     }
 
     @Override
-    public double eval(String assignationString){
-        return this.leftExpression.eval(assignationString) / this.rightExpression.eval(assignationString);
+    public double eval(String assignationString) {
+        return this.leftExpression.eval(assignationString)
+                / this.rightExpression.eval(assignationString);
     }
 
     @Override

@@ -9,11 +9,11 @@ import java.util.Stack;
 public class RPN {
     /**
      * Gets the first token in the string from needed position.
-     * token is number, variable name or operation sign
+     * token is number, variable name or
+     * operation sign
      *
      * @param exp infix expression
      * @param pos position on which start to find tokens
-     *
      * @return first found token
      */
     private static String getNextToken(String exp, int pos) {
@@ -24,14 +24,13 @@ public class RPN {
                 || firstSymbol == '/'
                 || firstSymbol == '('
                 || firstSymbol == ')') {
-            return ""+firstSymbol;
-        }
-        else if(Character.isDigit(firstSymbol)){
+            return "" + firstSymbol;
+        } else if (Character.isDigit(firstSymbol)) {
             StringBuilder result = new StringBuilder();
-            do{
+            do {
                 result.append(exp.charAt(pos));
                 pos += 1;
-            } while ( pos < exp.length() && Character.isDigit(exp.charAt(pos)));
+            } while (pos < exp.length() && Character.isDigit(exp.charAt(pos)));
             return result.toString();
         } else {
             StringBuilder result = new StringBuilder();
@@ -50,12 +49,17 @@ public class RPN {
         }
     }
 
+    /**
+     * Produce array of reverse polish notations tokens.
+     * @param exp infix string
+     * @return postfix array of tokens
+     */
     public static ArrayList<String> getRPN(String exp) {
         ArrayList<String> output = new ArrayList<>();
         Stack<String> stack = new Stack<>();
 
         int position = 0;
-        while(position != exp.length()){
+        while (position != exp.length()) {
             String token = getNextToken(exp, position);
             position += token.length();
 
@@ -67,7 +71,7 @@ public class RPN {
                     output.add(topElement);
                     topElement = stack.pop();
                 }
-            } else if (token.equals("*") || token.equals("/")){
+            } else if (token.equals("*") || token.equals("/")) {
                 if (!stack.isEmpty()) {
                     String topToken = stack.peek();
                     while (topToken.equals("*") || topToken.equals("/")) {
@@ -79,7 +83,7 @@ public class RPN {
                     }
                 }
                 stack.push(token);
-            } else if(token.equals("+") || token.equals("-")){
+            } else if (token.equals("+") || token.equals("-")) {
                 if (!stack.isEmpty()) {
                     String topToken = stack.peek();
                     while (topToken.equals("*")
@@ -99,39 +103,44 @@ public class RPN {
             }
         }
 
-        while (!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             output.add(stack.pop());
         }
 
         return output;
     }
 
-    public static Expression getExpression(String exp){
+    /**
+     * Produces Expression from infix string exp.
+     * @param exp infix string expression
+     * @return Expression
+     */
+    public static Expression getExpression(String exp) {
         ArrayList<String> rpn = getRPN(exp);
 
         Stack<Expression> result = new Stack<>();
 
-        for(int i = 0; i < rpn.size(); i++){
-            if (Character.isDigit(rpn.get(i).charAt(0))) {
-                result.push(new Number(Double.parseDouble(rpn.get(i))));
-            } else if (rpn.get(i).equals("+")) {
+        for (String s : rpn) {
+            if (Character.isDigit(s.charAt(0))) {
+                result.push(new Number(Double.parseDouble(s)));
+            } else if (s.equals("+")) {
                 Expression rightExpression = result.pop();
                 Expression leftExpression = result.pop();
                 result.push(new Sum(leftExpression, rightExpression));
-            } else if(rpn.get(i).equals("-")) {
+            } else if (s.equals("-")) {
                 Expression rightExpression = result.pop();
                 Expression leftExpression = result.pop();
                 result.push(new Sub(leftExpression, rightExpression));
-            } else if (rpn.get(i).equals("*")) {
+            } else if (s.equals("*")) {
                 Expression rightExpression = result.pop();
                 Expression leftExpression = result.pop();
                 result.push(new Mult(leftExpression, rightExpression));
-            } else if(rpn.get(i).equals("/")) {
+            } else if (s.equals("/")) {
                 Expression rightExpression = result.pop();
                 Expression leftExpression = result.pop();
                 result.push(new Div(leftExpression, rightExpression));
             } else {
-                result.push(new Variable(rpn.get(i)));
+                result.push(new Variable(s));
             }
         }
         return result.pop();

@@ -10,12 +10,12 @@ import java.io.PrintStream;
 
 /**
  * Tests console interactions.
- */
+ * */
 class MainTest {
 
     /**
      * The sing needed test.
-     */
+     * */
     @Test
     void testMain() {
         String input = "((3+(2*x))+1)\nx\nx = 10";

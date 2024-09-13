@@ -3,7 +3,7 @@ package ru.nsu.shebanov;
 /**
  * Class for handling multiplication expressions.
  */
-public class Mult extends Expression{
+public class Mult extends Expression {
     Expression leftExpression;
     Expression rightExpression;
 
@@ -16,7 +16,6 @@ public class Mult extends Expression{
      * Estimates derivative for multiplication expression.
      *
      * @param variable name of variable for derivative
-     *
      * @return derivative
      */
     @Override
@@ -28,10 +27,10 @@ public class Mult extends Expression{
 
     /**
      * Simplifies multiplication expression.
-     * firstly simplifies left and right expressions recursively if both
-     * left and right expression of simplified multiplication appears to be number returns their
-     * multiplication as Number if one of them is zero, returns 0 if one of the is one, return
-     * another one
+     * firstly simplifies left and right expressions
+     * recursively if both left and right expression of simplified multiplication appears to be
+     * number returns their multiplication as Number if one of them is zero, returns 0 if one of the
+     * is one, return another one
      *
      * @return simplified Expression for multiplication
      */
@@ -67,12 +66,13 @@ public class Mult extends Expression{
      * @return
      */
     @Override
-    public double eval(String assignationString){
-        return this.leftExpression.eval(assignationString) * this.rightExpression.eval(assignationString);
+    public double eval(String assignationString) {
+        return this.leftExpression.eval(assignationString)
+                * this.rightExpression.eval(assignationString);
     }
 
     @Override
-    public String toString(){
-        return "("+this.leftExpression.toString()+"*"+this.rightExpression.toString()+")";
+    public String toString() {
+        return "(" + this.leftExpression.toString() + "*" + this.rightExpression.toString() + ")";
     }
 }

@@ -24,7 +24,7 @@ public class SimplificationTest {
 
     /**
      * Test which covers B and C conditions.
-     */
+     * */
     @Test
     void SimplificationBCTest() {
         String expression = "(0+((0*x)+(2*1)))";
@@ -36,7 +36,7 @@ public class SimplificationTest {
 
     /**
      * Test case for D condition.
-     */
+     * */
     @Test
     void simplificationDTest() {
         String expression = "((2+4+x)-(3+3+x))";
