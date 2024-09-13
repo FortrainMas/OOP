@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import org.junit.jupiter.api.Test;
 
 /**
@@ -16,7 +15,7 @@ public class RPNTest {
      * Test of RPN with big input.
      */
     @Test
-    void longRPNTest() {
+    void longNotationTest() {
         String expression = "78+36*23+1/7-21+43*12-90*120/12/12/12*123-12";
         ArrayList<String> expected =
                 new ArrayList<>(
@@ -32,7 +31,7 @@ public class RPNTest {
      * Test of RPN without brackets.
      */
     @Test
-    void RPNWithBracketsTest() {
+    void notationWithBracketsTest() {
         String expression = "a*(b+c)";
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("a", "b", "c", "+", "*"));
         ArrayList<String> actual = RPN.getReversePolish(expression);
@@ -43,7 +42,7 @@ public class RPNTest {
      * Check for long variable names handling.
      */
     @Test
-    void RPNWithLongVariablesTest() {
+    void notationWithLongVariablesTest() {
         String expression = "very*(long+names)";
         ArrayList<String> expected =
                 new ArrayList<>(Arrays.asList("very", "long", "names", "+", "*"));
@@ -55,7 +54,7 @@ public class RPNTest {
      * Check how expressions get build from RPN.
      */
     @Test
-    void RPNExpressionTest() {
+    void notationExpressionTest() {
 
         String expression = "very*(long+names)";
         String expected = "(very*(long+names))";

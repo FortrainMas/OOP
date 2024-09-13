@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Abstract class expression
+ * Abstract class expression.
  */
 public abstract class Expression {
 

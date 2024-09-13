@@ -115,7 +115,9 @@ public class RPN {
 
     /**
      * Produces Expression from infix string exp.
+     *
      * @param exp infix string expression
+     *
      * @return Expression
      */
     public static Expression getExpression(String exp) {

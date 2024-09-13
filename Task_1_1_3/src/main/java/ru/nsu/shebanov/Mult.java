@@ -63,7 +63,7 @@ public class Mult extends Expression {
      * Evaluate multiplication expression.
      *
      * @param assignationString assignation for variables
-     * @return
+     * @return evaluated expression
      */
     @Override
     public double eval(String assignationString) {
