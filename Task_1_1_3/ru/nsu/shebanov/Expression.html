@@ -136,6 +136,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public abstract class <span class="typeNameLabel">Expression</span>
 extends java.lang.Object</pre>
+<div class="block">Abstract class expression</div>
 </li>
 </ul>
 </div>
@@ -180,22 +181,30 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>abstract double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eval(java.lang.String)">eval</a></span>&#8203;(java.lang.String&nbsp;assignation)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Abstract method to eval Expression with assigned variables.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>abstract <a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDerivative(java.lang.String)">getDerivative</a></span>&#8203;(java.lang.String&nbsp;variable)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Abstract method to get new expression which is derivative of original.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>abstract <a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSimplified()">getSimplified</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Abstract method to get new expression which is simplification of original.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#print()">print</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Print expression to console.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -247,6 +256,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getDerivative</h4>
 <pre class="methodSignature">public abstract&nbsp;<a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a>&nbsp;getDerivative&#8203;(java.lang.String&nbsp;variable)</pre>
+<div class="block">Abstract method to get new expression which is derivative of original.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>variable</code> - variable for derivative</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new expression</dd>
+</dl>
 </li>
 </ul>
 <a id="getSimplified()">
@@ -256,6 +272,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getSimplified</h4>
 <pre class="methodSignature">public abstract&nbsp;<a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a>&nbsp;getSimplified()</pre>
+<div class="block">Abstract method to get new expression which is simplification of original.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new expression</dd>
+</dl>
 </li>
 </ul>
 <a id="eval(java.lang.String)">
@@ -265,6 +286,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>eval</h4>
 <pre class="methodSignature">public abstract&nbsp;double&nbsp;eval&#8203;(java.lang.String&nbsp;assignation)</pre>
+<div class="block">Abstract method to eval Expression with assigned variables.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>assignation</code> - formated assignation string</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>result of evaluation</dd>
+</dl>
 </li>
 </ul>
 <a id="print()">
@@ -274,6 +302,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>print</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;print()</pre>
+<div class="block">Print expression to console.</div>
 </li>
 </ul>
 </li>

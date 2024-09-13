@@ -177,12 +177,16 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExpression(java.lang.String)">getExpression</a></span>&#8203;(java.lang.String&nbsp;exp)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Produces Expression from infix string exp.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static java.util.ArrayList&lt;java.lang.String&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRPN(java.lang.String)">getRPN</a></span>&#8203;(java.lang.String&nbsp;exp)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Produce array of reverse polish notations tokens.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -234,6 +238,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getRPN</h4>
 <pre class="methodSignature">public static&nbsp;java.util.ArrayList&lt;java.lang.String&gt;&nbsp;getRPN&#8203;(java.lang.String&nbsp;exp)</pre>
+<div class="block">Produce array of reverse polish notations tokens.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>exp</code> - infix string</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>postfix array of tokens</dd>
+</dl>
 </li>
 </ul>
 <a id="getExpression(java.lang.String)">
@@ -243,6 +254,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getExpression</h4>
 <pre class="methodSignature">public static&nbsp;<a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a>&nbsp;getExpression&#8203;(java.lang.String&nbsp;exp)</pre>
+<div class="block">Produces Expression from infix string exp.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>exp</code> - infix string expression</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Expression</dd>
+</dl>
 </li>
 </ul>
 </li>

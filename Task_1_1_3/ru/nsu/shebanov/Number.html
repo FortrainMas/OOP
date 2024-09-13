@@ -137,6 +137,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Number</span>
 extends <a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a></pre>
+<div class="block">Class for handling number constants.</div>
 </li>
 </ul>
 </div>
@@ -160,17 +161,23 @@ extends <a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#eval(java.lang.String)">eval</a></span>&#8203;(java.lang.String&nbsp;assignationString)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">just returns its value</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="Number.html" title="class in ru.nsu.shebanov">Number</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDerivative(java.lang.String)">getDerivative</a></span>&#8203;(java.lang.String&nbsp;variable)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Always is zero</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Number.html" title="class in ru.nsu.shebanov">Number</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSimplified()">getSimplified</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Always returns itself copied</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
@@ -215,9 +222,14 @@ extends <a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a
 <li class="blockList">
 <h4>getDerivative</h4>
 <pre class="methodSignature">public&nbsp;<a href="Number.html" title="class in ru.nsu.shebanov">Number</a>&nbsp;getDerivative&#8203;(java.lang.String&nbsp;variable)</pre>
+<div class="block">Always is zero</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Expression.html#getDerivative(java.lang.String)">getDerivative</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>variable</code> - gets variable name</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>0</dd>
 </dl>
 </li>
 </ul>
@@ -228,9 +240,12 @@ extends <a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a
 <li class="blockList">
 <h4>getSimplified</h4>
 <pre class="methodSignature">public&nbsp;<a href="Number.html" title="class in ru.nsu.shebanov">Number</a>&nbsp;getSimplified()</pre>
+<div class="block">Always returns itself copied</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Expression.html#getSimplified()">getSimplified</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new Number(this.value)</dd>
 </dl>
 </li>
 </ul>
@@ -241,9 +256,14 @@ extends <a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a
 <li class="blockList">
 <h4>eval</h4>
 <pre class="methodSignature">public&nbsp;double&nbsp;eval&#8203;(java.lang.String&nbsp;assignationString)</pre>
+<div class="block">just returns its value</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="Expression.html#eval(java.lang.String)">eval</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in ru.nsu.shebanov">Expression</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>assignationString</code> - doesn't play a role</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number's value</dd>
 </dl>
 </li>
 </ul>

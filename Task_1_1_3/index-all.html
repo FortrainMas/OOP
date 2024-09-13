@@ -109,13 +109,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Div.html#eval(java.lang.String)">eval(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Div.html" title="class in ru.nsu.shebanov">Div</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Expression.html#eval(java.lang.String)">eval(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Expression.html" title="class in ru.nsu.shebanov">Expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Abstract method to eval Expression with assigned variables.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Mult.html#eval(java.lang.String)">eval(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Mult.html" title="class in ru.nsu.shebanov">Mult</a></dt>
 <dd>
 <div class="block">Evaluate multiplication expression.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Number.html#eval(java.lang.String)">eval(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Number.html" title="class in ru.nsu.shebanov">Number</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">just returns its value</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Sub.html#eval(java.lang.String)">eval(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Sub.html" title="class in ru.nsu.shebanov">Sub</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Sum.html#eval(java.lang.String)">eval(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Sum.html" title="class in ru.nsu.shebanov">Sum</a></dt>
@@ -123,7 +127,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Variable.html#eval(java.lang.String)">eval(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Variable.html" title="class in ru.nsu.shebanov">Variable</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="ru/nsu/shebanov/Expression.html" title="class in ru.nsu.shebanov"><span class="typeNameLink">Expression</span></a> - Class in <a href="ru/nsu/shebanov/package-summary.html">ru.nsu.shebanov</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Abstract class expression</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Expression.html#%3Cinit%3E()">Expression()</a></span> - Constructor for class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Expression.html" title="class in ru.nsu.shebanov">Expression</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -137,13 +143,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Estimates derivative for division expression.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Expression.html#getDerivative(java.lang.String)">getDerivative(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Expression.html" title="class in ru.nsu.shebanov">Expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Abstract method to get new expression which is derivative of original.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Mult.html#getDerivative(java.lang.String)">getDerivative(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Mult.html" title="class in ru.nsu.shebanov">Mult</a></dt>
 <dd>
 <div class="block">Estimates derivative for multiplication expression.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Number.html#getDerivative(java.lang.String)">getDerivative(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Number.html" title="class in ru.nsu.shebanov">Number</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Always is zero</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Sub.html#getDerivative(java.lang.String)">getDerivative(String)</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Sub.html" title="class in ru.nsu.shebanov">Sub</a></dt>
 <dd>
 <div class="block">Estimates derivative for sub expression.</div>
@@ -157,21 +167,29 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Estimates variable derivative.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/RPN.html#getExpression(java.lang.String)">getExpression(String)</a></span> - Static method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/RPN.html" title="class in ru.nsu.shebanov">RPN</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Produces Expression from infix string exp.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/RPN.html#getRPN(java.lang.String)">getRPN(String)</a></span> - Static method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/RPN.html" title="class in ru.nsu.shebanov">RPN</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Produce array of reverse polish notations tokens.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Div.html#getSimplified()">getSimplified()</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Div.html" title="class in ru.nsu.shebanov">Div</a></dt>
 <dd>
 <div class="block">Simplifies derivative expression.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Expression.html#getSimplified()">getSimplified()</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Expression.html" title="class in ru.nsu.shebanov">Expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Abstract method to get new expression which is simplification of original.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Mult.html#getSimplified()">getSimplified()</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Mult.html" title="class in ru.nsu.shebanov">Mult</a></dt>
 <dd>
 <div class="block">Simplifies multiplication expression.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Number.html#getSimplified()">getSimplified()</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Number.html" title="class in ru.nsu.shebanov">Number</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Always returns itself copied</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Sub.html#getSimplified()">getSimplified()</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Sub.html" title="class in ru.nsu.shebanov">Sub</a></dt>
 <dd>
 <div class="block">Simplifies sub expression.</div>
@@ -193,7 +211,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Main.html#main(java.lang.String%5B%5D)">main(String[])</a></span> - Static method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Main.html" title="class in ru.nsu.shebanov">Main</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="ru/nsu/shebanov/Main.html" title="class in ru.nsu.shebanov"><span class="typeNameLink">Main</span></a> - Class in <a href="ru/nsu/shebanov/package-summary.html">ru.nsu.shebanov</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Class handling one console demonstration</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Main.html#%3Cinit%3E()">Main()</a></span> - Constructor for class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Main.html" title="class in ru.nsu.shebanov">Main</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="ru/nsu/shebanov/Mult.html" title="class in ru.nsu.shebanov"><span class="typeNameLink">Mult</span></a> - Class in <a href="ru/nsu/shebanov/package-summary.html">ru.nsu.shebanov</a></dt>
@@ -207,7 +227,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h2 class="title">N</h2>
 <dl>
 <dt><a href="ru/nsu/shebanov/Number.html" title="class in ru.nsu.shebanov"><span class="typeNameLink">Number</span></a> - Class in <a href="ru/nsu/shebanov/package-summary.html">ru.nsu.shebanov</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Class for handling number constants.</div>
+</dd>
 </dl>
 <a id="I:P">
 <!--   -->
@@ -215,7 +237,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h2 class="title">P</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="ru/nsu/shebanov/Expression.html#print()">print()</a></span> - Method in class ru.nsu.shebanov.<a href="ru/nsu/shebanov/Expression.html" title="class in ru.nsu.shebanov">Expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Print expression to console.</div>
+</dd>
 </dl>
 <a id="I:R">
 <!--   -->
