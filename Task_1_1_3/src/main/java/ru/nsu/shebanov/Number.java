@@ -23,8 +23,6 @@ public class Number extends Expression{
 
     @Override
     public double eval(String assignationString){
-        Dictionary<String, Integer> assignations = parseAssignations(assignationString);
-
         return this.value;
     }
 

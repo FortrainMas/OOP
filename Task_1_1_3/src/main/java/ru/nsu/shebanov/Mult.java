@@ -60,6 +60,12 @@ public class Mult extends Expression{
         }
     }
 
+    /**
+     * Evaluate multiplication expression.
+     *
+     * @param assignationString assignation for variables
+     * @return
+     */
     @Override
     public double eval(String assignationString){
         return this.leftExpression.eval(assignationString) * this.rightExpression.eval(assignationString);

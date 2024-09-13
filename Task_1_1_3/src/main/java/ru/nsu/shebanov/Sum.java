@@ -1,11 +1,6 @@
 package ru.nsu.shebanov;
 
-
-import java.util.Dictionary;
-
-/**
- * Class for handling sum expressions.
- */
+/** Class for handling sum expressions. */
 public class Sum extends Expression {
 
     Expression leftExpression;
@@ -20,7 +15,6 @@ public class Sum extends Expression {
      * Estimates derivative for sum expression.
      *
      * @param variable name of variable for derivative
-     *
      * @return derivative
      */
     @Override
@@ -31,9 +25,8 @@ public class Sum extends Expression {
     }
 
     /**
-     * Simplifies add expression.
-     * firstly simplifies left and right expressions recursively
-     * if both left and right expression of simplified sum appears to be number returns their sum as Number
+     * Simplifies add expression. firstly simplifies left and right expressions recursively if both
+     * left and right expression of simplified sum appears to be number returns their sum as Number
      *
      * @return simplified Expression for sum
      */
@@ -52,12 +45,13 @@ public class Sum extends Expression {
     }
 
     @Override
-    public double eval(String assignationString){
-        return this.leftExpression.eval(assignationString) + this.rightExpression.eval(assignationString);
+    public double eval(String assignationString) {
+        return this.leftExpression.eval(assignationString)
+                + this.rightExpression.eval(assignationString);
     }
 
     @Override
-    public String toString(){
-        return "("+this.leftExpression.toString()+"+"+this.rightExpression.toString()+")";
+    public String toString() {
+        return "(" + this.leftExpression.toString() + "+" + this.rightExpression.toString() + ")";
     }
 }

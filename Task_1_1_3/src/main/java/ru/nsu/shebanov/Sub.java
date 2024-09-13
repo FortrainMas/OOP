@@ -1,6 +1,8 @@
 package ru.nsu.shebanov;
 
-/** Class for handling sub expressions. */
+/**
+ * Class for handling sub expressions.
+ */
 public class Sub extends Expression {
     Expression leftExpression;
     Expression rightExpression;
@@ -24,8 +26,7 @@ public class Sub extends Expression {
     }
 
     /**
-     * Simplifies sub expression.
-     * firstly simplifies left and right expressions recursively if both
+     * Simplifies sub expression. firstly simplifies left and right expressions recursively if both
      * left and right expression of simplified difference appears to be number returns their
      * difference as Number
      *
@@ -40,7 +41,10 @@ public class Sub extends Expression {
             return new Number(
                     ((Number) simplifiedSub.leftExpression).value
                             - ((Number) simplifiedSub.rightExpression).value);
-        } else if (simplifiedSub.leftExpression.toString().equals(simplifiedSub.rightExpression.toString())) {
+        } else if (simplifiedSub
+                .leftExpression
+                .toString()
+                .equals(simplifiedSub.rightExpression.toString())) {
             return new Number(0);
         } else {
             return simplifiedSub;
@@ -48,8 +52,9 @@ public class Sub extends Expression {
     }
 
     @Override
-    public double eval(String assignationString){
-        return this.leftExpression.eval(assignationString) - this.rightExpression.eval(assignationString);
+    public double eval(String assignationString) {
+        return this.leftExpression.eval(assignationString)
+                - this.rightExpression.eval(assignationString);
     }
 
     @Override
