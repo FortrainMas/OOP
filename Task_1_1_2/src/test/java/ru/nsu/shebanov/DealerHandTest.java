@@ -39,7 +39,7 @@ public class DealerHandTest {
      */
     @Test
     public void testAddCard() {
-        dealerHand.add_card(faceCard);
+        dealerHand.addCard(faceCard);
         assertEquals(16, dealerHand.countCards());
     }
 
@@ -68,7 +68,7 @@ public class DealerHandTest {
      */
     @Test
     public void testCountCardsWithMultipleAces() {
-        dealerHand.add_card(aceCard);
+        dealerHand.addCard(aceCard);
         assertEquals(7, dealerHand.countCards());
     }
 }

@@ -18,7 +18,8 @@ public class BlackjackTest {
      */
     @Test
     public void testDealInitialCards() {
-        ByteArrayInputStream zeroStream = new ByteArrayInputStream("0\n".repeat(100).getBytes());
+        ByteArrayInputStream zeroStream =
+                new ByteArrayInputStream("0\n".repeat(Constants.ROUNDS_NUMBER).getBytes());
 
         System.setIn(zeroStream);
 

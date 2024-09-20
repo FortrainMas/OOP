@@ -19,7 +19,7 @@ public abstract class Hand {
      *
      * @param card added card
      */
-    public void add_card(Card card) {
+    public void addCard(Card card) {
         this.cards.add(card);
     }
 
@@ -32,15 +32,16 @@ public abstract class Hand {
         int sum = 0;
         int aceCounter = 0;
         for (Card card : this.cards) {
-            if (card.weight != 11) {
+            if (card.weight != Constants.ACE_WEIGHT_DEFAULT) {
                 sum += card.weight;
             } else {
                 aceCounter += 1;
             }
         }
 
-        if (aceCounter > 0 && aceCounter * 11 + sum <= 21) {
-            sum += 11;
+        if (aceCounter > 0
+                && aceCounter * Constants.ACE_WEIGHT_DEFAULT + sum <= Constants.BLACKJACK_SCORE) {
+            sum += Constants.ACE_WEIGHT_DEFAULT;
         } else if (aceCounter > 0) {
             sum += aceCounter;
         }
@@ -56,16 +57,16 @@ public abstract class Hand {
         int sum = 0;
         int aceCounter = 0;
         for (Card card : this.cards) {
-            if (card.weight != 11) {
+            if (card.weight != Constants.ACE_WEIGHT_DEFAULT) {
                 sum += card.weight;
             } else {
                 aceCounter += 1;
             }
         }
 
-        if (aceCounter * 11 + sum > 21) {
-            return 1;
+        if (aceCounter * Constants.ACE_WEIGHT_DEFAULT + sum > Constants.BLACKJACK_SCORE) {
+            return Constants.ACE_WEIGHT_LOWERED;
         }
-        return 11;
+        return Constants.ACE_WEIGHT_DEFAULT;
     }
 }

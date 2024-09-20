@@ -46,7 +46,7 @@ public class UserHandTest {
      */
     @Test
     public void testToStringWithMultipleAces() {
-        userHand.add_card(cardAnotherAce);
+        userHand.addCard(cardAnotherAce);
         String expected =
                 "Ваши карты: [туз пики (1), десятка пики (10), туз черви (1)] => 12";
         assertEquals(expected, userHand.toString());
@@ -78,7 +78,7 @@ public class UserHandTest {
      */
     @Test
     public void testToStringWithMixedCards() {
-        userHand.add_card(cardNine);
+        userHand.addCard(cardNine);
         String expected =
                 "Ваши карты: [туз пики (1), десятка пики (10), девятка пики (9)] => 20";
         assertEquals(expected, userHand.toString());
@@ -89,7 +89,7 @@ public class UserHandTest {
      */
     @Test
     public void testToStringWithCountedAceAsOne() {
-        userHand.add_card(cardAce); // Add another Ace
+        userHand.addCard(cardAce); // Add another Ace
         String expected = "Ваши карты: [туз пики (1), десятка пики (10), туз пики (1)] => 12";
         assertEquals(expected, userHand.toString());
     }

@@ -8,7 +8,7 @@ import java.util.Collections;
  */
 public class Deck {
 
-    ArrayList<Card> cards;
+    public ArrayList<Card> cards;
 
     Deck() {
         initDeck();
