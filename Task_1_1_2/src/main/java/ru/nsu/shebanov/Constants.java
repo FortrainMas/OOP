@@ -1,5 +1,8 @@
 package ru.nsu.shebanov;
 
+/**
+ * Class with constants of package.
+ */
 public class Constants {
     public static final int ACE_WEIGHT_DEFAULT = 11;
     public static final int ACE_WEIGHT_LOWERED = 1;
