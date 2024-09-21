@@ -9,8 +9,9 @@ import java.util.NoSuchElementException;
 
 /**
  * Class for hash table.
- * 
+ *
  * @param <K> key type
+ *
  * @param <V> value type
  */
 public class HashTable<K, V> implements Iterable<Entry<K, V>> {
