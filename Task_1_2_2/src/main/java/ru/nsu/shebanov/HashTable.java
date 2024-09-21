@@ -7,6 +7,11 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 
+/**
+ * Class for hash table.
+ * @param <K> key type
+ * @param <V> value type
+ */
 public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     private int tableLength;
@@ -15,6 +20,9 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     private int collisionMaximum = 100;
 
+    /**
+     * Constructor with default intrinsic parameters.
+     */
     HashTable() {
         tableLength = 1000;
         table = new ArrayList<>();
@@ -23,6 +31,11 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         }
     }
 
+    /**
+     * Constructor which allows to control intrinsic parameters.
+     * @param initialSize initial size of hash map table
+     * @param collisionMaximum maximum amount of hash collision in table
+     */
     HashTable(int initialSize, int collisionMaximum) {
         tableLength = initialSize;
         this.collisionMaximum = collisionMaximum;
@@ -32,6 +45,9 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         }
     }
 
+    /**
+     * Make table twice bigger to reduce collisions.
+     */
     private void resize() {
         int newTableLength = tableLength * 2;
         ArrayList<ArrayList<Entry<K, V>>> newTable = new ArrayList<>();
@@ -50,6 +66,11 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         table = newTable;
     }
 
+    /**
+     * Add new key to the hash map.
+     * @param key key
+     * @param value value
+     */
     public void put(K key, V value) {
         modCount += 1;
         int hashCode = key.hashCode() % tableLength;
@@ -69,6 +90,10 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         }
     }
 
+    /**
+     * Remove key from the table.
+     * @param key key
+     */
     public void remove(K key) {
         modCount += 1;
         int hashCode = key.hashCode() % tableLength;
@@ -85,6 +110,11 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         collisionList.remove(entryPosition);
     }
 
+    /**
+     * Get key from the table.
+     * @param key key
+     * @return value
+     */
     public V get(K key) {
         int hashCode = key.hashCode() % tableLength;
 
@@ -103,6 +133,11 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         throw new NoSuchElementException("Key not found");
     }
 
+    /**
+     * Check if key is in the table.
+     * @param key key
+     * @return true is key is in the table, false, otherwise
+     */
     public boolean contains(K key) {
         int hashCode = key.hashCode() % tableLength;
 
@@ -116,6 +151,11 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         return false;
     }
 
+    /**
+     * Update value for the key.
+     * @param key key
+     * @param value value
+     */
     public void update(K key, V value) {
         modCount += 1;
         int hashCode = key.hashCode() % tableLength;
@@ -132,6 +172,10 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         throw new NoSuchElementException("Key not found");
     }
 
+    /**
+     * Get list of all hash map keys.
+     * @return list of all keys
+     */
     public ArrayList<K> keys() {
         ArrayList<K> keys = new ArrayList<>();
         for (ArrayList<Entry<K, V>> collisionList : table) {
@@ -143,6 +187,10 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         return keys;
     }
 
+    /**
+     * Implementation of iterable interface.
+     * @return iterator
+     */
     @Override
     public Iterator<Entry<K, V>> iterator() {
         return new Iterator<>() {
@@ -152,6 +200,10 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
             private final int previousMods = modCount;
 
+            /**
+             * Check if there is next value for iterator.
+             * @return true/false
+             */
             @Override
             public boolean hasNext() {
                 if (previousMods != modCount) {
@@ -171,6 +223,10 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
                 return tableIndex != tableLength;
             }
 
+            /**
+             * Next value for iterator.
+             * @return next value for iterator
+             */
             @Override
             public Entry<K, V> next() {
                 if (previousMods != modCount) {
@@ -198,6 +254,11 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         };
     }
 
+    /**
+     * Equality function.
+     * @param obj object to compare if
+     * @return compare each key and value
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -230,6 +291,11 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         return true;
     }
 
+
+    /**
+     * String representation of the hash map.
+     * @return string representation
+     */
     @Override
     public String toString() {
         StringBuilder output = new StringBuilder("{\n");
