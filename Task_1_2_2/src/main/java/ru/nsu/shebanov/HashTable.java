@@ -61,8 +61,8 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
         collisionList.add(new SimpleEntry<>(key, value));
 
-        int COLLISION_MAXIMUM = 100;
-        if (collisionList.size() >= COLLISION_MAXIMUM) {
+        int collisionMaximum = 100;
+        if (collisionList.size() >= collisionMaximum) {
             resize();
         }
     }
