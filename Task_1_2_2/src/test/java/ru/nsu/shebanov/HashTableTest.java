@@ -1,8 +1,8 @@
 package ru.nsu.shebanov;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -34,7 +34,7 @@ class HashTableTest {
 
     @Test
     void checkResizing() {
-        HashTable<String, Integer> ht = new HashTable<>(1);
+        HashTable<String, Integer> ht = new HashTable<>(1, 2);
 
         ht.put("ten", 10);
         ht.put("one", 1);
@@ -143,7 +143,6 @@ class HashTableTest {
         assertEquals(sb.toString(), expected);
     }
 
-
     @Test
     void iterationAssert() {
         HashTable<String, Integer> ht = new HashTable<>();
@@ -156,7 +155,7 @@ class HashTableTest {
         ht.update("five", 5);
 
         boolean rightException = false;
-        try{
+        try {
             for (Map.Entry<String, Integer> pare : ht) {
                 ht.put("six", 6);
             }

@@ -13,6 +13,8 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     private ArrayList<ArrayList<Entry<K, V>>> table;
     private int modCount = 0;
 
+    private int collisionMaximum = 100;
+
     HashTable() {
         tableLength = 1000;
         table = new ArrayList<>();
@@ -21,8 +23,9 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         }
     }
 
-    HashTable(int initialSize) {
+    HashTable(int initialSize, int collisionMaximum) {
         tableLength = initialSize;
+        this.collisionMaximum = collisionMaximum;
         table = new ArrayList<>();
         for (int i = 0; i < tableLength; i++) {
             table.add(new ArrayList<>());
@@ -33,7 +36,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         int newTableLength = tableLength * 2;
         ArrayList<ArrayList<Entry<K, V>>> newTable = new ArrayList<>();
         for (int i = 0; i < newTableLength; i++) {
-            newTable = new ArrayList<>();
+            newTable.add(new ArrayList<>());
         }
 
         for (int i = 0; i < tableLength; i++) {
@@ -61,7 +64,6 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
         collisionList.add(new SimpleEntry<>(key, value));
 
-        int collisionMaximum = 100;
         if (collisionList.size() >= collisionMaximum) {
             resize();
         }
