@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
 
 /**
  * Class for hash table.
+ * 
  * @param <K> key type
  * @param <V> value type
  */
@@ -33,6 +34,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**
      * Constructor which allows to control intrinsic parameters.
+     *
      * @param initialSize initial size of hash map table
      * @param collisionMaximum maximum amount of hash collision in table
      */
@@ -68,6 +70,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**
      * Add new key to the hash map.
+     *
      * @param key key
      * @param value value
      */
@@ -92,6 +95,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**
      * Remove key from the table.
+     *
      * @param key key
      */
     public void remove(K key) {
@@ -112,7 +116,9 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**
      * Get key from the table.
+     *
      * @param key key
+     *
      * @return value
      */
     public V get(K key) {
@@ -135,7 +141,9 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**
      * Check if key is in the table.
+     *
      * @param key key
+     *
      * @return true is key is in the table, false, otherwise
      */
     public boolean contains(K key) {
@@ -153,6 +161,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**
      * Update value for the key.
+     *
      * @param key key
      * @param value value
      */
@@ -174,6 +183,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**
      * Get list of all hash map keys.
+     *
      * @return list of all keys
      */
     public ArrayList<K> keys() {
@@ -189,6 +199,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**
      * Implementation of iterable interface.
+     *
      * @return iterator
      */
     @Override
@@ -202,6 +213,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
             /**
              * Check if there is next value for iterator.
+             *
              * @return true/false
              */
             @Override
@@ -225,6 +237,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
             /**
              * Next value for iterator.
+             *
              * @return next value for iterator
              */
             @Override
@@ -256,7 +269,9 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**
      * Equality function.
+     *
      * @param obj object to compare if
+     *
      * @return compare each key and value
      */
     @Override
@@ -294,6 +309,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     /**
      * String representation of the hash map.
+     *
      * @return string representation
      */
     @Override
