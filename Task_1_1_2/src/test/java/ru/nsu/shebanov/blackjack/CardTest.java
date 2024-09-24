@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.Blackjack;
+package ru.nsu.shebanov.blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -17,7 +17,7 @@ public class CardTest {
         String expectedName = "король черви";
         int expectedWeight = 10;
 
-        Card card = new Card(Suit.HEARTS,Rank.KING, expectedWeight);
+        Card card = new Card(Suit.HEARTS, Rank.KING, expectedWeight);
 
         assertEquals(expectedName, card.name);
         assertEquals(expectedWeight, card.weight);

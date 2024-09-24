@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.Blackjack;
+package ru.nsu.shebanov.blackjack;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ public abstract class Hand {
      *
      * @return sum of cards without aces
      */
-    private int countAcelessSum(){
+    private int countAcelessSum() {
         int sum = 0;
         for (Card card : this.cards) {
             if (card.weight != 11) {
@@ -45,7 +45,7 @@ public abstract class Hand {
      *
      * @return number of aces in the deck
      */
-    private int countAces(){
+    private int countAces() {
         int countAces = 0;
         for (Card card : this.cards) {
             if (card.weight == 11) {

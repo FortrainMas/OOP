@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.Blackjack;
+package ru.nsu.shebanov.blackjack;
 
 /**
  * Card class.
