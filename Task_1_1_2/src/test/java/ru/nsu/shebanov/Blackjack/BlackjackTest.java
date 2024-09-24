@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.Blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -18,8 +18,7 @@ public class BlackjackTest {
      */
     @Test
     public void testDealInitialCards() {
-        ByteArrayInputStream zeroStream =
-                new ByteArrayInputStream("0\n".repeat(Constants.ROUNDS_NUMBER).getBytes());
+        ByteArrayInputStream zeroStream = new ByteArrayInputStream("0\n".repeat(100).getBytes());
 
         System.setIn(zeroStream);
 

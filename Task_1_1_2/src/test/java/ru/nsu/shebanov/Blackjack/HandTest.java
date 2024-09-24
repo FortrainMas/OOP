@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.Blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -27,10 +27,10 @@ public class HandTest {
      */
     @BeforeEach
     public void setUp() {
-        cardAce = new Card("туз черви", 11);
-        cardTen = new Card("десятка пики", 10);
-        cardNine = new Card("девятка буби", 9);
-        cardFive = new Card("пятёрка пики", 5);
+        cardAce = new Card(Suit.HEARTS, Rank.ACE, 11);
+        cardTen = new Card(Suit.SPADES, Rank.TEN, 10);
+        cardNine = new Card(Suit.DIAMONDS, Rank.NINE, 9);
+        cardFive = new Card(Suit.SPADES, Rank.FIVE, 5);
 
         hand = new ConcreteHand(cardAce, cardTen);
     }
@@ -48,11 +48,11 @@ public class HandTest {
      */
     @Test
     public void testCountCardsWithMultipleAces() {
-        hand.addCard(cardAce);
+        hand.add_card(cardAce);
         assertEquals(12, hand.countCards());
 
         // Adding another ace
-        hand.addCard(cardAce);
+        hand.add_card(cardAce);
         assertEquals(13, hand.countCards());
     }
 
@@ -72,10 +72,10 @@ public class HandTest {
     public void testAce11Counter() {
         assertEquals(11, hand.aceWeight());
 
-        hand.addCard(cardFive);
+        hand.add_card(cardFive);
         assertEquals(1, hand.aceWeight());
 
-        hand.addCard(new Card("Another Ace", 11));
+        hand.add_card(new Card(Suit.SPADES, Rank.ACE, 11));
         assertEquals(1, hand.aceWeight());
     }
 
@@ -84,7 +84,7 @@ public class HandTest {
      */
     @Test
     public void testMultipleAcesCount() {
-        hand.addCard(cardAce);
+        hand.add_card(cardAce);
         assertEquals(1, hand.aceWeight());
     }
 

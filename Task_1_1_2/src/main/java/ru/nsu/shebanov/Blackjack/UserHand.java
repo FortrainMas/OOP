@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.Blackjack;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ public class UserHand extends Hand {
 
         int aceWeight = this.aceWeight();
         for (Card card : this.cards) {
-            if (card.weight == Constants.ACE_WEIGHT_DEFAULT) {
+            if (card.weight == 11) {
                 cardStrings.add(card.name + " (" + aceWeight + ")");
             } else {
                 cardStrings.add(card.name + " (" + card.weight + ")");

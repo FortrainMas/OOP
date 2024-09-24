@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.Blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,6 +15,7 @@ public class UserHandTest {
     private Card cardNine;
     private Card cardFive;
     private Card cardAnotherAce;
+    private DealerHand dealerHand;
 
     private UserHand userHand;
 
@@ -23,11 +24,12 @@ public class UserHandTest {
      */
     @BeforeEach
     public void setUp() {
-        cardAce = new Card("туз пики", 11);
-        cardTen = new Card("десятка пики", 10);
-        cardNine = new Card("девятка пики", 9);
-        cardFive = new Card("пятёрка пики", 5);
-        cardAnotherAce = new Card("туз черви", 11);
+        cardAce = new Card(Suit.SPADES, Rank.ACE, 11);
+        cardTen = new Card(Suit.SPADES, Rank.TEN, 10);
+        cardNine = new Card(Suit.SPADES, Rank.NINE, 9);
+        cardFive = new Card(Suit.SPADES, Rank.FIVE, 5);
+        cardAnotherAce = new Card(Suit.HEARTS, Rank.ACE, 11);
+        dealerHand = new DealerHand(cardAce, cardNine);
 
         userHand = new UserHand(cardAce, cardTen);
     }
@@ -46,7 +48,7 @@ public class UserHandTest {
      */
     @Test
     public void testToStringWithMultipleAces() {
-        userHand.addCard(cardAnotherAce);
+        userHand.add_card(cardAnotherAce);
         String expected =
                 "Ваши карты: [туз пики (1), десятка пики (10), туз черви (1)] => 12";
         assertEquals(expected, userHand.toString());
@@ -78,7 +80,7 @@ public class UserHandTest {
      */
     @Test
     public void testToStringWithMixedCards() {
-        userHand.addCard(cardNine);
+        userHand.add_card(cardNine);
         String expected =
                 "Ваши карты: [туз пики (1), десятка пики (10), девятка пики (9)] => 20";
         assertEquals(expected, userHand.toString());
@@ -89,7 +91,7 @@ public class UserHandTest {
      */
     @Test
     public void testToStringWithCountedAceAsOne() {
-        userHand.addCard(cardAce); // Add another Ace
+        userHand.add_card(cardAce); // Add another Ace
         String expected = "Ваши карты: [туз пики (1), десятка пики (10), туз пики (1)] => 12";
         assertEquals(expected, userHand.toString());
     }

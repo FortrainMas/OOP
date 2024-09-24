@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.Blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;

@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.Blackjack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,9 +20,9 @@ public class DealerHandTest {
      */
     @BeforeEach
     public void setUp() {
-        aceCard = new Card("туз черви", 11);
-        numberCard = new Card("пятёрка черви", 5);
-        faceCard = new Card("король пики", 10);
+        aceCard = new Card(Suit.HEARTS, Rank.ACE, 11);
+        numberCard = new Card(Suit.HEARTS, Rank.FIVE, 5);
+        faceCard = new Card(Suit.SPADES, Rank.KING, 10);
         dealerHand = new DealerHand(aceCard, numberCard);
     }
 
@@ -39,7 +39,7 @@ public class DealerHandTest {
      */
     @Test
     public void testAddCard() {
-        dealerHand.addCard(faceCard);
+        dealerHand.add_card(faceCard);
         assertEquals(16, dealerHand.countCards());
     }
 
@@ -68,7 +68,7 @@ public class DealerHandTest {
      */
     @Test
     public void testCountCardsWithMultipleAces() {
-        dealerHand.addCard(aceCard);
+        dealerHand.add_card(aceCard);
         assertEquals(7, dealerHand.countCards());
     }
 }

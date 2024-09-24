@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.Blackjack;
 
 import java.util.Scanner;
 
@@ -6,20 +6,20 @@ import java.util.Scanner;
  * Class which runs the game.
  */
 public class Blackjack {
-    private static Deck deck;
-    private static int gameRound = 1;
-    private static int playerGameScore = 0;
-    private static int dealerGameScore = 0;
-    private static Scanner scanner;
-    private static UserHand userHand;
-    private static DealerHand dealerHand;
+    private Deck deck;
+    private int gameRound = 1;
+    private int playerGameScore = 0;
+    private int dealerGameScore = 0;
+    private Scanner scanner;
+    private UserHand userHand;
+    private DealerHand dealerHand;
 
     /**
      * Behaviour of the game when it is user turn.
      *
      * @return if user won or lost the game on his turn
      */
-    static boolean playerTurn() {
+    boolean playerTurn() {
         if (checkBlackjack()) {
             return true;
         }
@@ -31,12 +31,12 @@ public class Blackjack {
         int feedback = scanner.nextInt();
         while (feedback == 1) {
             Card newCard = deck.getCard();
-            userHand.addCard(newCard);
+            userHand.add_card(newCard);
             System.out.println("Вы открыли карту " + newCard.toString());
             System.out.println(userHand.toString());
             System.out.println(dealerHand.toString() + "\n");
 
-            if (userHand.countCards() > Constants.BLACKJACK_SCORE) {
+            if (userHand.countCards() > 21) {
                 return results(false);
             }
 
@@ -52,7 +52,7 @@ public class Blackjack {
      *
      * @return if dealer won or lost the game on his turn
      */
-    static boolean dealerTurn() {
+    boolean dealerTurn() {
         dealerHand.handRevealed = true;
         System.out.println("Дилер открывает закрытую карту " + dealerHand.cards.get(1));
         System.out.println(userHand.toString());
@@ -62,9 +62,9 @@ public class Blackjack {
             return true;
         }
 
-        while (dealerHand.countCards() < Constants.DEALER_STOP_SCORE) {
+        while (dealerHand.countCards() < 17) {
             Card newCard = deck.getCard();
-            dealerHand.addCard(newCard);
+            dealerHand.add_card(newCard);
             System.out.println("Дилер открывает карту " + newCard.toString());
             System.out.println(userHand.toString());
             System.out.println(dealerHand.toString() + "\n");
@@ -80,16 +80,16 @@ public class Blackjack {
      *
      * @return did some player one the game
      */
-    private static boolean checkBlackjack() {
+    private boolean checkBlackjack() {
         if (dealerHand.handRevealed) {
-            if (dealerHand.countCards() == Constants.BLACKJACK_SCORE) {
+            if (dealerHand.countCards() == 21) {
                 dealerGameScore += 1;
                 System.out.println(
                         "Раунд выиграл дилер! Счет " + playerGameScore + ":" + dealerGameScore);
                 return true;
             }
         } else {
-            if (userHand.countCards() == Constants.BLACKJACK_SCORE) {
+            if (userHand.countCards() == 21) {
                 playerGameScore += 1;
                 System.out.println(
                         "Вы выиграли раунд! Счет " + playerGameScore + ":" + dealerGameScore);
@@ -106,20 +106,19 @@ public class Blackjack {
      *
      * @return results of the game
      */
-    private static boolean results(boolean forcedFinish) {
+    private boolean results(boolean forcedFinish) {
         int userScore = userHand.countCards();
         int dealerScore = dealerHand.countCards();
 
-        if ((forcedFinish && userScore > dealerScore && userScore < Constants.BLACKJACK_SCORE + 1)
-                || dealerScore > Constants.BLACKJACK_SCORE) {
+        if ((forcedFinish && userScore > dealerScore && userScore < 22) || dealerScore > 21) {
             playerGameScore += 1;
             System.out.println(
                     "Вы выиграли раунд! Счет " + playerGameScore + ":" + dealerGameScore);
             return true;
         }
-        if ((dealerHand.handRevealed && dealerScore == Constants.BLACKJACK_SCORE)
+        if ((dealerHand.handRevealed && dealerScore == 21)
                 || (forcedFinish && userScore < dealerScore)
-                || userScore > Constants.BLACKJACK_SCORE) {
+                || userScore > 21) {
             dealerGameScore += 1;
             System.out.println(
                     "Раунд выиграл дилер! Счет " + playerGameScore + ":" + dealerGameScore);
@@ -135,7 +134,7 @@ public class Blackjack {
     /**
      * Controls order of action in game round.
      */
-    public static void round() {
+    public void round() {
         userHand = new UserHand(deck.getCard(), deck.getCard());
         dealerHand = new DealerHand(deck.getCard(), deck.getCard());
 
@@ -157,14 +156,15 @@ public class Blackjack {
      * initialize everything and controls rounds.
      */
     public static void main(String[] args) {
-        deck = new Deck();
-        scanner = new Scanner(System.in);
+        final var blackjack = new Blackjack();
+        blackjack.deck = new Deck();
+        blackjack.scanner = new Scanner(System.in);
 
-        for (int i = 0; i < Constants.ROUNDS_NUMBER; i++) {
-            round();
-            gameRound += 1;
+        for (int i = 0; i < 100; i++) {
+            blackjack.round();
+            blackjack.gameRound += 1;
         }
 
-        scanner.close();
+        blackjack.scanner.close();
     }
 }
