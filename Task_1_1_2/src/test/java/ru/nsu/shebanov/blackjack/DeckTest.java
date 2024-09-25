@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Test;
  * Class to test the deck class.
  */
 public class DeckTest {
+    private final int initialCardNumber = 52;
+
 
     private Deck deck;
 
@@ -45,7 +47,7 @@ public class DeckTest {
             cardSet.add(card.name);
         }
 
-        assertEquals(52, cardSet.size());
+        assertEquals(initialCardNumber, cardSet.size());
     }
 
     /**
@@ -67,7 +69,7 @@ public class DeckTest {
     public void testGetCard() {
         Card retrievedCard = deck.getCard();
 
-        assertEquals(51, deck.cards.size());
+        assertEquals(initialCardNumber-1, deck.cards.size());
 
         assertNotNull(retrievedCard);
         assertInstanceOf(Card.class, retrievedCard);
@@ -78,7 +80,7 @@ public class DeckTest {
      */
     @Test
     public void testGetCardEmptyDeck() {
-        for (int i = 0; i < 52; i++) {
+        for (int i = 0; i < initialCardNumber; i++) {
             deck.getCard();
         }
 
@@ -86,6 +88,6 @@ public class DeckTest {
 
         Card newCard = deck.getCard();
         assertNotNull(newCard);
-        assertEquals(51, deck.cards.size());
+        assertEquals(initialCardNumber-1, deck.cards.size());
     }
 }

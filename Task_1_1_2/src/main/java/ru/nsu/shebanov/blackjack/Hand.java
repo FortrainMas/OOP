@@ -6,9 +6,13 @@ import java.util.ArrayList;
  * Controls hand behaviour.
  */
 public abstract class Hand {
+    private final int aceDefaultWeight = 11;
+    private final int aceLoweredWeight = 1;
+    private final int blackJackScore = 21;
+
     public ArrayList<Card> cards;
 
-    Hand(Card card1, Card card2) {
+    public Hand(Card card1, Card card2) {
         this.cards = new ArrayList<Card>();
         this.cards.add(card1);
         this.cards.add(card2);
@@ -19,7 +23,7 @@ public abstract class Hand {
      *
      * @param card added card
      */
-    public void add_card(Card card) {
+    public void addCard(Card card) {
         this.cards.add(card);
     }
 
@@ -32,7 +36,7 @@ public abstract class Hand {
     private int countAcelessSum() {
         int sum = 0;
         for (Card card : this.cards) {
-            if (card.weight != 11) {
+            if (card.weight != aceDefaultWeight) {
                 sum += card.weight;
             }
         }
@@ -48,7 +52,7 @@ public abstract class Hand {
     private int countAces() {
         int countAces = 0;
         for (Card card : this.cards) {
-            if (card.weight == 11) {
+            if (card.weight == aceDefaultWeight) {
                 countAces += 1;
             }
         }
@@ -65,10 +69,10 @@ public abstract class Hand {
         int sum = countAcelessSum();
         int aceCounter = countAces();
 
-        if (aceCounter * 11 + sum > 21) {
-            return 1;
+        if (aceCounter * aceDefaultWeight + sum > blackJackScore) {
+            return aceLoweredWeight;
         }
-        return 11;
+        return aceDefaultWeight;
     }
 
 

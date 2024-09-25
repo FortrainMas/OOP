@@ -4,12 +4,12 @@ package ru.nsu.shebanov.blackjack;
  * Card class.
  */
 public class Card {
-    public final Suit suit;
-    public final Rank rank;
+    public Suit suit;
+    public Rank rank;
     public final String name;
-    int weight;
+    public int weight;
 
-    Card(Suit suit, Rank rank, int weight) {
+    public Card(Suit suit, Rank rank, int weight) {
         this.suit = suit;
         this.rank = rank;
         this.name = this.rank.toString() + " " + this.suit.toString();

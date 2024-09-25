@@ -48,11 +48,11 @@ public class HandTest {
      */
     @Test
     public void testCountCardsWithMultipleAces() {
-        hand.add_card(cardAce);
+        hand.addCard(cardAce);
         assertEquals(12, hand.countCards());
 
         // Adding another ace
-        hand.add_card(cardAce);
+        hand.addCard(cardAce);
         assertEquals(13, hand.countCards());
     }
 
@@ -72,10 +72,10 @@ public class HandTest {
     public void testAce11Counter() {
         assertEquals(11, hand.aceWeight());
 
-        hand.add_card(cardFive);
+        hand.addCard(cardFive);
         assertEquals(1, hand.aceWeight());
 
-        hand.add_card(new Card(Suit.SPADES, Rank.ACE, 11));
+        hand.addCard(new Card(Suit.SPADES, Rank.ACE, 11));
         assertEquals(1, hand.aceWeight());
     }
 
@@ -84,7 +84,7 @@ public class HandTest {
      */
     @Test
     public void testMultipleAcesCount() {
-        hand.add_card(cardAce);
+        hand.addCard(cardAce);
         assertEquals(1, hand.aceWeight());
     }
 

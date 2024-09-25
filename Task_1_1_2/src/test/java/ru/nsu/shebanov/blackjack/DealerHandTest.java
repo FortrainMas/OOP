@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests dealer hand.
  */
-public class DealerHandTest {
+class DealerHandTest {
 
-    private Card aceCard;
-    private Card numberCard;
-    private Card faceCard;
-    private DealerHand dealerHand;
+    public Card aceCard;
+    public Card numberCard;
+    public Card faceCard;
+    public DealerHand dealerHand;
 
     /**
      * Setups basic dealer hand.
@@ -39,7 +39,7 @@ public class DealerHandTest {
      */
     @Test
     public void testAddCard() {
-        dealerHand.add_card(faceCard);
+        dealerHand.addCard(faceCard);
         assertEquals(16, dealerHand.countCards());
     }
 
@@ -68,7 +68,7 @@ public class DealerHandTest {
      */
     @Test
     public void testCountCardsWithMultipleAces() {
-        dealerHand.add_card(aceCard);
+        dealerHand.addCard(aceCard);
         assertEquals(7, dealerHand.countCards());
     }
 }

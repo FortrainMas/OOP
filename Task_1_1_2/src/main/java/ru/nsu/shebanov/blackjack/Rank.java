@@ -19,7 +19,7 @@ public enum Rank {
     QUEEN("дама"),
     KING("король");
 
-    final String cardName;
+    private final String cardName;
 
     /**
      * Constructor for card rank.

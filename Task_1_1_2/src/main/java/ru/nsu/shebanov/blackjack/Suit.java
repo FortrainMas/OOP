@@ -9,7 +9,7 @@ public enum Suit {
     CLUBS("трефы"),
     SPADES("пики");
 
-    private final String suitName;
+    private String suitName;
 
     /**
      * Constructor.

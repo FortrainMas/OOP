@@ -8,9 +8,9 @@ import java.util.Collections;
  */
 public class Deck {
 
-    ArrayList<Card> cards;
+    public ArrayList<Card> cards;
 
-    Deck() {
+    public Deck() {
         initDeck();
     }
 
@@ -19,24 +19,8 @@ public class Deck {
      */
     private void initDeck() {
         cards = new ArrayList<>();
-        Rank[] cardRanks =
-                new Rank[] {
-                    Rank.NINE,
-                    Rank.EIGHT,
-                    Rank.SEVEN,
-                    Rank.SIX,
-                    Rank.FIVE,
-                    Rank.FOUR,
-                    Rank.THREE,
-                    Rank.TWO,
-                    Rank.TEN,
-                    Rank.QUEEN,
-                    Rank.KING,
-                    Rank.JACK,
-                    Rank.ACE
-                };
-
-        Suit[] suits = new Suit[] {Suit.CLUBS, Suit.DIAMONDS, Suit.HEARTS, Suit.SPADES};
+        Rank[] cardRanks = Rank.values();
+        Suit[] suits = Suit.values();
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 4; j++) {
