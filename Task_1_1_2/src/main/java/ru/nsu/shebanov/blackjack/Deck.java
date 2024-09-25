@@ -10,7 +10,7 @@ public class Deck {
 
     public ArrayList<Card> cards;
 
-    public Deck() {
+    Deck() {
         initDeck();
     }
 

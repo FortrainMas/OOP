@@ -114,7 +114,8 @@ public class Blackjack {
         int userScore = userHand.countCards();
         int dealerScore = dealerHand.countCards();
 
-        if ((forcedFinish && userScore > dealerScore && userScore < blackjackScore + 1) || dealerScore > blackjackScore) {
+        if ((forcedFinish && userScore > dealerScore && userScore < blackjackScore + 1)
+                || dealerScore > blackjackScore) {
             playerGameScore += 1;
             System.out.println(
                     "Вы выиграли раунд! Счет " + playerGameScore + ":" + dealerGameScore);

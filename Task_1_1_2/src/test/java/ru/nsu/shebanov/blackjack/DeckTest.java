@@ -69,7 +69,7 @@ public class DeckTest {
     public void testGetCard() {
         Card retrievedCard = deck.getCard();
 
-        assertEquals(initialCardNumber-1, deck.cards.size());
+        assertEquals(initialCardNumber - 1, deck.cards.size());
 
         assertNotNull(retrievedCard);
         assertInstanceOf(Card.class, retrievedCard);
@@ -88,6 +88,6 @@ public class DeckTest {
 
         Card newCard = deck.getCard();
         assertNotNull(newCard);
-        assertEquals(initialCardNumber-1, deck.cards.size());
+        assertEquals(initialCardNumber - 1, deck.cards.size());
     }
 }
