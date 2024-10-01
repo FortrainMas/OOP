@@ -9,7 +9,7 @@ public class Card {
     public final String name;
     public int weight;
 
-    Card(Suit suit, Rank rank, int weight) {
+    public Card(Suit suit, Rank rank, int weight) {
         this.suit = suit;
         this.rank = rank;
         this.name = this.rank.toString() + " " + this.suit.toString();

@@ -9,8 +9,8 @@ public class Blackjack {
     public Deck deck;
     public Scanner scanner;
 
-    private final int blackjackScore = 21;
-    private final int dealerStopScore = 17;
+    public static final int BLACKJACK_SCORE = 21;
+    public static final int DEALER_STOP_SCORE = 17;
 
     private int gameRound = 1;
     private int playerGameScore = 0;
@@ -66,7 +66,7 @@ public class Blackjack {
             return true;
         }
 
-        while (dealerHand.countCards() < dealerStopScore) {
+        while (dealerHand.countCards() < DEALER_STOP_SCORE) {
             Card newCard = deck.getCard();
             dealerHand.addCard(newCard);
             System.out.println("Дилер открывает карту " + newCard.toString());
@@ -86,14 +86,14 @@ public class Blackjack {
      */
     private boolean checkBlackjack() {
         if (dealerHand.handRevealed) {
-            if (dealerHand.countCards() == blackjackScore) {
+            if (dealerHand.countCards() == BLACKJACK_SCORE) {
                 dealerGameScore += 1;
                 System.out.println(
                         "Раунд выиграл дилер! Счет " + playerGameScore + ":" + dealerGameScore);
                 return true;
             }
         } else {
-            if (userHand.countCards() == blackjackScore) {
+            if (userHand.countCards() == BLACKJACK_SCORE) {
                 playerGameScore += 1;
                 System.out.println(
                         "Вы выиграли раунд! Счет " + playerGameScore + ":" + dealerGameScore);
@@ -114,16 +114,16 @@ public class Blackjack {
         int userScore = userHand.countCards();
         int dealerScore = dealerHand.countCards();
 
-        if ((forcedFinish && userScore > dealerScore && userScore < blackjackScore + 1)
-                || dealerScore > blackjackScore) {
+        if ((forcedFinish && userScore > dealerScore && userScore < BLACKJACK_SCORE + 1)
+                || dealerScore > BLACKJACK_SCORE) {
             playerGameScore += 1;
             System.out.println(
                     "Вы выиграли раунд! Счет " + playerGameScore + ":" + dealerGameScore);
             return true;
         }
-        if ((dealerHand.handRevealed && dealerScore == blackjackScore)
+        if ((dealerHand.handRevealed && dealerScore == BLACKJACK_SCORE)
                 || (forcedFinish && userScore < dealerScore)
-                || userScore > blackjackScore) {
+                || userScore > BLACKJACK_SCORE) {
             dealerGameScore += 1;
             System.out.println(
                     "Раунд выиграл дилер! Счет " + playerGameScore + ":" + dealerGameScore);

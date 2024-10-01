@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class UserHand extends Hand {
 
-    UserHand(Card card1, Card card2) {
+    public UserHand(Card card1, Card card2) {
         super(card1, card2);
     }
 

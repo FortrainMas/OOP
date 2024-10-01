@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class DealerHand extends Hand {
     public boolean handRevealed = false;
 
-    DealerHand(Card card1, Card card2) {
+    public DealerHand(Card card1, Card card2) {
         super(card1, card2);
     }
 
