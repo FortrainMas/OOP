@@ -89,13 +89,13 @@ loadScripts(document, 'script');</script>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -158,8 +158,45 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ACE_DEFAULT_WEIGHT">ACE_DEFAULT_WEIGHT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#ACE_LOWERED_WEIGHT">ACE_LOWERED_WEIGHT</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#BLACKJACK_SCORE">BLACKJACK_SCORE</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>java.util.ArrayList&lt;<a href="Card.html" title="class in ru.nsu.shebanov.blackjack">Card</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cards">cards</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(ru.nsu.shebanov.blackjack.Card,ru.nsu.shebanov.blackjack.Card)">Hand</a></span>&#8203;(<a href="Card.html" title="class in ru.nsu.shebanov.blackjack">Card</a>&nbsp;card1,
+    <a href="Card.html" title="class in ru.nsu.shebanov.blackjack">Card</a>&nbsp;card2)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -225,6 +262,45 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Field Detail</h3>
+<a id="ACE_DEFAULT_WEIGHT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ACE_DEFAULT_WEIGHT</h4>
+<pre>public static final&nbsp;int ACE_DEFAULT_WEIGHT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#ru.nsu.shebanov.blackjack.Hand.ACE_DEFAULT_WEIGHT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a id="ACE_LOWERED_WEIGHT">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ACE_LOWERED_WEIGHT</h4>
+<pre>public static final&nbsp;int ACE_LOWERED_WEIGHT</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#ru.nsu.shebanov.blackjack.Hand.ACE_LOWERED_WEIGHT">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+<a id="BLACKJACK_SCORE">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>BLACKJACK_SCORE</h4>
+<pre>public static final&nbsp;int BLACKJACK_SCORE</pre>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../constant-values.html#ru.nsu.shebanov.blackjack.Hand.BLACKJACK_SCORE">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
 <a id="cards">
 <!--   -->
 </a>
@@ -232,6 +308,26 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>cards</h4>
 <pre>public&nbsp;java.util.ArrayList&lt;<a href="Card.html" title="class in ru.nsu.shebanov.blackjack">Card</a>&gt; cards</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a id="&lt;init&gt;(ru.nsu.shebanov.blackjack.Card,ru.nsu.shebanov.blackjack.Card)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Hand</h4>
+<pre>public&nbsp;Hand&#8203;(<a href="Card.html" title="class in ru.nsu.shebanov.blackjack">Card</a>&nbsp;card1,
+            <a href="Card.html" title="class in ru.nsu.shebanov.blackjack">Card</a>&nbsp;card2)</pre>
 </li>
 </ul>
 </li>
@@ -338,13 +434,13 @@ extends java.lang.Object</pre>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
