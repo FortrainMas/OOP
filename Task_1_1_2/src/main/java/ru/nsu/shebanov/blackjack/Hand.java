@@ -13,6 +13,12 @@ public abstract class Hand {
 
     public ArrayList<Card> cards;
 
+    /**
+     * Hand constructor.
+     *
+     * @param card1 Card 1
+     * @param card2 Card 2
+     */
     public Hand(Card card1, Card card2) {
         this.cards = new ArrayList<Card>();
         this.cards.add(card1);
