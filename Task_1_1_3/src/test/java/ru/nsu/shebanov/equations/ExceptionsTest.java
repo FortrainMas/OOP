@@ -1,7 +1,8 @@
 package ru.nsu.shebanov.equations;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for possible exceptions.
@@ -15,8 +16,8 @@ public class ExceptionsTest {
     void incorrectStatement() {
         String expression = "1/(0+0)";
 
-        try{
-           Notation.getExpression(expression);
+        try {
+            Notation.getExpression(expression);
         } catch (ArithmeticException e) {
             return;
         }
@@ -36,7 +37,7 @@ public class ExceptionsTest {
         } catch (ArithmeticException e) {
             return;
         }
-
+        fail();
     }
 
     /**

@@ -73,7 +73,9 @@ public class Number extends Expression {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o) {
+            return true;
+        }
 
         if (o instanceof Number obj) {
             return value == obj.value;

@@ -100,11 +100,13 @@ public class Div extends Expression {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o) {
+            return true;
+        }
 
         if (o instanceof Div odiv) {
-            return leftExpression.equals(odiv.leftExpression) &&
-                    rightExpression.equals(odiv.rightExpression);
+            return leftExpression.equals(odiv.leftExpression)
+                    && rightExpression.equals(odiv.rightExpression);
         }
 
         return false;

@@ -88,11 +88,13 @@ public class Sub extends Expression {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o) {
+            return true;
+        }
 
         if (o instanceof Sub obj) {
-            return leftExpression.equals(obj.leftExpression) &&
-                    rightExpression.equals(obj.rightExpression);
+            return leftExpression.equals(obj.leftExpression)
+                    && rightExpression.equals(obj.rightExpression);
         }
 
         return false;

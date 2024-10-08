@@ -96,7 +96,9 @@ public class Mult extends Expression {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o) {
+            return true;
+        }
 
         if (o instanceof Mult omult) {
             return leftExpression.equals(omult.leftExpression)
