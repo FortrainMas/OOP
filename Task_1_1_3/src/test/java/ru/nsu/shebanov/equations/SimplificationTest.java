@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

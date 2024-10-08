@@ -1,7 +1,7 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,8 +9,15 @@ import java.util.regex.Pattern;
 public class Variable extends Expression {
     public String variableName;
 
-    private static Dictionary<String, Integer> parseAssignations(String input) {
-        Dictionary<String, Integer> dictionary = new Hashtable<>();
+    /**
+     * Parse assigned variables.
+     *
+     * @param input string of variables
+     *
+     * @return hashmap of variables
+     */
+    private static Map<String, Integer> parseAssignations(String input) {
+        Map<String, Integer> dictionary = new HashMap<>();
         Pattern pattern = Pattern.compile("(\\w+)\\s*=\\s*(\\d+)(;?)");
         Matcher matcher = pattern.matcher(input);
 
@@ -23,7 +30,12 @@ public class Variable extends Expression {
         return dictionary;
     }
 
-    Variable(String name) {
+    /**
+     * Constructor for variable.
+     *
+     * @param name name of variable
+     */
+    public Variable(String name) {
         this.variableName = name;
     }
 
@@ -31,6 +43,7 @@ public class Variable extends Expression {
      * Estimates variable derivative.
      *
      * @param variable variable to get derivative
+     *
      * @return 1 if same derivative, 0 otherwise
      */
     @Override
@@ -56,11 +69,12 @@ public class Variable extends Expression {
      * Evaluate the expression.
      *
      * @param assignationString formated assignation string
+     *
      * @return evaluated expression
      */
     @Override
     public double eval(String assignationString) {
-        Dictionary<String, Integer> assignations = parseAssignations(assignationString);
+        Map<String, Integer> assignations = parseAssignations(assignationString);
 
         return assignations.get(this.variableName);
     }

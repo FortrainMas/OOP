@@ -1,13 +1,19 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
 /**
  * Class for handling multiplication expressions.
  */
 public class Mult extends Expression {
-    Expression leftExpression;
-    Expression rightExpression;
+    public Expression leftExpression;
+    public Expression rightExpression;
 
-    Mult(Expression leftExpression, Expression rightExpression) {
+    /**
+     * Constructor for multiplication.
+     *
+     * @param leftExpression left expression
+     * @param rightExpression right expression
+     */
+    public Mult(Expression leftExpression, Expression rightExpression) {
         this.leftExpression = leftExpression;
         this.rightExpression = rightExpression;
     }
@@ -38,21 +44,21 @@ public class Mult extends Expression {
     public Expression getSimplified() {
         Mult simplifiedMult =
                 new Mult(this.leftExpression.getSimplified(), this.rightExpression.getSimplified());
-        if (simplifiedMult.leftExpression instanceof Number
-                && simplifiedMult.rightExpression instanceof Number) {
+        if (simplifiedMult.leftExpression instanceof Number leftNumber
+                && simplifiedMult.rightExpression instanceof Number rightNumber) {
             return new Number(
-                    ((Number) simplifiedMult.leftExpression).value
-                            * ((Number) simplifiedMult.rightExpression).value);
-        } else if (simplifiedMult.leftExpression instanceof Number
-                        && ((Number) simplifiedMult.leftExpression).value == 0
-                || simplifiedMult.rightExpression instanceof Number
-                        && ((Number) simplifiedMult.rightExpression).value == 0) {
+                    leftNumber.value
+                            * rightNumber.value);
+        } else if (simplifiedMult.leftExpression instanceof Number leftNumber
+                && leftNumber.value == 0
+                || simplifiedMult.rightExpression instanceof Number rightNumber
+                && rightNumber.value == 0) {
             return new Number(0);
-        } else if (simplifiedMult.leftExpression instanceof Number
-                && ((Number) simplifiedMult.leftExpression).value == 1) {
+        } else if (simplifiedMult.leftExpression instanceof Number leftNumber
+                && leftNumber.value == 1) {
             return simplifiedMult.rightExpression;
-        } else if (simplifiedMult.rightExpression instanceof Number
-                && ((Number) simplifiedMult.rightExpression).value == 1) {
+        } else if (simplifiedMult.rightExpression instanceof Number rightNumber
+                && rightNumber.value == 1) {
             return simplifiedMult.leftExpression;
         } else {
             return simplifiedMult;
@@ -92,9 +98,9 @@ public class Mult extends Expression {
     public boolean equals(Object o) {
         if (this == o) return true;
 
-        if(o instanceof Mult odiv) {
-            return leftExpression.equals(odiv.leftExpression) &&
-                    rightExpression.equals(odiv.rightExpression);
+        if(o instanceof Mult omult) {
+            return leftExpression.equals(omult.leftExpression) &&
+                    rightExpression.equals(omult.rightExpression);
         }
 
         return false;

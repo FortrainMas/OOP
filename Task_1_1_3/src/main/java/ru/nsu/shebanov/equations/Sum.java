@@ -1,12 +1,18 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
 /** Class for handling sum expressions. */
 public class Sum extends Expression {
 
-    Expression leftExpression;
-    Expression rightExpression;
+    public Expression leftExpression;
+    public Expression rightExpression;
 
-    Sum(Expression leftExpression, Expression rightExpression) {
+    /**
+     * Constructor for sum.
+     *
+     * @param leftExpression left expression
+     * @param rightExpression right expression
+     */
+    public Sum(Expression leftExpression, Expression rightExpression) {
         this.leftExpression = leftExpression;
         this.rightExpression = rightExpression;
     }
@@ -34,11 +40,11 @@ public class Sum extends Expression {
     public Expression getSimplified() {
         Sum simplifiedSum =
                 new Sum(this.leftExpression.getSimplified(), this.rightExpression.getSimplified());
-        if (simplifiedSum.leftExpression instanceof Number
-                && simplifiedSum.rightExpression instanceof Number) {
+        if (simplifiedSum.leftExpression instanceof Number leftNumber
+                && simplifiedSum.rightExpression instanceof Number rightNumber) {
             return new Number(
-                    ((Number) simplifiedSum.leftExpression).value
-                            + ((Number) simplifiedSum.rightExpression).value);
+                    leftNumber.value
+                            + rightNumber.value);
         } else {
             return simplifiedSum;
         }

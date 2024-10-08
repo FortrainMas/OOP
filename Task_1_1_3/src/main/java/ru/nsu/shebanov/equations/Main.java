@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
 import java.util.Scanner;
 
@@ -17,12 +17,12 @@ public class Main {
         String infix = scanner.nextLine();
         Expression expression = Notation.getExpression(infix);
         expression.print();
-        System.out.println("Expression: " + expression.toString());
+        System.out.println("Expression: " + expression);
         String variable = scanner.nextLine();
-        System.out.println("Derivative: " + expression.getDerivative(variable).toString());
+        System.out.println("Derivative: " + expression.getDerivative(variable));
         String assignation = scanner.nextLine();
         System.out.println("Assigned: " + expression.eval(assignation));
-        System.out.println("Simplified: " + expression.getSimplified().toString());
+        System.out.println("Simplified: " + expression.getSimplified());
 
         scanner.close();
     }

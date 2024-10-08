@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -51,8 +51,9 @@ public class DerivativesTest {
     @Test
     void divisionDerivativeTest() {
         String expression = "(5-x)/2";
-        String expected = "((((5-x)*0)+((0-1)*2))/(2*2))";
-        String actual = Notation.getExpression(expression).getDerivative("x").toString();
+        String expected = "((((5-x)*0)-((0-1)*2))/(2*2))";
+        Expression exp = Notation.getExpression(expression);
+        String actual = exp.getDerivative("x").toString();
 
         assertEquals(expected, actual);
     }

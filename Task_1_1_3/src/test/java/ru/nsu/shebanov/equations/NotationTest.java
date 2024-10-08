@@ -1,9 +1,11 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -23,7 +25,7 @@ public class NotationTest {
                                 "78", "36", "23", "*", "+", "1", "7", "/", "+", "21", "-", "43",
                                 "12", "*", "+", "90", "120", "*", "12", "/", "12", "/", "12", "/",
                                 "123", "*", "-", "12", "-"));
-        ArrayList<String> actual = Notation.getReversePolish(expression);
+        List<String> actual = Notation.getReversePolish(expression);
         assertEquals(expected, actual);
     }
 
@@ -34,7 +36,7 @@ public class NotationTest {
     void notationWithBracketsTest() {
         String expression = "a*(b+c)";
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("a", "b", "c", "+", "*"));
-        ArrayList<String> actual = Notation.getReversePolish(expression);
+        List<String> actual = Notation.getReversePolish(expression);
         assertEquals(expected, actual);
     }
 
@@ -46,7 +48,7 @@ public class NotationTest {
         String expression = "very*(long+names)";
         ArrayList<String> expected =
                 new ArrayList<>(Arrays.asList("very", "long", "names", "+", "*"));
-        ArrayList<String> actual = Notation.getReversePolish(expression);
+        List<String> actual = Notation.getReversePolish(expression);
         assertEquals(expected, actual);
     }
 

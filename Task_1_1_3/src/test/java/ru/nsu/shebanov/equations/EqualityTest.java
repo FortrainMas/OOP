@@ -1,4 +1,4 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
 import org.junit.jupiter.api.Test;
 

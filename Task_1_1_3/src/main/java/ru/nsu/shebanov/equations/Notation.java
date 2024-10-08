@@ -1,12 +1,28 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
-import java.util.ArrayList;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Class which uses reverse polish notation to produce original expression.
  */
 public class Notation {
+
+    /**
+     * Checks if coming value is operator in math.
+     *
+     * @param c char value
+     *
+     * @return is the value an operator
+     */
+    private static boolean isOperator(char c){
+        return (c == '+'
+                || c == '-'
+                || c == '*'
+                || c == '/'
+                || c == '('
+                || c == ')');
+    }
+
     /**
      * Gets the first token in the string from needed position.
      * token is number, variable name or
@@ -19,12 +35,7 @@ public class Notation {
      */
     private static String getNextToken(String exp, int pos) {
         char firstSymbol = exp.charAt(pos);
-        if (firstSymbol == '+'
-                || firstSymbol == '-'
-                || firstSymbol == '*'
-                || firstSymbol == '/'
-                || firstSymbol == '('
-                || firstSymbol == ')') {
+        if (isOperator(firstSymbol)) {
             return "" + firstSymbol;
         } else if (Character.isDigit(firstSymbol)) {
             StringBuilder result = new StringBuilder();
@@ -40,12 +51,7 @@ public class Notation {
                 pos += 1;
             } while (pos < exp.length()
                     && !Character.isDigit(exp.charAt(pos))
-                    && (exp.charAt(pos) != '+'
-                            && exp.charAt(pos) != '-'
-                            && exp.charAt(pos) != '*'
-                            && exp.charAt(pos) != '/'
-                            && exp.charAt(pos) != '('
-                            && exp.charAt(pos) != ')'));
+                    && !isOperator(exp.charAt(pos)));
             return result.toString();
         }
     }
@@ -57,56 +63,66 @@ public class Notation {
      *
      * @return postfix array of tokens
      */
-    public static ArrayList<String> getReversePolish(String exp) {
-        ArrayList<String> output = new ArrayList<>();
-        Stack<String> stack = new Stack<>();
+    public static List<String> getReversePolish(String exp) {
+        List<String> output = new ArrayList<>();
+        Deque<String> stack = new ArrayDeque<>();
 
         int position = 0;
         while (position != exp.length()) {
             String token = getNextToken(exp, position);
             position += token.length();
 
-            if (token.equals("(")) {
-                stack.push(token);
-            } else if (token.equals(")")) {
-                String topElement = stack.pop();
-                while (!topElement.equals("(")) {
-                    output.add(topElement);
-                    topElement = stack.pop();
-                }
-            } else if (token.equals("*") || token.equals("/")) {
-                if (!stack.isEmpty()) {
-                    String topToken = stack.peek();
-                    while (topToken.equals("*") || topToken.equals("/")) {
-                        output.add(stack.pop());
-                        if (stack.isEmpty()) {
-                            break;
+            switch (token) {
+                case "(" -> stack.push(token);
+                case ")" -> {
+                    try {
+                        String topElement = stack.pop();
+                        while (!topElement.equals("(")) {
+                            output.add(topElement);
+                            topElement = stack.pop();
                         }
-                        topToken = stack.peek();
+                    }catch(NoSuchElementException e){
+                        throw new IllegalArgumentException("Mismatched parentheses");
                     }
                 }
-                stack.push(token);
-            } else if (token.equals("+") || token.equals("-")) {
-                if (!stack.isEmpty()) {
-                    String topToken = stack.peek();
-                    while (topToken.equals("*")
-                            || topToken.equals("/")
-                            || topToken.equals("+")
-                            || topToken.equals("-")) {
-                        output.add(stack.pop());
-                        if (stack.isEmpty()) {
-                            break;
+                case "*", "/" -> {
+                    if (!stack.isEmpty()) {
+                        String topToken = stack.peek();
+                        while (topToken.equals("*") || topToken.equals("/")) {
+                            output.add(stack.pop());
+                            if (stack.isEmpty()) {
+                                break;
+                            }
+                            topToken = stack.peek();
                         }
-                        topToken = stack.peek();
                     }
+                    stack.push(token);
                 }
-                stack.push(token);
-            } else {
-                output.add(token);
+                case "+", "-" -> {
+                    if (!stack.isEmpty()) {
+                        String topToken = stack.peek();
+                        while (topToken.equals("*")
+                                || topToken.equals("/")
+                                || topToken.equals("+")
+                                || topToken.equals("-")) {
+                            output.add(stack.pop());
+                            if (stack.isEmpty()) {
+                                break;
+                            }
+                            topToken = stack.peek();
+                        }
+                    }
+                    stack.push(token);
+                }
+                default -> output.add(token);
             }
         }
 
         while (!stack.isEmpty()) {
+            String operator = stack.pop();
+            if(operator.equals("(")){
+                throw new IllegalArgumentException("Mismatched parentheses");
+            }
             output.add(stack.pop());
         }
 
@@ -121,9 +137,9 @@ public class Notation {
      * @return Expression
      */
     public static Expression getExpression(String exp) {
-        ArrayList<String> rpn = getReversePolish(exp);
+        List<String> rpn = getReversePolish(exp);
 
-        Stack<Expression> result = new Stack<>();
+        Deque<Expression> result = new ArrayDeque<>();
 
         for (String s : rpn) {
             if (Character.isDigit(s.charAt(0))) {

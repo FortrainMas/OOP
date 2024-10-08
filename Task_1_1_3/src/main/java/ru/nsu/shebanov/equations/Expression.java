@@ -1,10 +1,4 @@
-package ru.nsu.shebanov;
-
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+package ru.nsu.shebanov.equations;
 
 /**
  * Abstract class expression.

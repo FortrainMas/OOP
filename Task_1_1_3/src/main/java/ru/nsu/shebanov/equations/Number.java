@@ -1,13 +1,18 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
 
 /**
  * Class for handling number constants.
  */
 public class Number extends Expression {
-    double value;
+    public double value;
 
-    Number(double value) {
+    /**
+     * Constructor for number.
+     *
+     * @param value value to save as number
+     */
+    public Number(double value) {
         super();
         this.value = value;
     }

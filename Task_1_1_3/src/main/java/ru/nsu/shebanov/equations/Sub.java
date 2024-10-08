@@ -1,13 +1,19 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
 /**
  * Class for handling sub expressions.
  */
 public class Sub extends Expression {
-    Expression leftExpression;
-    Expression rightExpression;
+    public Expression leftExpression;
+    public Expression rightExpression;
 
-    Sub(Expression leftExpression, Expression rightExpression) {
+    /**
+     * Constructor for sub.
+     *
+     * @param leftExpression left expression
+     * @param rightExpression right expression
+     */
+    public Sub(Expression leftExpression, Expression rightExpression) {
         this.leftExpression = leftExpression;
         this.rightExpression = rightExpression;
     }
@@ -36,11 +42,11 @@ public class Sub extends Expression {
     public Expression getSimplified() {
         Sub simplifiedSub =
                 new Sub(this.leftExpression.getSimplified(), this.rightExpression.getSimplified());
-        if (simplifiedSub.leftExpression instanceof Number
-                && simplifiedSub.rightExpression instanceof Number) {
+        if (simplifiedSub.leftExpression instanceof Number leftNumber
+                && simplifiedSub.rightExpression instanceof Number rightNumber) {
             return new Number(
-                    ((Number) simplifiedSub.leftExpression).value
-                            - ((Number) simplifiedSub.rightExpression).value);
+                    leftNumber.value
+                            - rightNumber.value);
         } else if (simplifiedSub
                 .leftExpression
                 .toString()

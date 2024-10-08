@@ -1,25 +1,39 @@
-package ru.nsu.shebanov;
+package ru.nsu.shebanov.equations;
 
 /** Class for handling division expressions. */
 public class Div extends Expression {
-    Expression leftExpression;
-    Expression rightExpression;
+    public Expression leftExpression;
+    public Expression rightExpression;
 
-    Div(Expression leftExpression, Expression rightExpression) {
+    /**
+     * Constructor for division.
+     *
+     * @param leftExpression left expression
+     * @param rightExpression non-zero right expression
+     */
+    public Div(Expression leftExpression, Expression rightExpression) {
         this.leftExpression = leftExpression;
         this.rightExpression = rightExpression;
+
+        Expression simplifiedRight = rightExpression.getSimplified();
+        if(simplifiedRight instanceof Number numb){
+            if(numb.value == 0){
+                throw new ArithmeticException("Division by zero");
+            }
+        }
     }
 
     /**
      * Estimates derivative for division expression.
      *
      * @param variable name of variable for derivative
+     *
      * @return derivative
      */
     @Override
     public Expression getDerivative(String variable) {
         return new Div(
-                new Sum(
+                new Sub(
                         new Mult(this.leftExpression, this.rightExpression.getDerivative(variable)),
                         new Mult(
                                 this.leftExpression.getDerivative(variable), this.rightExpression)),
@@ -38,13 +52,13 @@ public class Div extends Expression {
     public Expression getSimplified() {
         Div simplifiedDiv =
                 new Div(this.leftExpression.getSimplified(), this.rightExpression.getSimplified());
-        if (simplifiedDiv.leftExpression instanceof Number
-                && simplifiedDiv.rightExpression instanceof Number) {
+        if (simplifiedDiv.leftExpression instanceof Number leftNumber
+                && simplifiedDiv.rightExpression instanceof Number rightNumber) {
             return new Number(
-                    ((Number) simplifiedDiv.leftExpression).value
-                            / ((Number) simplifiedDiv.rightExpression).value);
-        } else if (this.leftExpression instanceof Number
-                && ((Number) this.leftExpression).value == 0) {
+                    leftNumber.value
+                            / rightNumber.value);
+        } else if (this.leftExpression instanceof Number leftNumber
+                && leftNumber.value == 0) {
             return new Number(0);
         } else {
             return simplifiedDiv;
@@ -59,8 +73,13 @@ public class Div extends Expression {
      */
     @Override
     public double eval(String assignationString) {
-        return this.leftExpression.eval(assignationString)
-                / this.rightExpression.eval(assignationString);
+        double leftResult = this.leftExpression.eval(assignationString);
+        double rightResult = this.rightExpression.eval(assignationString);
+
+        if(rightResult == 0){
+            throw new ArithmeticException();
+        }
+        return leftResult / rightResult;
     }
 
     /**
