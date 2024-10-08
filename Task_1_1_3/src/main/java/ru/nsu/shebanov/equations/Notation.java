@@ -123,7 +123,7 @@ public class Notation {
             if(operator.equals("(")){
                 throw new IllegalArgumentException("Mismatched parentheses");
             }
-            output.add(stack.pop());
+            output.add(operator);
         }
 
         return output;

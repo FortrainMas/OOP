@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'jacoco'
 }
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17) // Specify desired Java version
@@ -18,7 +19,6 @@ repositories {
 
 dependencies {
 }
-
 
 group = 'ru.nsu.shebanov.equations'
 version = '1.0-SNAPSHOT'
