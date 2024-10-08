@@ -52,6 +52,12 @@ public class Variable extends Expression {
         return new Variable(this.variableName);
     }
 
+    /**
+     * Evaluate the expression.
+     *
+     * @param assignationString formated assignation string
+     * @return evaluated expression
+     */
     @Override
     public double eval(String assignationString) {
         Dictionary<String, Integer> assignations = parseAssignations(assignationString);
@@ -59,8 +65,43 @@ public class Variable extends Expression {
         return assignations.get(this.variableName);
     }
 
+
+    /**
+     * Stringify expression.
+     *
+     * @return variable
+     */
     @Override
     public String toString() {
         return this.variableName;
+    }
+
+
+    /**
+     * Equals for variable.
+     *
+     * @param o another object
+     * @return true if objects are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if(o instanceof Variable obj) {
+            return variableName.equals(obj.variableName);
+        }
+
+        return false;
+    }
+
+
+    /**
+     * Hash code for variable.
+     *
+     * @return hashcode
+     */
+    @Override
+    public int hashCode() {
+        return variableName.hashCode();
     }
 }

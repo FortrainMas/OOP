@@ -71,8 +71,45 @@ public class Mult extends Expression {
                 * this.rightExpression.eval(assignationString);
     }
 
+    /**
+     * Stringify multiplication.
+     *
+     * @return a * b
+     */
     @Override
     public String toString() {
         return "(" + this.leftExpression.toString() + "*" + this.rightExpression.toString() + ")";
+    }
+
+
+    /**
+     * Equals for multiplications.
+     *
+     * @param o another object
+     * @return true if objects are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if(o instanceof Mult odiv) {
+            return leftExpression.equals(odiv.leftExpression) &&
+                    rightExpression.equals(odiv.rightExpression);
+        }
+
+        return false;
+    }
+
+
+    /**
+     * Hash code for multiplication.
+     *
+     * @return hashcode
+     */
+    @Override
+    public int hashCode() {
+        int l = leftExpression.hashCode();
+        int r = rightExpression.hashCode();
+        return l + r + (l/r);
     }
 }

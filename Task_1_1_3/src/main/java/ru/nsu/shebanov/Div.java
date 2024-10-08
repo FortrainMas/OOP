@@ -51,14 +51,56 @@ public class Div extends Expression {
         }
     }
 
+    /**
+     * Evaluate division expression.
+     *
+     * @param assignationString assignation for variables
+     * @return evaluated expression
+     */
     @Override
     public double eval(String assignationString) {
         return this.leftExpression.eval(assignationString)
                 / this.rightExpression.eval(assignationString);
     }
 
+    /**
+     * Stringify division.
+     *
+     * @return (a/b)
+     */
     @Override
     public String toString() {
         return "(" + this.leftExpression.toString() + "/" + this.rightExpression.toString() + ")";
+    }
+
+    /**
+     * Equals for division.
+     *
+     * @param o another object
+     * @return true if objects are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if(o instanceof Div odiv) {
+            return leftExpression.equals(odiv.leftExpression) &&
+                    rightExpression.equals(odiv.rightExpression);
+        }
+
+        return false;
+    }
+
+
+    /**
+     * Hash code for division.
+     *
+     * @return hashcode
+     */
+    @Override
+    public int hashCode() {
+        int l = leftExpression.hashCode();
+        int r = rightExpression.hashCode();
+        return l + r + (l%r);
     }
 }

@@ -44,14 +44,57 @@ public class Sum extends Expression {
         }
     }
 
+    /**
+     * Evaluate sum expression.
+     *
+     * @param assignationString formated assignation string
+     * @return evaluated expression
+     */
     @Override
     public double eval(String assignationString) {
         return this.leftExpression.eval(assignationString)
                 + this.rightExpression.eval(assignationString);
     }
 
+    /**
+     * Stringify sum.
+     *
+     * @return (a+b)
+     */
     @Override
     public String toString() {
         return "(" + this.leftExpression.toString() + "+" + this.rightExpression.toString() + ")";
+    }
+
+    /**
+     * Equals for sum.
+     *
+     * @param o another object
+     * @return true if objects are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if(o instanceof Sum obj) {
+            return leftExpression.equals(obj.leftExpression) &&
+                    rightExpression.equals(obj.rightExpression);
+        }
+
+        return false;
+    }
+
+
+    /**
+     * Hash code for sum.
+     *
+     * @return hashcode
+     */
+    @Override
+    public int hashCode() {
+        int l = leftExpression.hashCode();
+        int r = rightExpression.hashCode();
+
+        return l+r+(l+r);
     }
 }

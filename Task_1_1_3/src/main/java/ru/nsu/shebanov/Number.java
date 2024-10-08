@@ -35,7 +35,7 @@ public class Number extends Expression {
     }
 
     /**
-     * just returns its value.
+     * Just returns its value.
      *
      * @param assignationString doesn't play a role
      *
@@ -46,6 +46,11 @@ public class Number extends Expression {
         return this.value;
     }
 
+    /**
+     * Stringify number.
+     *
+     * @return number
+     */
     @Override
     public String toString() {
         if (this.value % 1 == 0) {
@@ -53,5 +58,33 @@ public class Number extends Expression {
         } else {
             return "" + this.value;
         }
+    }
+
+    /**
+     * Equals for numbers.
+     *
+     * @param o another object
+     * @return true if objects are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if(o instanceof Number obj) {
+            return value == obj.value;
+        }
+
+        return false;
+    }
+
+
+    /**
+     * Hash code for number.
+     *
+     * @return hashcode
+     */
+    @Override
+    public int hashCode() {
+        return Double.hashCode(value);
     }
 }
