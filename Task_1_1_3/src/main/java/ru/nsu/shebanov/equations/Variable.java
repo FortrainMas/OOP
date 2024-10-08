@@ -101,7 +101,7 @@ public class Variable extends Expression {
     public boolean equals(Object o) {
         if (this == o) return true;
 
-        if(o instanceof Variable obj) {
+        if (o instanceof Variable obj) {
             return variableName.equals(obj.variableName);
         }
 

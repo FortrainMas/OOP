@@ -98,9 +98,9 @@ public class Mult extends Expression {
     public boolean equals(Object o) {
         if (this == o) return true;
 
-        if(o instanceof Mult omult) {
-            return leftExpression.equals(omult.leftExpression) &&
-                    rightExpression.equals(omult.rightExpression);
+        if (o instanceof Mult omult) {
+            return leftExpression.equals(omult.leftExpression)
+                    && rightExpression.equals(omult.rightExpression);
         }
 
         return false;
@@ -116,6 +116,6 @@ public class Mult extends Expression {
     public int hashCode() {
         int l = leftExpression.hashCode();
         int r = rightExpression.hashCode();
-        return l + r + (l/r);
+        return l + r + (l / r);
     }
 }

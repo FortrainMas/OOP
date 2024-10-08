@@ -90,7 +90,7 @@ public class Sub extends Expression {
     public boolean equals(Object o) {
         if (this == o) return true;
 
-        if(o instanceof Sub obj) {
+        if (o instanceof Sub obj) {
             return leftExpression.equals(obj.leftExpression) &&
                     rightExpression.equals(obj.rightExpression);
         }
@@ -109,6 +109,6 @@ public class Sub extends Expression {
         int l = leftExpression.hashCode();
         int r = rightExpression.hashCode();
 
-        return l+r+(l-r);
+        return l + r + (l - r);
     }
 }

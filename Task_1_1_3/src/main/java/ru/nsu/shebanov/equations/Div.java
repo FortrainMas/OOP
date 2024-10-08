@@ -16,8 +16,8 @@ public class Div extends Expression {
         this.rightExpression = rightExpression;
 
         Expression simplifiedRight = rightExpression.getSimplified();
-        if(simplifiedRight instanceof Number numb){
-            if(numb.value == 0){
+        if (simplifiedRight instanceof Number numb) {
+            if (numb.value == 0) {
                 throw new ArithmeticException("Division by zero");
             }
         }
@@ -76,7 +76,7 @@ public class Div extends Expression {
         double leftResult = this.leftExpression.eval(assignationString);
         double rightResult = this.rightExpression.eval(assignationString);
 
-        if(rightResult == 0){
+        if (rightResult == 0) {
             throw new ArithmeticException();
         }
         return leftResult / rightResult;
@@ -102,7 +102,7 @@ public class Div extends Expression {
     public boolean equals(Object o) {
         if (this == o) return true;
 
-        if(o instanceof Div odiv) {
+        if (o instanceof Div odiv) {
             return leftExpression.equals(odiv.leftExpression) &&
                     rightExpression.equals(odiv.rightExpression);
         }
@@ -120,6 +120,6 @@ public class Div extends Expression {
     public int hashCode() {
         int l = leftExpression.hashCode();
         int r = rightExpression.hashCode();
-        return l + r + (l%r);
+        return l + r + (l % r);
     }
 }

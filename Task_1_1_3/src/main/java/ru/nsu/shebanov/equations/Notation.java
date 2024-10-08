@@ -1,6 +1,10 @@
 package ru.nsu.shebanov.equations;
 
-import java.util.*;
+import java.util.Deque;
+import java.util.ArrayDeque;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 /**
  * Class which uses reverse polish notation to produce original expression.
@@ -14,7 +18,7 @@ public class Notation {
      *
      * @return is the value an operator
      */
-    private static boolean isOperator(char c){
+    private static boolean isOperator(char c) {
         return (c == '+'
                 || c == '-'
                 || c == '*'
@@ -81,7 +85,7 @@ public class Notation {
                             output.add(topElement);
                             topElement = stack.pop();
                         }
-                    }catch(NoSuchElementException e){
+                    } catch (NoSuchElementException e) {
                         throw new IllegalArgumentException("Mismatched parentheses");
                     }
                 }
@@ -120,7 +124,7 @@ public class Notation {
 
         while (!stack.isEmpty()) {
             String operator = stack.pop();
-            if(operator.equals("(")){
+            if (operator.equals("(")) {
                 throw new IllegalArgumentException("Mismatched parentheses");
             }
             output.add(operator);

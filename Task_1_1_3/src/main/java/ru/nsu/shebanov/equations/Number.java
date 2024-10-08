@@ -75,7 +75,7 @@ public class Number extends Expression {
     public boolean equals(Object o) {
         if (this == o) return true;
 
-        if(o instanceof Number obj) {
+        if (o instanceof Number obj) {
             return value == obj.value;
         }
 
