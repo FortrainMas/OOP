@@ -8,6 +8,17 @@ java {
         languageVersion = JavaLanguageVersion.of(19) // Specify desired Java version
     }
 }
+tasks.withType(JavaCompile) {
+    sourceCompatibility = '19'
+    targetCompatibility = '19'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
 
 group = 'ru.nsu.shebanov'
 version = '1.0-SNAPSHOT'
