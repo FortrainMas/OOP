@@ -3,6 +3,12 @@ plugins {
     id 'jacoco'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(19) // Specify desired Java version
+    }
+}
+
 group = 'ru.nsu.shebanov'
 version = '1.0-SNAPSHOT'
 
@@ -24,6 +30,3 @@ jacocoTestReport {
         xml.required = true
     }
 }
-
-sourceCompatibility = JavaVersion.VERSION_19
-targetCompatibility = JavaVersion.VERSION_19
