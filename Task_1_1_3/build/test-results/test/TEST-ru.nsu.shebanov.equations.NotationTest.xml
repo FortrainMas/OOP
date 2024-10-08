@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.shebanov.equations.NotationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-10-08T16:40:11" hostname="VALERA" time="0.064">
+  <properties/>
+  <testcase name="notationWithLongVariablesTest()" classname="ru.nsu.shebanov.equations.NotationTest" time="0.039"/>
+  <testcase name="notationExpressionTest()" classname="ru.nsu.shebanov.equations.NotationTest" time="0.012"/>
+  <testcase name="complicatedExpressionTest()" classname="ru.nsu.shebanov.equations.NotationTest" time="0.005"/>
+  <testcase name="notationWithBracketsTest()" classname="ru.nsu.shebanov.equations.NotationTest" time="0.001"/>
+  <testcase name="longNotationTest()" classname="ru.nsu.shebanov.equations.NotationTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
