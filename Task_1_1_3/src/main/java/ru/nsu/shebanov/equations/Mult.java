@@ -1,5 +1,7 @@
 package ru.nsu.shebanov.equations;
 
+import java.util.Objects;
+
 /**
  * Class for handling multiplication expressions.
  */
@@ -87,37 +89,20 @@ public class Mult extends Expression {
         return "(" + this.leftExpression.toString() + "*" + this.rightExpression.toString() + ")";
     }
 
-
-    /**
-     * Equals for multiplications.
-     *
-     * @param o another object
-     * @return true if objects are equal
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-
-        if (o instanceof Mult omult) {
-            return leftExpression.equals(omult.leftExpression)
-                    && rightExpression.equals(omult.rightExpression);
+        if (!(o instanceof Mult mult)) {
+            return false;
         }
-
-        return false;
+        return Objects.equals(leftExpression, mult.leftExpression)
+                && Objects.equals(rightExpression, mult.rightExpression);
     }
 
-
-    /**
-     * Hash code for multiplication.
-     *
-     * @return hashcode
-     */
     @Override
     public int hashCode() {
-        int l = leftExpression.hashCode();
-        int r = rightExpression.hashCode();
-        return l + r + (l / r);
+        return Objects.hash(leftExpression, rightExpression);
     }
 }

@@ -1,5 +1,7 @@
 package ru.nsu.shebanov.equations;
 
+import java.util.Objects;
+
 /** Class for handling division expressions. */
 public class Div extends Expression {
     public Expression leftExpression;
@@ -92,36 +94,20 @@ public class Div extends Expression {
         return "(" + this.leftExpression.toString() + "/" + this.rightExpression.toString() + ")";
     }
 
-    /**
-     * Equals for division.
-     *
-     * @param o another object
-     * @return true if objects are equal
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-
-        if (o instanceof Div odiv) {
-            return leftExpression.equals(odiv.leftExpression)
-                    && rightExpression.equals(odiv.rightExpression);
+        if (!(o instanceof Div div)) {
+            return false;
         }
-
-        return false;
+        return Objects.equals(leftExpression, div.leftExpression)
+                && Objects.equals(rightExpression, div.rightExpression);
     }
 
-
-    /**
-     * Hash code for division.
-     *
-     * @return hashcode
-     */
     @Override
     public int hashCode() {
-        int l = leftExpression.hashCode();
-        int r = rightExpression.hashCode();
-        return l + r + (l % r);
+        return Objects.hash(leftExpression, rightExpression);
     }
 }

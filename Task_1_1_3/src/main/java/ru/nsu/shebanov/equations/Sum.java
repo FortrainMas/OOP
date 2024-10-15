@@ -1,5 +1,7 @@
 package ru.nsu.shebanov.equations;
 
+import java.util.Objects;
+
 /** Class for handling sum expressions. */
 public class Sum extends Expression {
 
@@ -72,37 +74,20 @@ public class Sum extends Expression {
         return "(" + this.leftExpression.toString() + "+" + this.rightExpression.toString() + ")";
     }
 
-    /**
-     * Equals for sum.
-     *
-     * @param o another object
-     * @return true if objects are equal
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-
-        if (o instanceof Sum obj) {
-            return leftExpression.equals(obj.leftExpression)
-                    && rightExpression.equals(obj.rightExpression);
+        if (!(o instanceof Sum sum)) {
+            return false;
         }
-
-        return false;
+        return Objects.equals(leftExpression, sum.leftExpression)
+                && Objects.equals(rightExpression, sum.rightExpression);
     }
 
-
-    /**
-     * Hash code for sum.
-     *
-     * @return hashcode
-     */
     @Override
     public int hashCode() {
-        int l = leftExpression.hashCode();
-        int r = rightExpression.hashCode();
-
-        return l + r + (l + r);
+        return Objects.hash(leftExpression, rightExpression);
     }
 }
