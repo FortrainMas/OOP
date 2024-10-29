@@ -307,6 +307,11 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         return true;
     }
 
+    /**
+     * Hash code function
+     *
+     * @return int hash code
+     */
     @Override
     public int hashCode() {
         int hashCode = 0;
