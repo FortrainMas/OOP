@@ -307,6 +307,23 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         return true;
     }
 
+    @Override
+    public int hashCode() {
+        int hashCode = 0;
+        ArrayList<K> keysList;
+        try {
+            keysList = keys();
+        } catch (Exception e) {
+            return 0;
+        }
+
+        for (K key : keysList) {
+            hashCode += key.hashCode() ^ get(key).hashCode();
+        }
+
+        return hashCode;
+    }
+
 
     /**
      * String representation of the hash map.
