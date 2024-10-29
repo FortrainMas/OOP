@@ -25,7 +25,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     /**
      * Constructor with default intrinsic parameters.
      */
-    HashTable() {
+    public HashTable() {
         tableLength = 1000;
         table = new ArrayList<>();
         for (int i = 0; i < tableLength; i++) {
@@ -39,7 +39,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
      * @param initialSize initial size of hash map table
      * @param collisionMaximum maximum amount of hash collision in table
      */
-    HashTable(int initialSize, int collisionMaximum) {
+    public HashTable(int initialSize, int collisionMaximum) {
         tableLength = initialSize;
         this.collisionMaximum = collisionMaximum;
         table = new ArrayList<>();
@@ -308,7 +308,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     }
 
     /**
-     * Hash code function
+     * Hash code function.
      *
      * @return int hash code
      */
