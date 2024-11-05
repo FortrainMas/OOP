@@ -1,11 +1,8 @@
 package ru.nsu.shebanov.table;
 
+import java.util.*;
 import java.util.AbstractMap.SimpleEntry;
-import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
-import java.util.Iterator;
 import java.util.Map.Entry;
-import java.util.NoSuchElementException;
 
 /**
  * Class for hash table.
@@ -17,7 +14,7 @@ import java.util.NoSuchElementException;
 public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     private int tableLength;
-    private ArrayList<ArrayList<Entry<K, V>>> table;
+    private ArrayList<Entry<K, V>>[] table;
     private int modCount = 0;
 
     private int collisionMaximum = 100;
@@ -27,10 +24,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
      */
     public HashTable() {
         tableLength = 1000;
-        table = new ArrayList<>();
-        for (int i = 0; i < tableLength; i++) {
-            table.add(new ArrayList<>());
-        }
+        table = (ArrayList<Entry<K, V>>[]) new ArrayList[tableLength];
     }
 
     /**
@@ -42,10 +36,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     public HashTable(int initialSize, int collisionMaximum) {
         tableLength = initialSize;
         this.collisionMaximum = collisionMaximum;
-        table = new ArrayList<>();
-        for (int i = 0; i < tableLength; i++) {
-            table.add(new ArrayList<>());
-        }
+        table = (ArrayList<Entry<K, V>>[]) new ArrayList[tableLength];
     }
 
     /**
@@ -53,15 +44,21 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
      */
     private void resize() {
         int newTableLength = tableLength * 2;
-        ArrayList<ArrayList<Entry<K, V>>> newTable = new ArrayList<>();
-        for (int i = 0; i < newTableLength; i++) {
-            newTable.add(new ArrayList<>());
-        }
+        ArrayList<Entry<K, V>>[] newTable
+                = (ArrayList<Entry<K, V>>[]) new ArrayList[newTableLength];
 
         for (int i = 0; i < tableLength; i++) {
-            for (Entry<K, V> pair : table.get(i)) {
+            if(table[i] == null){
+                continue;
+            }
+
+            for (Entry<K, V> pair : table[i]) {
                 int hashCode = pair.getKey().hashCode() % newTableLength;
-                newTable.get(hashCode).add(new SimpleEntry<>(pair.getKey(), pair.getValue()));
+
+                if(newTable[hashCode] == null){
+                    newTable[hashCode] = new ArrayList<>();
+                }
+                newTable[hashCode].add(new SimpleEntry<>(pair.getKey(), pair.getValue()));
             }
         }
 
@@ -79,11 +76,17 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         modCount += 1;
         int hashCode = key.hashCode() % tableLength;
 
-        ArrayList<Entry<K, V>> collisionList = table.get(hashCode);
+        ArrayList<Entry<K, V>> collisionList = table[hashCode];
+        if(collisionList == null){
+            table[hashCode] = new ArrayList<Entry<K, V>>();
+            table[hashCode].add(new SimpleEntry<>(key, value));
+            return;
+        }
         for (Entry<K, V> pair : collisionList) {
             K curKey = pair.getKey();
             if (curKey.equals(key)) {
                 pair.setValue(value);
+                return;
             }
         }
 
@@ -103,8 +106,13 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         modCount += 1;
         int hashCode = key.hashCode() % tableLength;
 
+
+        ArrayList<Entry<K, V>> collisionList = table[hashCode];
+        if(collisionList == null){
+            throw new NoSuchElementException("Key not found");
+        }
+
         int entryPosition = -1;
-        ArrayList<Entry<K, V>> collisionList = table.get(hashCode);
         for (int i = 0; i < collisionList.size(); i++) {
             if (collisionList.get(i).getKey().equals(key)) {
                 entryPosition = i;
@@ -112,6 +120,9 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
             }
         }
 
+        if(entryPosition == -1){
+            throw new NoSuchElementException("Key not found");
+        }
         collisionList.remove(entryPosition);
     }
 
@@ -125,7 +136,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     public V get(K key) {
         int hashCode = key.hashCode() % tableLength;
 
-        ArrayList<Entry<K, V>> collisionList = table.get(hashCode);
+        ArrayList<Entry<K, V>> collisionList = table[hashCode];
 
         if (collisionList == null) {
             throw new NoSuchElementException("Key not found");
@@ -150,7 +161,11 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     public boolean contains(K key) {
         int hashCode = key.hashCode() % tableLength;
 
-        ArrayList<Entry<K, V>> collisionList = table.get(hashCode);
+        ArrayList<Entry<K, V>> collisionList = table[hashCode];
+        if(collisionList == null){
+            return false;
+        }
+
         for (Entry<K, V> entry : collisionList) {
             if (entry.getKey().equals(key)) {
                 return true;
@@ -170,7 +185,11 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         modCount += 1;
         int hashCode = key.hashCode() % tableLength;
 
-        ArrayList<Entry<K, V>> collisionList = table.get(hashCode);
+        ArrayList<Entry<K, V>> collisionList = table[hashCode];
+        if(collisionList == null){
+            throw new NoSuchElementException("Key not found");
+        }
+
         for (Entry<K, V> pair : collisionList) {
             K curKey = pair.getKey();
             if (curKey.equals(key)) {
@@ -187,11 +206,13 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
      *
      * @return list of all keys
      */
-    public ArrayList<K> keys() {
+    public List<K> keys() {
         ArrayList<K> keys = new ArrayList<>();
         for (ArrayList<Entry<K, V>> collisionList : table) {
-            for (Entry<K, V> pair : collisionList) {
-                keys.add(pair.getKey());
+            if (collisionList != null) {
+                for (Entry<K, V> pair : collisionList) {
+                    keys.add(pair.getKey());
+                }
             }
         }
 
@@ -223,13 +244,13 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
                     throw new ConcurrentModificationException();
                 }
 
-                if (table.get(tableIndex).size() > collisionIndex) {
+                if (table[tableIndex] != null && table[tableIndex].size() > collisionIndex) {
                     return true;
                 }
                 tableIndex += 1;
                 collisionIndex = 0;
                 while (tableIndex != tableLength
-                        && table.get(tableIndex).size() == collisionIndex) {
+                        && (table[tableIndex] == null || table[tableIndex].size() == collisionIndex)) {
                     tableIndex += 1;
                 }
 
@@ -247,14 +268,14 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
                     throw new ConcurrentModificationException();
                 }
 
-                if (table.get(tableIndex).size() > collisionIndex) {
+                if (table[tableIndex] != null && table[tableIndex].size() > collisionIndex) {
                     collisionIndex += 1;
-                    return table.get(tableIndex).get(collisionIndex - 1);
+                    return table[tableIndex].get(collisionIndex - 1);
                 }
                 tableIndex += 1;
                 collisionIndex = 0;
                 while (tableIndex != tableLength
-                        && table.get(tableIndex).size() == collisionIndex) {
+                        && (table[tableIndex] == null || table[tableIndex].size() == collisionIndex)) {
                     tableIndex += 1;
                 }
 
@@ -263,7 +284,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
                     throw new NoSuchElementException();
                 }
 
-                return table.get(tableIndex).get(0);
+                return table[tableIndex].get(0);
             }
         };
     }
@@ -285,8 +306,8 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
             return false;
         }
 
-        ArrayList<K> keysList1;
-        ArrayList<K> keysList2;
+        List<K> keysList1;
+        List<K> keysList2;
         try {
             keysList1 = keys();
             keysList2 = ((HashTable<K, V>) obj).keys();
@@ -315,7 +336,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     @Override
     public int hashCode() {
         int hashCode = 0;
-        ArrayList<K> keysList;
+        List<K> keysList;
         try {
             keysList = keys();
         } catch (Exception e) {
@@ -340,6 +361,10 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         StringBuilder output = new StringBuilder("{\n");
 
         for (ArrayList<Entry<K, V>> collisionList : table) {
+            if(collisionList == null){
+                continue;
+            }
+
             for (Entry<K, V> pair : collisionList) {
                 output.append("\t")
                         .append(pair.getKey())
