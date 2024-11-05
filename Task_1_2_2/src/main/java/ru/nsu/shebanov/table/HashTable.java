@@ -1,8 +1,12 @@
 package ru.nsu.shebanov.table;
 
-import java.util.*;
+import java.util.ArrayList;
 import java.util.AbstractMap.SimpleEntry;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.NoSuchElementException;
 
 /**
  * Class for hash table.
@@ -97,6 +101,8 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
      * Remove key from the table.
      *
      * @param key key
+     *
+     * @throws NoSuchElementException if no such key present
      */
     public void remove(K key) {
         modCount += 1;
@@ -126,6 +132,8 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
      *
      * @param key key
      * @return value
+     *
+     * @throws NoSuchElementException if no such key present
      */
     public V get(K key) {
         int hashCode = key.hashCode() % tableLength;
@@ -173,6 +181,8 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
      *
      * @param key key
      * @param value value
+     *
+     * @throws NoSuchElementException if no such key present
      */
     public void update(K key, V value) {
         modCount += 1;

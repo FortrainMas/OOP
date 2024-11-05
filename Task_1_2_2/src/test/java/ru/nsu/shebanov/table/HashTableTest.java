@@ -38,6 +38,7 @@ class HashTableTest {
 
         ht.put("ten", 10);
         ht.put("one", 1);
+        ht.put("two", 3);
         ht.put("two", 2);
 
         assertTrue(ht.contains("one"));
