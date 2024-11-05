@@ -19,9 +19,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 
     private int collisionMaximum = 100;
 
-    /**
-     * Constructor with default intrinsic parameters.
-     */
+    /** Constructor with default intrinsic parameters. */
     public HashTable() {
         tableLength = 1000;
         table = (ArrayList<Entry<K, V>>[]) new ArrayList[tableLength];
@@ -39,23 +37,21 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         table = (ArrayList<Entry<K, V>>[]) new ArrayList[tableLength];
     }
 
-    /**
-     * Make table twice bigger to reduce collisions.
-     */
+    /** Make table twice bigger to reduce collisions. */
     private void resize() {
         int newTableLength = tableLength * 2;
-        ArrayList<Entry<K, V>>[] newTable
-                = (ArrayList<Entry<K, V>>[]) new ArrayList[newTableLength];
+        ArrayList<Entry<K, V>>[] newTable =
+                (ArrayList<Entry<K, V>>[]) new ArrayList[newTableLength];
 
         for (int i = 0; i < tableLength; i++) {
-            if(table[i] == null){
+            if (table[i] == null) {
                 continue;
             }
 
             for (Entry<K, V> pair : table[i]) {
                 int hashCode = pair.getKey().hashCode() % newTableLength;
 
-                if(newTable[hashCode] == null){
+                if (newTable[hashCode] == null) {
                     newTable[hashCode] = new ArrayList<>();
                 }
                 newTable[hashCode].add(new SimpleEntry<>(pair.getKey(), pair.getValue()));
@@ -77,7 +73,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         int hashCode = key.hashCode() % tableLength;
 
         ArrayList<Entry<K, V>> collisionList = table[hashCode];
-        if(collisionList == null){
+        if (collisionList == null) {
             table[hashCode] = new ArrayList<Entry<K, V>>();
             table[hashCode].add(new SimpleEntry<>(key, value));
             return;
@@ -106,9 +102,8 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         modCount += 1;
         int hashCode = key.hashCode() % tableLength;
 
-
         ArrayList<Entry<K, V>> collisionList = table[hashCode];
-        if(collisionList == null){
+        if (collisionList == null) {
             throw new NoSuchElementException("Key not found");
         }
 
@@ -120,7 +115,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
             }
         }
 
-        if(entryPosition == -1){
+        if (entryPosition == -1) {
             throw new NoSuchElementException("Key not found");
         }
         collisionList.remove(entryPosition);
@@ -130,7 +125,6 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
      * Get key from the table.
      *
      * @param key key
-     *
      * @return value
      */
     public V get(K key) {
@@ -155,14 +149,13 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
      * Check if key is in the table.
      *
      * @param key key
-     *
      * @return true is key is in the table, false, otherwise
      */
     public boolean contains(K key) {
         int hashCode = key.hashCode() % tableLength;
 
         ArrayList<Entry<K, V>> collisionList = table[hashCode];
-        if(collisionList == null){
+        if (collisionList == null) {
             return false;
         }
 
@@ -186,7 +179,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         int hashCode = key.hashCode() % tableLength;
 
         ArrayList<Entry<K, V>> collisionList = table[hashCode];
-        if(collisionList == null){
+        if (collisionList == null) {
             throw new NoSuchElementException("Key not found");
         }
 
@@ -250,7 +243,8 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
                 tableIndex += 1;
                 collisionIndex = 0;
                 while (tableIndex != tableLength
-                        && (table[tableIndex] == null || table[tableIndex].size() == collisionIndex)) {
+                        && (table[tableIndex] == null
+                                || table[tableIndex].size() == collisionIndex)) {
                     tableIndex += 1;
                 }
 
@@ -275,7 +269,8 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
                 tableIndex += 1;
                 collisionIndex = 0;
                 while (tableIndex != tableLength
-                        && (table[tableIndex] == null || table[tableIndex].size() == collisionIndex)) {
+                        && (table[tableIndex] == null
+                                || table[tableIndex].size() == collisionIndex)) {
                     tableIndex += 1;
                 }
 
@@ -293,7 +288,6 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
      * Equality function.
      *
      * @param obj object to compare if
-     *
      * @return compare each key and value
      */
     @Override
@@ -350,7 +344,6 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         return hashCode;
     }
 
-
     /**
      * String representation of the hash map.
      *
@@ -361,7 +354,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         StringBuilder output = new StringBuilder("{\n");
 
         for (ArrayList<Entry<K, V>> collisionList : table) {
-            if(collisionList == null){
+            if (collisionList == null) {
                 continue;
             }
 
