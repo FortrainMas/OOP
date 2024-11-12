@@ -341,11 +341,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
     public int hashCode() {
         int hashCode = 0;
         List<K> keysList;
-        try {
-            keysList = keys();
-        } catch (Exception e) {
-            return 0;
-        }
+        keysList = keys();
 
         for (K key : keysList) {
             hashCode += key.hashCode() ^ get(key).hashCode();
