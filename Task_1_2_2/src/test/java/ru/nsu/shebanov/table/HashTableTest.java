@@ -33,6 +33,38 @@ class HashTableTest {
     }
 
     @Test
+    void putTests() {
+        HashTable<String, Integer> ht = new HashTable<>();
+
+        ht.put("ten", 10);
+        ht.put("one", 1);
+        ht.put("two", 2);
+        ht.put("two", 4);
+
+        assertEquals(ht.get("two"), 4);
+        assertTrue(ht.contains("one"));
+        assertTrue(ht.contains("two"));
+        assertFalse(ht.contains("four"));
+    }
+
+    @Test
+    void removeTests() {
+        HashTable<String, Integer> ht = new HashTable<>();
+
+        ht.put("one", 1);
+
+        assertTrue(ht.contains("one"));
+        ht.remove("one");
+        assertFalse(ht.contains("one"));
+        try {
+            ht.remove("one");
+        } catch (NoSuchElementException e) {
+            return;
+        }
+        fail();
+    }
+
+    @Test
     void checkResizing() {
         HashTable<String, Integer> ht = new HashTable<>(1, 2);
 
