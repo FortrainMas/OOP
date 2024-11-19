@@ -82,12 +82,11 @@ class ZFunctionTests {
         String filePath = "testFile.txt";
         try (FileWriter writer = new FileWriter(filePath)) {
             for (int i = 0; i < 1_000_000; i++) {
-                writer.write("Java");
+                writer.write("Джава");
             }
         }
         //JavaJavaJavaJavaJavaJavaJavaJavaJavaJava
-        List<Long> res = ZFunction.findInFile(filePath, "va");
-        System.out.println(res);
+        List<Long> res = ZFunction.findInFile(filePath, "ва");
         assertEquals(1_000_000, res.size());
         new File(filePath).delete();
     }
