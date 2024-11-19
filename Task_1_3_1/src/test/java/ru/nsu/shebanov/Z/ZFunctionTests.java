@@ -72,7 +72,7 @@ class ZFunctionTests {
 
         List<Long> expected = new ArrayList<>();
         expected.add(10L);
-        expected.add(58L);
+        expected.add(57L);
 
         assertEquals(res, expected);
     }

@@ -44,7 +44,7 @@ public class ZFunction {
                 }
 
                 tempBuffer = new StringBuilder();
-
+x   
 
                 for (int j = bufferSize - subStringLength + 1; j < bufferSize; j++) {
                     tempBuffer.append(buffer[j]);
