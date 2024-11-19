@@ -16,7 +16,11 @@ class ZetFunctionTests {
         String str = "abracadabra";
         String pattern = "bra";
 
+<<<<<<< HEAD
         List<Integer> res = Zfunction.find(str, pattern);
+=======
+        List<Integer> res = ZFunction.find(str, pattern);
+>>>>>>> 7c13b72 (More useful fixes)
         List<Integer> res2 = new ArrayList<>();
         res2.add(1);
         res2.add(8);
@@ -32,7 +36,11 @@ class ZetFunctionTests {
         String str1 = "Inkább magyar, mint Java";
         String pattern = "agy";
 
+<<<<<<< HEAD
         List<Integer> res = Zfunction.find(str1, pattern);
+=======
+        List<Integer> res = ZFunction.find(str1, pattern);
+>>>>>>> 7c13b72 (More useful fixes)
 
         List<Integer> expected = new ArrayList<>();
         expected.add(8);
@@ -41,6 +49,11 @@ class ZetFunctionTests {
     }
 
     @Test
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 7c13b72 (More useful fixes)
     void testUsingEnglishResources() throws URISyntaxException {
         String fileName = "Russian.txt";
         String pattern = "Stupid";
@@ -49,7 +62,11 @@ class ZetFunctionTests {
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
+<<<<<<< HEAD
         List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
+=======
+        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+>>>>>>> 7c13b72 (More useful fixes)
 
         List<Long> expected = new ArrayList<>();
         expected.add(0L);
@@ -66,7 +83,11 @@ class ZetFunctionTests {
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
+<<<<<<< HEAD
         List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
+=======
+        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+>>>>>>> 7c13b72 (More useful fixes)
 
         List<Long> expected = new ArrayList<>();
         expected.add(2L);
@@ -77,12 +98,17 @@ class ZetFunctionTests {
     @Test
     void testUsingEmojiResources() throws URISyntaxException {
         String fileName = "emoji.txt";
+<<<<<<< HEAD
         String pattern = "\uD83D\uDC79";
+=======
+        String pattern = "\uD83D\uDCA5";
+>>>>>>> 7c13b72 (More useful fixes)
 
         File resource = new File(
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
+<<<<<<< HEAD
 
         List<Long> expected = new ArrayList<>();
         expected.add(4L);
@@ -90,11 +116,22 @@ class ZetFunctionTests {
         expected.add(8L);
         expected.add(10L);
         List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
+=======
+        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+
+        List<Long> expected = new ArrayList<>();
+        expected.add(12L);
+        expected.add(14L);
+>>>>>>> 7c13b72 (More useful fixes)
 
         assertEquals(res, expected);
     }
 
     @Test
+<<<<<<< HEAD
+=======
+>>>>>>> e699772 (MORE FIXES)
+>>>>>>> 7c13b72 (More useful fixes)
     void testUsingResources() throws URISyntaxException {
         String fileName = "myText.txt";
         String pattern = "ИТЕ";
@@ -103,7 +140,11 @@ class ZetFunctionTests {
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
+<<<<<<< HEAD
         List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
+=======
+        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+>>>>>>> 7c13b72 (More useful fixes)
 
         List<Long> expected = new ArrayList<>();
         expected.add(10L);
@@ -117,11 +158,20 @@ class ZetFunctionTests {
         String filePath = "testFile.txt";
         try (FileWriter writer = new FileWriter(filePath)) {
             for (int i = 0; i < 1_000_000; i++) {
+<<<<<<< HEAD
                 writer.write("Джава");
             }
         }
         //JavaJavaJavaJavaJavaJavaJavaJavaJavaJava
         List<Long> res = Zfunction.findInFile(filePath, "ва");
+=======
+                writer.write("Java");
+            }
+        }
+        //JavaJavaJavaJavaJavaJavaJavaJavaJavaJava
+        List<Long> res = ZFunction.findInFile(filePath, "va");
+        System.out.println(res);
+>>>>>>> 7c13b72 (More useful fixes)
         assertEquals(1_000_000, res.size());
         new File(filePath).delete();
     }
