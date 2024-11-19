@@ -60,6 +60,23 @@ class ZFunctionTests {
     }
 
     @Test
+    void testUsingRussianResources()  throws URISyntaxException {
+        String fileName = "SongTao.txt";
+        String pattern = "在";
+
+        File resource = new File(
+                getClass().getClassLoader().getResource(fileName).toURI());
+
+
+        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+
+        List<Long> expected = new ArrayList<>();
+        expected.add(2L);
+
+        assertEquals(res, expected);
+    }
+
+    @Test
     void testUsingResources() throws URISyntaxException {
         String fileName = "myText.txt";
         String pattern = "ИТЕ";
