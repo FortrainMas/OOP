@@ -81,12 +81,14 @@ class ZFunctionTests {
     void testUsingBigFile() throws IOException {
         String filePath = "testFile.txt";
         try (FileWriter writer = new FileWriter(filePath)) {
-            for (int i = 0; i < 100; i++) {
-                writer.write("АЧЁОН".repeat(300) + "?");
+            for (int i = 0; i < 1_000_000; i++) {
+                writer.write("Java");
             }
         }
-        List<Long> res = ZFunction.findInFile(filePath, "?");
-        assertEquals(res.size(), 100);
+        //JavaJavaJavaJavaJavaJavaJavaJavaJavaJava
+        List<Long> res = ZFunction.findInFile(filePath, "va");
+        System.out.println(res);
+        assertEquals(1_000_000, res.size());
         new File(filePath).delete();
     }
 }

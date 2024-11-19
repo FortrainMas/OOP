@@ -1,9 +1,6 @@
 package ru.nsu.shebanov.Z;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,43 +14,50 @@ public class ZFunction {
     }
 
     public static List<Long> findInFile(String fileName, String pattern, int bufferSize) {
-        List<Long> matches = new ArrayList<>();
-        long shift = 0; // Initialize shift outside the loop
-        try (FileInputStream fis = new FileInputStream(fileName);
-             InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
-             BufferedReader br = new BufferedReader(isr)) {
-            StringBuilder builder = new StringBuilder();
+        List<Long> res = new ArrayList<>();
+        int subStringLength = pattern.length();
+        try (Reader br = new BufferedReader(new FileReader(fileName))) {
             char[] buffer = new char[bufferSize];
-            int bytesRead;
-            while ((bytesRead = br.read(buffer)) != -1) {
-                builder.append(buffer, 0, bytesRead);
+            StringBuilder tempBuffer;
+            int readChars;
+            long curPos = 0L;
+            List<Integer> tempRes;
+            tempBuffer = new StringBuilder(pattern);
 
-                if (builder.length() > 10000) {
-                    List<Integer> res = find(builder.toString(), pattern);
-                    for (int val : res) {
-                        matches.add((long) (val + shift));
-                    }
-
-                    int firstCharIndex = res.isEmpty() ? 0 :
-                            Math.max(0, builder.length() - pattern.length() + 1);
-                    shift += firstCharIndex;
-                    builder.delete(0, firstCharIndex);
+            while ((readChars = br.read(buffer, 0, bufferSize)) != -1) {
+                String curString = new String(buffer, 0, readChars);
+                tempRes = (find(curString, pattern));
+                for (Integer tempRe : tempRes) {
+                    res.add(tempRe + curPos);
                 }
-            }
 
-            if (builder.length() != 0 && builder.length() > pattern.length()) {
-                List<Integer> res = find(builder.toString(), pattern);
-                for (int val : res) {
-                    matches.add((long) (val + shift));
+
+                for (int j = 0; j < subStringLength - 1; j++) {
+                    tempBuffer.append(buffer[j]);
                 }
-            }
+                if (curPos != 0) {
+                    tempRes = find(String.valueOf(tempBuffer), pattern);
+                }
 
-            return matches;
+                for (int i = 0; i < tempRes.size() && curPos != 0; i++) {
+                    res.add(tempRes.get(i) + curPos - subStringLength);
+                }
+
+                tempBuffer = new StringBuilder();
+
+
+                for (int j = bufferSize - subStringLength + 1; j < bufferSize; j++) {
+                    tempBuffer.append(buffer[j]);
+                }
+
+                curPos += bufferSize;
+            }
 
         } catch (IOException e) {
-            System.out.print("Error reading file: " + fileName);
-            return new ArrayList<>();
+            throw new RuntimeException(e);
         }
+
+        return res;
     }
 
 
