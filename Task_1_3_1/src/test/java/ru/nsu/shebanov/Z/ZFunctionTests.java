@@ -2,18 +2,17 @@ package ru.nsu.shebanov.Z;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import org.junit.jupiter.api.Test;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
 class ZFunctionTests {
     @Test
-    void basicTest(){
+    void basicTest() {
         String str = "abracadabra";
         String pattern = "bra";
 
@@ -29,7 +28,7 @@ class ZFunctionTests {
 
 
     @Test
-    void hungarianTest(){
+    void hungarianTest() {
         String str1 = "Inkább magyar, mint Java";
         String pattern = "agy";
 
@@ -42,6 +41,61 @@ class ZFunctionTests {
     }
 
     @Test
+<<<<<<< HEAD
+=======
+    void testUsingEnglishResources() throws URISyntaxException {
+        String fileName = "Russian.txt";
+        String pattern = "Stupid";
+
+        File resource = new File(
+                getClass().getClassLoader().getResource(fileName).toURI());
+
+
+        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+
+        List<Long> expected = new ArrayList<>();
+        expected.add(0L);
+
+        assertEquals(res, expected);
+    }
+
+    @Test
+    void testUsingChineseResources() throws URISyntaxException {
+        String fileName = "SongTao.txt";
+        String pattern = "在";
+
+        File resource = new File(
+                getClass().getClassLoader().getResource(fileName).toURI());
+
+
+        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+
+        List<Long> expected = new ArrayList<>();
+        expected.add(2L);
+
+        assertEquals(res, expected);
+    }
+
+    @Test
+    void testUsingEmojiResources() throws URISyntaxException {
+        String fileName = "emoji.txt";
+        String pattern = "\uD83D\uDCA5";
+
+        File resource = new File(
+                getClass().getClassLoader().getResource(fileName).toURI());
+
+
+        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+
+        List<Long> expected = new ArrayList<>();
+        expected.add(12L);
+        expected.add(14L);
+
+        assertEquals(res, expected);
+    }
+
+    @Test
+>>>>>>> e699772 (MORE FIXES)
     void testUsingResources() throws URISyntaxException {
         String fileName = "myText.txt";
         String pattern = "ИТЕ";
