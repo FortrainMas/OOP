@@ -1,18 +1,37 @@
 package ru.nsu.shebanov.Z;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ZFunction {
 
-    public static List<Long> findInFile(String fileName, String pattern){
+    /**
+     * Find pattern in file.
+     * Uses default bufferSize
+     *
+     * @param fileName path to the file
+     * @param pattern string pattern to look for
+     * @return indices of find patterns
+     */
+    public static List<Long> findInFile(String fileName, String pattern) {
         int BUFFER_SIZE = 10;
 
         return findInFile(fileName, pattern, BUFFER_SIZE);
     }
 
+    /**
+     * Find pattern in file.
+     * Buffer is set by user
+     *
+     * @param fileName path to the file
+     * @param pattern string pattern to look for
+     * @param bufferSize size of buffer for reading
+     * @return indices of find patterns
+     */
     public static List<Long> findInFile(String fileName, String pattern, int bufferSize) {
         List<Long> res = new ArrayList<>();
         int subStringLength = pattern.length();
@@ -60,8 +79,14 @@ public class ZFunction {
     }
 
 
-    public static List<Integer> find(String text, String pattern)
-    {
+    /**
+     * Find patterns in string.
+     *
+     * @param text string where to look for a pattern
+     * @param pattern pattern to look for
+     * @return indices of found patterns
+     */
+    public static List<Integer> find(String text, String pattern) {
         String concat = pattern + "$" + text;
 
         int l = concat.length();
@@ -72,8 +97,8 @@ public class ZFunction {
 
 
         ArrayList<Integer> ans = new ArrayList<>();
-        for(int i = 0; i < l; ++i){
-            if(Z[i] == pattern.length()){
+        for (int i = 0; i < l; ++i) {
+            if (Z[i] == pattern.length()) {
                 ans.add(i - pattern.length() - 1);
             }
         }
@@ -81,29 +106,33 @@ public class ZFunction {
         return ans;
     }
 
+    /**
+     * Util function to create array of precalculated Z function.
+     *
+     * @param str string
+     * @param Z array of long Z to set values
+     */
     private static void getZarr(String str, int[] Z) {
 
         int n = str.length();
         int L = 0, R = 0;
 
-        for(int i = 1; i < n; ++i) {
-            if(i > R){
+        for (int i = 1; i < n; ++i) {
+            if (i > R) {
                 L = R = i;
-                while(R < n && str.charAt(R - L) == str.charAt(R)) {
+                while (R < n && str.charAt(R - L) == str.charAt(R)) {
                     R++;
                 }
                 Z[i] = R - L;
                 R--;
-            }
-            else{
+            } else {
                 int k = i - L;
 
-                if(Z[k] < R - i + 1){
+                if (Z[k] < R - i + 1) {
                     Z[i] = Z[k];
-                }
-                else{
+                } else {
                     L = i;
-                    while(R < n && str.charAt(R - L) == str.charAt(R)) {
+                    while (R < n && str.charAt(R - L) == str.charAt(R)) {
                         R++;
                     }
                     Z[i] = R - L;
