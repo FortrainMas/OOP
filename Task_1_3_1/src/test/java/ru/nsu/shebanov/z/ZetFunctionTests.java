@@ -83,13 +83,13 @@ class ZetFunctionTests {
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
-        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
 
         List<Long> expected = new ArrayList<>();
         expected.add(4L);
         expected.add(6L);
         expected.add(8L);
         expected.add(10L);
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
 
         assertEquals(res, expected);
     }
