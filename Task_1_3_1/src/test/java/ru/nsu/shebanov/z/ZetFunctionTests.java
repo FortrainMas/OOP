@@ -17,10 +17,14 @@ class ZetFunctionTests {
         String pattern = "bra";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         List<Integer> res = Zfunction.find(str, pattern);
 =======
         List<Integer> res = ZFunction.find(str, pattern);
 >>>>>>> 7c13b72 (More useful fixes)
+=======
+        List<Integer> res = Zfunction.find(str, pattern);
+>>>>>>> 80e0f87 (More useful fixes)
         List<Integer> res2 = new ArrayList<>();
         res2.add(1);
         res2.add(8);
@@ -37,10 +41,14 @@ class ZetFunctionTests {
         String pattern = "agy";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         List<Integer> res = Zfunction.find(str1, pattern);
 =======
         List<Integer> res = ZFunction.find(str1, pattern);
 >>>>>>> 7c13b72 (More useful fixes)
+=======
+        List<Integer> res = Zfunction.find(str1, pattern);
+>>>>>>> 80e0f87 (More useful fixes)
 
         List<Integer> expected = new ArrayList<>();
         expected.add(8);
@@ -63,10 +71,14 @@ class ZetFunctionTests {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
 =======
         List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
 >>>>>>> 7c13b72 (More useful fixes)
+=======
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
+>>>>>>> 80e0f87 (More useful fixes)
 
         List<Long> expected = new ArrayList<>();
         expected.add(0L);
@@ -84,10 +96,14 @@ class ZetFunctionTests {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
 =======
         List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
 >>>>>>> 7c13b72 (More useful fixes)
+=======
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
+>>>>>>> 80e0f87 (More useful fixes)
 
         List<Long> expected = new ArrayList<>();
         expected.add(2L);
@@ -99,15 +115,20 @@ class ZetFunctionTests {
     void testUsingEmojiResources() throws URISyntaxException {
         String fileName = "emoji.txt";
 <<<<<<< HEAD
+<<<<<<< HEAD
         String pattern = "\uD83D\uDC79";
 =======
         String pattern = "\uD83D\uDCA5";
 >>>>>>> 7c13b72 (More useful fixes)
+=======
+        String pattern = "\uD83D\uDC79";
+>>>>>>> 80e0f87 (More useful fixes)
 
         File resource = new File(
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         List<Long> expected = new ArrayList<>();
@@ -123,6 +144,15 @@ class ZetFunctionTests {
         expected.add(12L);
         expected.add(14L);
 >>>>>>> 7c13b72 (More useful fixes)
+=======
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
+
+        List<Long> expected = new ArrayList<>();
+        expected.add(4L);
+        expected.add(6L);
+        expected.add(8L);
+        expected.add(10L);
+>>>>>>> 80e0f87 (More useful fixes)
 
         assertEquals(res, expected);
     }
@@ -141,10 +171,14 @@ class ZetFunctionTests {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
 =======
         List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
 >>>>>>> 7c13b72 (More useful fixes)
+=======
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
+>>>>>>> 80e0f87 (More useful fixes)
 
         List<Long> expected = new ArrayList<>();
         expected.add(10L);
@@ -164,6 +198,7 @@ class ZetFunctionTests {
         }
         //JavaJavaJavaJavaJavaJavaJavaJavaJavaJava
         List<Long> res = Zfunction.findInFile(filePath, "ва");
+<<<<<<< HEAD
 =======
                 writer.write("Java");
             }
@@ -172,6 +207,8 @@ class ZetFunctionTests {
         List<Long> res = ZFunction.findInFile(filePath, "va");
         System.out.println(res);
 >>>>>>> 7c13b72 (More useful fixes)
+=======
+>>>>>>> 80e0f87 (More useful fixes)
         assertEquals(1_000_000, res.size());
         new File(filePath).delete();
     }
