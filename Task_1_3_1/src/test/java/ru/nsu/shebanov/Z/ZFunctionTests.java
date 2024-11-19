@@ -60,7 +60,7 @@ class ZFunctionTests {
     }
 
     @Test
-    void testUsingRussianResources()  throws URISyntaxException {
+    void testUsingChineseResources()  throws URISyntaxException {
         String fileName = "SongTao.txt";
         String pattern = "在";
 
@@ -72,6 +72,24 @@ class ZFunctionTests {
 
         List<Long> expected = new ArrayList<>();
         expected.add(2L);
+
+        assertEquals(res, expected);
+    }
+
+    @Test
+    void testUsingEmojiResources()  throws URISyntaxException {
+        String fileName = "emoji.txt";
+        String pattern = "\uD83D\uDCA5";
+
+        File resource = new File(
+                getClass().getClassLoader().getResource(fileName).toURI());
+
+
+        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+
+        List<Long> expected = new ArrayList<>();
+        expected.add(12L);
+        expected.add(14L);
 
         assertEquals(res, expected);
     }
