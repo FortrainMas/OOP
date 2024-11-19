@@ -2,18 +2,17 @@ package ru.nsu.shebanov.Z;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import org.junit.jupiter.api.Test;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
 class ZFunctionTests {
     @Test
-    void basicTest(){
+    void basicTest() {
         String str = "abracadabra";
         String pattern = "bra";
 
@@ -29,7 +28,7 @@ class ZFunctionTests {
 
 
     @Test
-    void hungarianTest(){
+    void hungarianTest() {
         String str1 = "Inkább magyar, mint Java";
         String pattern = "agy";
 
@@ -42,7 +41,7 @@ class ZFunctionTests {
     }
 
     @Test
-    void testUsingEnglishResources()  throws URISyntaxException {
+    void testUsingEnglishResources() throws URISyntaxException {
         String fileName = "Russian.txt";
         String pattern = "Stupid";
 
@@ -59,7 +58,7 @@ class ZFunctionTests {
     }
 
     @Test
-    void testUsingChineseResources()  throws URISyntaxException {
+    void testUsingChineseResources() throws URISyntaxException {
         String fileName = "SongTao.txt";
         String pattern = "在";
 
@@ -76,7 +75,7 @@ class ZFunctionTests {
     }
 
     @Test
-    void testUsingEmojiResources()  throws URISyntaxException {
+    void testUsingEmojiResources() throws URISyntaxException {
         String fileName = "emoji.txt";
         String pattern = "\uD83D\uDCA5";
 

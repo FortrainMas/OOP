@@ -18,9 +18,7 @@ public class ZFunction {
      * @return indices of find patterns
      */
     public static List<Long> findInFile(String fileName, String pattern) {
-        int BUFFER_SIZE = 10;
-
-        return findInFile(fileName, pattern, BUFFER_SIZE);
+        return findInFile(fileName, pattern, 10);
     }
 
     /**
