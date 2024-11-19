@@ -7,7 +7,10 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZFunction {
+/**
+ * Z function class.
+ */
+public class Zfunction {
 
     /**
      * Find pattern in file.
@@ -105,36 +108,37 @@ public class ZFunction {
     }
 
     /**
-     * Util function to create array of precalculated Z function.
+     * Util function to create array of precalculated z function.
      *
      * @param str string
-     * @param Z array of long Z to set values
+     * @param z array of long z to set values
      */
-    private static void getZarr(String str, int[] Z) {
+    private static void getZarr(String str, int[] z) {
 
         int n = str.length();
-        int L = 0, R = 0;
+        int l = 0;
+        int r = 0;
 
         for (int i = 1; i < n; ++i) {
-            if (i > R) {
-                L = R = i;
-                while (R < n && str.charAt(R - L) == str.charAt(R)) {
-                    R++;
+            if (i > r) {
+                l = r = i;
+                while (r < n && str.charAt(r - l) == str.charAt(r)) {
+                    r++;
                 }
-                Z[i] = R - L;
-                R--;
+                z[i] = r - l;
+                r--;
             } else {
-                int k = i - L;
+                int k = i - l;
 
-                if (Z[k] < R - i + 1) {
-                    Z[i] = Z[k];
+                if (z[k] < r - i + 1) {
+                    z[i] = z[k];
                 } else {
-                    L = i;
-                    while (R < n && str.charAt(R - L) == str.charAt(R)) {
-                        R++;
+                    l = i;
+                    while (r < n && str.charAt(r - l) == str.charAt(r)) {
+                        r++;
                     }
-                    Z[i] = R - L;
-                    R--;
+                    z[i] = r - l;
+                    r--;
                 }
             }
         }

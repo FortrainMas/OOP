@@ -16,7 +16,7 @@ class ZetFunctionTests {
         String str = "abracadabra";
         String pattern = "bra";
 
-        List<Integer> res = ZFunction.find(str, pattern);
+        List<Integer> res = Zfunction.find(str, pattern);
         List<Integer> res2 = new ArrayList<>();
         res2.add(1);
         res2.add(8);
@@ -32,7 +32,7 @@ class ZetFunctionTests {
         String str1 = "Inkább magyar, mint Java";
         String pattern = "agy";
 
-        List<Integer> res = ZFunction.find(str1, pattern);
+        List<Integer> res = Zfunction.find(str1, pattern);
 
         List<Integer> expected = new ArrayList<>();
         expected.add(8);
@@ -49,7 +49,7 @@ class ZetFunctionTests {
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
-        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
 
         List<Long> expected = new ArrayList<>();
         expected.add(0L);
@@ -66,7 +66,7 @@ class ZetFunctionTests {
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
-        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
 
         List<Long> expected = new ArrayList<>();
         expected.add(2L);
@@ -77,17 +77,19 @@ class ZetFunctionTests {
     @Test
     void testUsingEmojiResources() throws URISyntaxException {
         String fileName = "emoji.txt";
-        String pattern = "\uD83D\uDCA5";
+        String pattern = "\uD83D\uDC79";
 
         File resource = new File(
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
-        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
 
         List<Long> expected = new ArrayList<>();
-        expected.add(12L);
-        expected.add(14L);
+        expected.add(4L);
+        expected.add(6L);
+        expected.add(8L);
+        expected.add(10L);
 
         assertEquals(res, expected);
     }
@@ -101,7 +103,7 @@ class ZetFunctionTests {
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
-        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
 
         List<Long> expected = new ArrayList<>();
         expected.add(10L);
@@ -119,7 +121,7 @@ class ZetFunctionTests {
             }
         }
         //JavaJavaJavaJavaJavaJavaJavaJavaJavaJava
-        List<Long> res = ZFunction.findInFile(filePath, "ва");
+        List<Long> res = Zfunction.findInFile(filePath, "ва");
         assertEquals(1_000_000, res.size());
         new File(filePath).delete();
     }
