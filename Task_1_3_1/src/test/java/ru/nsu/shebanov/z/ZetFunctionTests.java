@@ -1,16 +1,16 @@
-package ru.nsu.shebanov.Z;
+package ru.nsu.shebanov.z;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import org.junit.jupiter.api.Test;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
-class ZFunctionTests {
+class ZetFunctionTests {
     @Test
     void basicTest() {
         String str = "abracadabra";

@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.Z;
+package ru.nsu.shebanov.z;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -89,14 +89,14 @@ public class ZFunction {
 
         int l = concat.length();
 
-        int[] Z = new int[l];
+        int[] z = new int[l];
 
-        getZarr(concat, Z);
+        getZarr(concat, z);
 
 
         ArrayList<Integer> ans = new ArrayList<>();
         for (int i = 0; i < l; ++i) {
-            if (Z[i] == pattern.length()) {
+            if (z[i] == pattern.length()) {
                 ans.add(i - pattern.length() - 1);
             }
         }
