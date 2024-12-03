@@ -20,16 +20,16 @@ public class GradeBook {
         });
     }
 
-    public int averageMark() {
-        int marksSum = this.subjects.stream()
+    public double averageMark() {
+        int marksNumber = this.subjects.stream()
                 .map(subject -> subject.marksExtract().get(0))
                 .reduce(0, Integer::sum);
 
-        int marksNumber = this.subjects.stream()
+        int marksSum = this.subjects.stream()
                 .map(subject -> subject.marksExtract().get(1))
                 .reduce(0, Integer::sum);
 
-        return marksSum / marksNumber;
+        return (double) marksSum / marksNumber;
     }
 
     public int determineLastSemester() {
@@ -65,10 +65,12 @@ public class GradeBook {
             return false;
         }
 
+        System.out.println("CHUDO");
         boolean noCForExams = this.subjects.stream()
                 .map(Subject::allTimeNoCForExams)
                 .reduce(true, (t, subject) -> t && subject);
 
+        System.out.println("A NE");
         if(!noCForExams) {
             return false;
         }
@@ -77,6 +79,7 @@ public class GradeBook {
                 .map(subject -> subject.finalMarkGoodAssumption() == 5 ? 1 : 0)
                 .reduce(0, Integer::sum);
 
+        System.out.println("PREDMET");
         return (double) totalDiplomaFivesMaximum / this.subjects.size() >= 0.75;
     }
 

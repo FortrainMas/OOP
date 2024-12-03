@@ -14,7 +14,7 @@ public class Subject {
         this.semesters = semesters;
 
         for (int i = 0; i < semestersNumbers.size(); i++) {
-            this.semesterNumbers.put(semestersNumbers.get(i), i + 1);
+            this.semesterNumbers.put(semestersNumbers.get(i), i);
         }
     }
 
@@ -103,12 +103,15 @@ public class Subject {
         else {
             int ls = this.semesterNumbers.get(lastSemester);
             Semester sem = semesters.get(ls);
-            if(sem.marks.containsKey("экзамен")) {
+            if(!sem.marks.get("экзамен").isEmpty()) {
                 return sem.marks.get("экзамен").get(0);
-            } else if(sem.marks.containsKey("зачёт")) {
+            } else if(!sem.marks.get("зачёт").isEmpty()) {
                 return sem.marks.get("зачёт").get(0);
             } else {
-                return sem.marks.get("дифференцированный зачёт").get(0);
+                if(!sem.marks.get("дифференцированный зачёт").isEmpty()){
+                    return sem.marks.get("дифференцированный зачёт").get(0);
+                }
+                return 5;
             }
         }
     }
