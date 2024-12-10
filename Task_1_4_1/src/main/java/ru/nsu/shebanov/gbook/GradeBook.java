@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Class for whole grade book.
+ */
 public class GradeBook {
     private List<Subject> subjects;
     private int finalWork = -1;

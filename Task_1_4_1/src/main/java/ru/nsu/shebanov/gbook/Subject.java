@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Class for subject.
+ */
 public class Subject {
     public String subjectName;
     public List<Semester> semesters;

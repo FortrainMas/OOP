@@ -1,8 +1,17 @@
 package ru.nsu.shebanov.gbook;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Class for semester entity.
+ */
 public class Semester {
     public Map<String, List<Integer>> marks = new HashMap<>();
     public Map<String, Integer> marksNumber = new HashMap<>();
