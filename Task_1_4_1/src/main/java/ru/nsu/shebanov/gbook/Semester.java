@@ -12,6 +12,11 @@ public class Semester {
                     "зачёт", "защита отчёта по практике"));
 
 
+    /**
+     * Initializes semester.
+     *
+     * @param formsOfControl set form of control in semester
+     */
     public Semester(Map<String, Integer> formsOfControl) {
         formsOfControl.keySet().forEach(x -> {
             if (allowedControlForms.contains(x)) {
@@ -24,6 +29,12 @@ public class Semester {
     }
 
 
+    /**
+     * Set mark in semester.
+     *
+     * @param formOfControl for which for or control
+     * @param mark which mark
+     */
     public void setMark(String formOfControl, int mark) {
         if (!marks.containsKey(formOfControl)) {
             throw new IllegalArgumentException(
@@ -36,13 +47,18 @@ public class Semester {
         marks.get(formOfControl).add(mark);
     }
 
+    /**
+     * No C for exams.
+     *
+     * @return is true or not
+     */
     public boolean noExamC() {
         AtomicBoolean res = new AtomicBoolean(true);
 
         marks.keySet().forEach(key -> {
             if (Objects.equals(key, "зачёт") ||
-                    Objects.equals(key, "дифференцированный зачёт") ||
-                    Objects.equals(key, "экзамен")) {
+                    Objects.equals(key, "дифференцированный зачёт")
+                    || Objects.equals(key, "экзамен")) {
                 marks.get(key).forEach(value -> {
                     if (value < 4) {
                         res.set(false);

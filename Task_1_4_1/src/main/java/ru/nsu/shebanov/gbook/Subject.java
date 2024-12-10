@@ -9,6 +9,13 @@ public class Subject {
     private final Map<Integer, Integer> semesterNumbers = new HashMap<>();
     public int lastSemester = -1;
 
+    /**
+     * Create subject based on its name, semesters, semester numbers
+     *
+     * @param subjectName subject name
+     * @param semesters semesters
+     * @param semestersNumbers number of semesters
+     */
     public Subject(String subjectName, List<Semester> semesters, List<Integer> semestersNumbers) {
         this.subjectName = subjectName;
         this.semesters = semesters;
@@ -18,6 +25,13 @@ public class Subject {
         }
     }
 
+    /**
+     * Set mark for subject.
+     *
+     * @param formOfControl form of control
+     * @param semester semester
+     * @param mark mark
+     */
     void setMark(String formOfControl, int semester, int mark) {
         if (!semesterNumbers.containsKey(semester)) {
             throw new IllegalArgumentException("No such semester for such subject");
@@ -27,6 +41,11 @@ public class Subject {
         lastSemester = semester;
     }
 
+    /**
+     * Extract marks and their number.
+     *
+     * @return array num of marks and their sum
+     */
     public List<Integer> marksExtract() {
         int setMarks = this.semesters.stream()
                 .map(semester ->
@@ -49,6 +68,11 @@ public class Subject {
         return Arrays.asList(setMarks, total);
     }
 
+    /**
+     * Check if there are only fives for last semester.
+     *
+     * @return true of false
+     */
     public boolean lastSemesterOnlyFives() {
         AtomicBoolean res = new AtomicBoolean(true);
 
@@ -64,6 +88,11 @@ public class Subject {
         return res.get();
     }
 
+    /**
+     * Last semester no C.
+     *
+     * @return true or false
+     */
     public boolean lastSemesterNoC() {
         AtomicBoolean res = new AtomicBoolean(true);
 
@@ -80,6 +109,11 @@ public class Subject {
         return res.get();
     }
 
+    /**
+     * No C for exams on subject.
+     *
+     * @return true or false
+     */
     public boolean allTimeNoCForExams() {
         AtomicBoolean res = new AtomicBoolean(true);
 

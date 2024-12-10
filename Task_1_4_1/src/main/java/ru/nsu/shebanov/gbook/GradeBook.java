@@ -9,10 +9,22 @@ public class GradeBook {
     private List<Subject> subjects;
     private int finalWork = -1;
 
+    /**
+     * Constructor based on subjects.
+     *
+     * @param subjects subjects in grade book
+     */
     public GradeBook(List<Subject> subjects) {
         this.subjects = subjects;
     }
 
+    /**
+     * Parses grade book and returns it.
+     *
+     * @param filePath path to the file with it
+     * @return new grade book
+     * @throws IOException fails if something wrong in reading
+     */
     public static GradeBook parseGradeBook(String filePath) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(filePath));
         List<Subject> subjects = new ArrayList<>();
@@ -55,6 +67,14 @@ public class GradeBook {
         return new GradeBook(subjects);
     }
 
+    /**
+     * Set mark in grade book.
+     *
+     * @param subjectName subject
+     * @param semester semester
+     * @param formOfControl form of control
+     * @param mark mark
+     */
     public void setMark(String subjectName, int semester, String formOfControl, int mark) {
         this.subjects.forEach(subject -> {
             if (Objects.equals(subject.subjectName, subjectName)) {
@@ -63,6 +83,11 @@ public class GradeBook {
         });
     }
 
+    /**
+     * Determine average mark for semester.
+     *
+     * @return average mark
+     */
     public double averageMark() {
         int marksNumber = this.subjects.stream()
                 .map(subject -> subject.marksExtract().get(0))
@@ -75,12 +100,22 @@ public class GradeBook {
         return (double) marksSum / marksNumber;
     }
 
+    /**
+     * Checks what semester was the last.
+     *
+     * @return number of semester
+     */
     public int determineLastSemester() {
         return this.subjects.stream()
                 .map(subject -> subject.lastSemester)
                 .reduce(-1, Math::max);
     }
 
+    /**
+     * Is person allowed to transfer on budget.
+     *
+     * @return is it true or false
+     */
     public boolean isAllowedToTransfer() {
         int lastSemester = determineLastSemester();
 
@@ -90,6 +125,11 @@ public class GradeBook {
                 .reduce(true, (t, subject) -> t && subject);
     }
 
+    /**
+     * Can high scholarship be acquired.
+     *
+     * @return is it true or false
+     */
     public boolean isHighScholarship() {
         int lastSemester = determineLastSemester();
 
@@ -99,10 +139,20 @@ public class GradeBook {
                 .reduce(true, (t, subject) -> t && subject);
     }
 
+    /**
+     * Set mark for final work.
+     *
+     * @param mark mark for it
+     */
     void setFinalWork(int mark) {
         this.finalWork = mark;
     }
 
+    /**
+     * Sets if diploma with honors can be acquired.
+     *
+     * @return is it true or false
+     */
     public boolean diplomaHonors() {
         if (this.finalWork != -1 && this.finalWork < 5) {
             return false;
