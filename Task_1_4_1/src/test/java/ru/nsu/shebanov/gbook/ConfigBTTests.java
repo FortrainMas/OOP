@@ -3,6 +3,7 @@ package ru.nsu.shebanov.gbook;
 import org.junit.jupiter.api.Test;
 
 import java.io.Console;
+import java.io.File;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,9 +14,11 @@ public class ConfigBTTests {
     void basicTest() {
         GradeBook gb;
         try {
-            gb = GradeBook.parseGradeBook("C://Users/Ivans/Desktop/testconf.txt");
+            File resource = new File(
+                    getClass().getClassLoader().getResource("program.txt").toURI());
+            gb = GradeBook.parseGradeBook(resource.getPath());
             System.out.println(gb);
-        } catch (IOException e) {
+        } catch (Exception e) {
             fail();
             return;
         }
