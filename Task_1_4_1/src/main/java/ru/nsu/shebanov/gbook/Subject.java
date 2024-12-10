@@ -1,7 +1,10 @@
 package ru.nsu.shebanov.gbook;
 
-import java.util.*;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Subject {
     public String subjectName;

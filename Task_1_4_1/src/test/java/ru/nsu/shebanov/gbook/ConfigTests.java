@@ -1,15 +1,13 @@
 package ru.nsu.shebanov.gbook;
 
-import org.junit.jupiter.api.Test;
-
-import java.io.Console;
-import java.io.File;
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class ConfigBTTests {
+import java.io.File;
+import org.junit.jupiter.api.Test;
+
+class ConfigTests {
     @Test
     void basicTest() {
         GradeBook gb;
