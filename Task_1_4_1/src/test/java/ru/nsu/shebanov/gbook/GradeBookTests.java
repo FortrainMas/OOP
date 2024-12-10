@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 
 
-public class GradeBookTests {
+class GradeBookTests {
 
     @Test
     void semesterTests() {
