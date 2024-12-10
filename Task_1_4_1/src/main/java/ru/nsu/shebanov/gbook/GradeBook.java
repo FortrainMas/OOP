@@ -1,8 +1,9 @@
 package ru.nsu.shebanov.gbook;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 public class GradeBook {
     private List<Subject> subjects;
@@ -10,6 +11,53 @@ public class GradeBook {
 
     public GradeBook(List<Subject> subjects) {
         this.subjects = subjects;
+    }
+
+    public static GradeBook parseGradeBook(String filePath) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        List<Subject> subjects = new ArrayList<>();
+
+        int subjectCount = Integer.parseInt(reader.readLine().trim()); // Number of subjects
+
+        for (int i = 0; i < subjectCount; i++) {
+            String[] subjectLine = reader.readLine().trim().split(" - ");
+            String subjectName = subjectLine[0];
+            int semesterCount = Integer.parseInt(subjectLine[1]);
+
+            List<Semester> semesters = new ArrayList<>();
+            List<Integer> semesterNumbers = new ArrayList<>();
+
+            for (int j = 0; j < semesterCount; j++) {
+                // Parse semester number
+                int semesterNumber = Integer.parseInt(reader.readLine().trim());
+                semesterNumbers.add(semesterNumber);
+
+                // Parse forms of control for the semester
+                Map<String, Integer> controlForms = new HashMap<>();
+                String line;
+                while ((line = reader.readLine()) != null && line.contains(" - ")) {
+                    String[] parts = line.split(" - ");
+                    String formOfControl = parts[0].trim();
+                    int count = Integer.parseInt(parts[1].trim());
+                    controlForms.put(formOfControl, count);
+                }
+
+                // Add parsed semester to the list
+                semesters.add(new Semester(controlForms));
+
+                // Line is not part of control forms; rewind the reader
+                if (line != null && !line.contains(" - ")) {
+                    reader.mark(1000); // Save position
+                    reader.reset(); // Go back to saved position
+                }
+            }
+
+            // Add parsed subject to the list
+            subjects.add(new Subject(subjectName, semesters, semesterNumbers));
+        }
+
+        reader.close();
+        return new GradeBook(subjects);
     }
 
     public void setMark(String subjectName, int semester, String formOfControl, int mark) {
