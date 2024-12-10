@@ -16,7 +16,7 @@ public class Subject {
     public int lastSemester = -1;
 
     /**
-     * Create subject based on its name, semesters, semester numbers
+     * Create subject based on its name, semesters, semester numbers.
      *
      * @param subjectName subject name
      * @param semesters semesters
@@ -120,7 +120,7 @@ public class Subject {
      *
      * @return true or false
      */
-    public boolean allTimeNoCForExams() {
+    public boolean allTimeNocForExams() {
         AtomicBoolean res = new AtomicBoolean(true);
 
         this.semesters.forEach(semester -> {
@@ -134,6 +134,11 @@ public class Subject {
     }
 
 
+    /**
+     * final mark with an assumption of all fives.
+     *
+     * @return final mark
+     */
     public int finalMarkGoodAssumption() {
         int semesterNumber = semesterNumbers.keySet().stream()
                 .reduce(0, Math::max);

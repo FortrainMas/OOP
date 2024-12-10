@@ -121,7 +121,7 @@ class GradeBookTests {
         List<Integer> expected = new ArrayList<>(Arrays.asList(16, 35));
         assertEquals(expected, sub.marksExtract());
         assertFalse(sub.lastSemesterNoC());
-        assertTrue(sub.allTimeNoCForExams());
+        assertTrue(sub.allTimeNocForExams());
 
     }
 

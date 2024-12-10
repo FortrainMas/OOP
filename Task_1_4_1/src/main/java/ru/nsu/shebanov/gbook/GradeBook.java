@@ -166,12 +166,12 @@ public class GradeBook {
         }
 
         System.out.println("CHUDO");
-        boolean noCForExams = this.subjects.stream()
-                .map(Subject::allTimeNoCForExams)
+        boolean nocForExams = this.subjects.stream()
+                .map(Subject::allTimeNocForExams)
                 .reduce(true, (t, subject) -> t && subject);
 
         System.out.println("A NE");
-        if (!noCForExams) {
+        if (!nocForExams) {
             return false;
         }
 

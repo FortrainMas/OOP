@@ -18,14 +18,14 @@ class BookTests {
         controlForms.put("контрольная", 3);
         controlForms.put("коллоквиум", 2);
         Semester sem1;
-        sem1= new Semester(controlForms);
+        sem1 = new Semester(controlForms);
 
         controlForms = new HashMap<>();
         controlForms.put("задание", 5);
         controlForms.put("контрольная", 3);
         controlForms.put("коллоквиум", 2);
         Semester sem2;
-        sem2= new Semester(controlForms);
+        sem2 = new Semester(controlForms);
 
         controlForms = new HashMap<>();
         controlForms.put("задание", 5);
@@ -35,7 +35,7 @@ class BookTests {
         controlForms.put("зачёт", 1);
         controlForms.put("дифференцированный зачёт", 1);
         Semester sem3;
-        sem3= new Semester(controlForms);
+        sem3 = new Semester(controlForms);
 
 
         Subject sub = new Subject("Кораблестроение",
