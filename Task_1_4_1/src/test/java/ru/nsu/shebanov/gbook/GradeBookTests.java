@@ -1,16 +1,15 @@
 package ru.nsu.shebanov.gbook;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.junit.jupiter.api.Test;
 
 
@@ -65,7 +64,7 @@ public class GradeBookTests {
             Semester sem = new Semester(controlForms);
             fail();
         } catch (IllegalArgumentException ignored) {
-
+            System.out.println("Success");
         }
     }
 
@@ -76,13 +75,15 @@ public class GradeBookTests {
         controlForms.put("задание", 5);
         controlForms.put("контрольная", 3);
         controlForms.put("коллоквиум", 2);
-        Semester sem1 = new Semester(controlForms);
+        Semester sem1;
+        sem1 = new Semester(controlForms);
 
         controlForms = new HashMap<>();
         controlForms.put("задание", 5);
         controlForms.put("контрольная", 3);
         controlForms.put("коллоквиум", 2);
-        Semester sem2 = new Semester(controlForms);
+        Semester sem2;
+        sem2 = new Semester(controlForms);
 
         controlForms = new HashMap<>();
         controlForms.put("задание", 5);
@@ -91,10 +92,12 @@ public class GradeBookTests {
         controlForms.put("экзамен", 1);
         controlForms.put("зачёт", 1);
         controlForms.put("дифференцированный зачёт", 1);
-        Semester sem3 = new Semester(controlForms);
+        Semester sem3;
+        sem3 = new Semester(controlForms);
 
 
-        Subject sub = new Subject("Кораблестроение", Arrays.asList(sem1, sem2, sem3), Arrays.asList(3, 4, 5));
+        Subject sub = new Subject("Кораблестроение",
+                Arrays.asList(sem1, sem2, sem3), Arrays.asList(3, 4, 5));
         sub.setMark("контрольная", 3, 2);
         sub.setMark("контрольная", 3, 2);
         sub.setMark("коллоквиум", 3, 2);
@@ -128,13 +131,15 @@ public class GradeBookTests {
         controlForms.put("задание", 5);
         controlForms.put("контрольная", 3);
         controlForms.put("коллоквиум", 2);
-        Semester sem1 = new Semester(controlForms);
+        Semester sem1;
+        sem1 = new Semester(controlForms);
 
         controlForms = new HashMap<>();
         controlForms.put("задание", 5);
         controlForms.put("контрольная", 3);
         controlForms.put("коллоквиум", 2);
-        Semester sem2 = new Semester(controlForms);
+        Semester sem2;
+        sem2 = new Semester(controlForms);
 
         controlForms = new HashMap<>();
         controlForms.put("задание", 5);
@@ -143,10 +148,12 @@ public class GradeBookTests {
         controlForms.put("экзамен", 1);
         controlForms.put("зачёт", 1);
         controlForms.put("дифференцированный зачёт", 1);
-        Semester sem3 = new Semester(controlForms);
+        Semester sem3;
+        sem3 = new Semester(controlForms);
 
 
-        Subject sub = new Subject("Кораблестроение", Arrays.asList(sem1, sem2, sem3), Arrays.asList(3, 4, 5));
+        Subject sub = new Subject("Кораблестроение",
+                Arrays.asList(sem1, sem2, sem3), Arrays.asList(3, 4, 5));
         sub.setMark("контрольная", 3, 2);
         sub.setMark("контрольная", 3, 2);
         sub.setMark("коллоквиум", 3, 2);
