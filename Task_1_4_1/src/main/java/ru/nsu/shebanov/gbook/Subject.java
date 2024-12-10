@@ -1,10 +1,10 @@
 package ru.nsu.shebanov.gbook;
 
 import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Class for subject.
@@ -65,8 +65,8 @@ public class Subject {
                 .map(semester ->
                         semester.marks.keySet().stream()
                                 .map(key ->
-                                        semester.marks.get(key).stream().
-                                                reduce(0, Integer::sum))
+                                        semester.marks.get(key).stream()
+                                                .reduce(0, Integer::sum))
                                 .reduce(0, Integer::sum)
                 )
                 .reduce(0, Integer::sum);

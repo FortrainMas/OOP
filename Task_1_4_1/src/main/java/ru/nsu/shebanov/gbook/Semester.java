@@ -1,7 +1,7 @@
 package ru.nsu.shebanov.gbook;
 
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -65,8 +65,8 @@ public class Semester {
         AtomicBoolean res = new AtomicBoolean(true);
 
         marks.keySet().forEach(key -> {
-            if (Objects.equals(key, "зачёт") ||
-                    Objects.equals(key, "дифференцированный зачёт")
+            if (Objects.equals(key, "зачёт")
+                    || Objects.equals(key, "дифференцированный зачёт")
                     || Objects.equals(key, "экзамен")) {
                 marks.get(key).forEach(value -> {
                     if (value < 4) {
