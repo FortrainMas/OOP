@@ -153,7 +153,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.List)">GradeBook</a></span>&#8203;(java.util.List&lt;<a href="Subject.html" title="class in ru.nsu.shebanov.gbook">Subject</a>&gt;&nbsp;subjects)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructor based on subjects.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -176,32 +178,44 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#averageMark()">averageMark</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Determine average mark for semester.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#determineLastSemester()">determineLastSemester</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Checks what semester was the last.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#diplomaHonors()">diplomaHonors</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Sets if diploma with honors can be acquired.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isAllowedToTransfer()">isAllowedToTransfer</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Is person allowed to transfer on budget.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isHighScholarship()">isHighScholarship</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Can high scholarship be acquired.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>static <a href="GradeBook.html" title="class in ru.nsu.shebanov.gbook">GradeBook</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parseGradeBook(java.lang.String)">parseGradeBook</a></span>&#8203;(java.lang.String&nbsp;filePath)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Parses grade book and returns it.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -209,7 +223,9 @@ extends java.lang.Object</pre>
        int&nbsp;semester,
        java.lang.String&nbsp;formOfControl,
        int&nbsp;mark)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Set mark in grade book.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -242,6 +258,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>GradeBook</h4>
 <pre>public&nbsp;GradeBook&#8203;(java.util.List&lt;<a href="Subject.html" title="class in ru.nsu.shebanov.gbook">Subject</a>&gt;&nbsp;subjects)</pre>
+<div class="block">Constructor based on subjects.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>subjects</code> - subjects in grade book</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -262,9 +283,14 @@ extends java.lang.Object</pre>
 <h4>parseGradeBook</h4>
 <pre class="methodSignature">public static&nbsp;<a href="GradeBook.html" title="class in ru.nsu.shebanov.gbook">GradeBook</a>&nbsp;parseGradeBook&#8203;(java.lang.String&nbsp;filePath)
                                 throws java.io.IOException</pre>
+<div class="block">Parses grade book and returns it.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>filePath</code> - path to the file with it</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>new grade book</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - fails if something wrong in reading</dd>
 </dl>
 </li>
 </ul>
@@ -278,6 +304,14 @@ extends java.lang.Object</pre>
                     int&nbsp;semester,
                     java.lang.String&nbsp;formOfControl,
                     int&nbsp;mark)</pre>
+<div class="block">Set mark in grade book.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>subjectName</code> - subject</dd>
+<dd><code>semester</code> - semester</dd>
+<dd><code>formOfControl</code> - form of control</dd>
+<dd><code>mark</code> - mark</dd>
+</dl>
 </li>
 </ul>
 <a id="averageMark()">
@@ -287,6 +321,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>averageMark</h4>
 <pre class="methodSignature">public&nbsp;double&nbsp;averageMark()</pre>
+<div class="block">Determine average mark for semester.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>average mark</dd>
+</dl>
 </li>
 </ul>
 <a id="determineLastSemester()">
@@ -296,6 +335,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>determineLastSemester</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;determineLastSemester()</pre>
+<div class="block">Checks what semester was the last.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of semester</dd>
+</dl>
 </li>
 </ul>
 <a id="isAllowedToTransfer()">
@@ -305,6 +349,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isAllowedToTransfer</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isAllowedToTransfer()</pre>
+<div class="block">Is person allowed to transfer on budget.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>is it true or false</dd>
+</dl>
 </li>
 </ul>
 <a id="isHighScholarship()">
@@ -314,6 +363,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isHighScholarship</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isHighScholarship()</pre>
+<div class="block">Can high scholarship be acquired.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>is it true or false</dd>
+</dl>
 </li>
 </ul>
 <a id="diplomaHonors()">
@@ -323,6 +377,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>diplomaHonors</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;diplomaHonors()</pre>
+<div class="block">Sets if diploma with honors can be acquired.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>is it true or false</dd>
+</dl>
 </li>
 </ul>
 </li>
