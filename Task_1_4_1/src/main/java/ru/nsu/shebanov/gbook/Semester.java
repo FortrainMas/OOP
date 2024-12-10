@@ -33,7 +33,7 @@ public class Semester {
                 marks.put(x, new ArrayList<>());
                 marksNumber.put(x, formsOfControl.get(x));
             } else {
-                throw new IllegalArgumentException("Unsupported form of control");
+                throw new IllegalArgumentException("Unsupported form of control: " + x);
             }
         });
     }

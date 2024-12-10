@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 import org.junit.jupiter.api.Test;
 
 class ConfigTests {
@@ -16,11 +19,10 @@ class ConfigTests {
                     getClass().getClassLoader().getResource("program.txt").toURI());
             gb = GradeBook.parseGradeBook(resource.getPath());
             System.out.println(gb);
-        } catch (Exception e) {
+        } catch (IOException | URISyntaxException e) {
             fail();
             return;
         }
-
 
         gb.setMark("Кораблестроение", 3, "контрольная", 2);
         gb.setMark("Кораблестроение", 3, "контрольная", 2);
