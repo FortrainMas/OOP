@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BookTests {
     @Test
-    void basicBookTest () {
+    void basicBookTest() {
         Map<String, Integer> controlForms = new HashMap<>();
         controlForms.put("задание", 5);
         controlForms.put("контрольная", 3);
@@ -32,7 +32,7 @@ public class BookTests {
         Semester sem3 = new Semester(controlForms);
 
 
-        Subject sub = new Subject("Кораблестроение", Arrays.asList(sem1, sem2, sem3), Arrays.asList(3,4,5));
+        Subject sub = new Subject("Кораблестроение", Arrays.asList(sem1, sem2, sem3), Arrays.asList(3, 4, 5));
         List<Subject> ls = new ArrayList<>();
         ls.add(sub);
         GradeBook gb = new GradeBook(ls);
@@ -59,7 +59,7 @@ public class BookTests {
 
         int results = gb.determineLastSemester();
         int expected = 5;
-        
+
         assertEquals(results, expected);
 
         boolean canTransfer = gb.isAllowedToTransfer();

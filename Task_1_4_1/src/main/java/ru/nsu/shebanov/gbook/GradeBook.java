@@ -17,7 +17,7 @@ public class GradeBook {
         BufferedReader reader = new BufferedReader(new FileReader(filePath));
         List<Subject> subjects = new ArrayList<>();
 
-        int subjectCount = Integer.parseInt(reader.readLine().trim()); // Number of subjects
+        int subjectCount = Integer.parseInt(reader.readLine().trim());
 
         for (int i = 0; i < subjectCount; i++) {
             String[] subjectLine = reader.readLine().trim().split(" - ");
@@ -28,31 +28,26 @@ public class GradeBook {
             List<Integer> semesterNumbers = new ArrayList<>();
 
             for (int j = 0; j < semesterCount; j++) {
-                // Parse semester number
-                int semesterNumber = Integer.parseInt(reader.readLine().trim());
+                String[] nums = reader.readLine().trim().split(" ");
+                int semesterNumber = Integer.parseInt(nums[0]);
+                int forms = Integer.parseInt(nums[1]);
                 semesterNumbers.add(semesterNumber);
 
-                // Parse forms of control for the semester
                 Map<String, Integer> controlForms = new HashMap<>();
                 String line;
-                while ((line = reader.readLine()) != null && line.contains(" - ")) {
+                while (forms != 0) {
+                    forms -= 1;
+                    line = reader.readLine();
                     String[] parts = line.split(" - ");
                     String formOfControl = parts[0].trim();
                     int count = Integer.parseInt(parts[1].trim());
                     controlForms.put(formOfControl, count);
                 }
 
-                // Add parsed semester to the list
                 semesters.add(new Semester(controlForms));
 
-                // Line is not part of control forms; rewind the reader
-                if (line != null && !line.contains(" - ")) {
-                    reader.mark(1000); // Save position
-                    reader.reset(); // Go back to saved position
-                }
             }
 
-            // Add parsed subject to the list
             subjects.add(new Subject(subjectName, semesters, semesterNumbers));
         }
 
@@ -61,8 +56,8 @@ public class GradeBook {
     }
 
     public void setMark(String subjectName, int semester, String formOfControl, int mark) {
-        this.subjects.forEach(subject->{
-            if(Objects.equals(subject.subjectName, subjectName)) {
+        this.subjects.forEach(subject -> {
+            if (Objects.equals(subject.subjectName, subjectName)) {
                 subject.setMark(formOfControl, semester, mark);
             }
         });
@@ -104,12 +99,12 @@ public class GradeBook {
                 .reduce(true, (t, subject) -> t && subject);
     }
 
-    void setFinalWork(int mark){
+    void setFinalWork(int mark) {
         this.finalWork = mark;
     }
 
     public boolean diplomaHonors() {
-        if(this.finalWork != -1 && this.finalWork < 5) {
+        if (this.finalWork != -1 && this.finalWork < 5) {
             return false;
         }
 
@@ -119,7 +114,7 @@ public class GradeBook {
                 .reduce(true, (t, subject) -> t && subject);
 
         System.out.println("A NE");
-        if(!noCForExams) {
+        if (!noCForExams) {
             return false;
         }
 

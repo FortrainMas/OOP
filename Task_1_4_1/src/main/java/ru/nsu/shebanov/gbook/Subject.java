@@ -56,10 +56,10 @@ public class Subject {
 
         this.semesters.get(ls).marks.keySet().forEach(key ->
                 this.semesters.get(ls).marks.get(key).forEach(value -> {
-            if (value < 5) {
-                res.set(false);
-            }
-        }));
+                    if (value < 5) {
+                        res.set(false);
+                    }
+                }));
 
         return res.get();
     }
@@ -97,18 +97,17 @@ public class Subject {
     public int finalMarkGoodAssumption() {
         int semesterNumber = semesterNumbers.keySet().stream()
                 .reduce(0, Math::max);
-        if(lastSemester != semesterNumber) {
+        if (lastSemester != semesterNumber) {
             return 5;
-        }
-        else {
+        } else {
             int ls = this.semesterNumbers.get(lastSemester);
             Semester sem = semesters.get(ls);
-            if(!sem.marks.get("экзамен").isEmpty()) {
+            if (!sem.marks.get("экзамен").isEmpty()) {
                 return sem.marks.get("экзамен").get(0);
-            } else if(!sem.marks.get("зачёт").isEmpty()) {
+            } else if (!sem.marks.get("зачёт").isEmpty()) {
                 return sem.marks.get("зачёт").get(0);
             } else {
-                if(!sem.marks.get("дифференцированный зачёт").isEmpty()){
+                if (!sem.marks.get("дифференцированный зачёт").isEmpty()) {
                     return sem.marks.get("дифференцированный зачёт").get(0);
                 }
                 return 5;
