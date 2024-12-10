@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Subject</span>
 extends java.lang.Object</pre>
+<div class="block">Class for subject.</div>
 </li>
 </ul>
 </div>
@@ -189,7 +190,7 @@ extends java.lang.Object</pre>
        java.util.List&lt;<a href="Semester.html" title="class in ru.nsu.shebanov.gbook">Semester</a>&gt;&nbsp;semesters,
        java.util.List&lt;java.lang.Integer&gt;&nbsp;semestersNumbers)</code></th>
 <td class="colLast">
-<div class="block">Create subject based on its name, semesters, semester numbers</div>
+<div class="block">Create subject based on its name, semesters, semester numbers.</div>
 </td>
 </tr>
 </table>
@@ -212,7 +213,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#allTimeNoCForExams()">allTimeNoCForExams</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#allTimeNocForExams()">allTimeNocForExams</a></span>()</code></th>
 <td class="colLast">
 <div class="block">No C for exams on subject.</div>
 </td>
@@ -220,7 +221,9 @@ extends java.lang.Object</pre>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#finalMarkGoodAssumption()">finalMarkGoodAssumption</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">final mark with an assumption of all fives.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -313,7 +316,7 @@ extends java.lang.Object</pre>
 <pre>public&nbsp;Subject&#8203;(java.lang.String&nbsp;subjectName,
                java.util.List&lt;<a href="Semester.html" title="class in ru.nsu.shebanov.gbook">Semester</a>&gt;&nbsp;semesters,
                java.util.List&lt;java.lang.Integer&gt;&nbsp;semestersNumbers)</pre>
-<div class="block">Create subject based on its name, semesters, semester numbers</div>
+<div class="block">Create subject based on its name, semesters, semester numbers.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>subjectName</code> - subject name</dd>
@@ -374,13 +377,13 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="allTimeNoCForExams()">
+<a id="allTimeNocForExams()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>allTimeNoCForExams</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;allTimeNoCForExams()</pre>
+<h4>allTimeNocForExams</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;allTimeNocForExams()</pre>
 <div class="block">No C for exams on subject.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -395,6 +398,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>finalMarkGoodAssumption</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;finalMarkGoodAssumption()</pre>
+<div class="block">final mark with an assumption of all fives.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>final mark</dd>
+</dl>
 </li>
 </ul>
 </li>
