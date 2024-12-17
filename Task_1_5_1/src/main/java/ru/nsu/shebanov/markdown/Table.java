@@ -25,11 +25,13 @@ public class Table {
 
         /**
          * Produce table element in-place.
+         *
          * @param width width of each column
          * @param items items as rows.
          * @param alignments alignments of columns
          */
-        public TableElement(List<Integer> width, List<List<String>> items, List<Integer> alignments) {
+        public TableElement(List<Integer> width,
+                            List<List<String>> items, List<Integer> alignments) {
             this.items = items;
             this.width = width;
             this.alignments = alignments;
@@ -101,8 +103,12 @@ public class Table {
          */
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof TableElement)) return false;
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof TableElement)) {
+                return false;
+            }
             TableElement that = (TableElement) o;
             return Objects.equals(items, that.items)
                     && Objects.equals(width, that.width)

@@ -25,6 +25,7 @@ public class ListMD {
 
         /**
          * Equality test.
+         * 
          * @param o object to compare with
          * @return idk
          */

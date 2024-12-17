@@ -21,8 +21,9 @@ public class Quote extends Element {
 
         StringBuilder sb = new StringBuilder();
 
-        for (var sElement : stringElements) {
-            List<String> lines = new ArrayList<>(Arrays.asList(sElement.split("\n")));
+        for (var stringElement : stringElements) {
+            List<String> lines = new ArrayList<>(
+                    Arrays.asList(stringElement.split("\n")));
             for (var line : lines) {
                 sb.append(">");
                 sb.append(line);

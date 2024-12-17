@@ -49,7 +49,7 @@ public class Image extends Element {
     }
 
     /**
-     * Markdown text
+     * Markdown text.
      *
      * @return ![alt](src)
      */
