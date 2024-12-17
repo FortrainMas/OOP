@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class ImageTests {
     @Test
-    void imageTest () {
+    void imageTest() {
         String imageLink = "https://clck.ru/3FEhRP";
         String altText = "important image";
 

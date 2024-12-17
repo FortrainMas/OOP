@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class HeaderTests {
     @Test
-    void manyHeadersTest(){
+    void manyHeadersTest() {
         Header h1 = new Header(1, "Неуклюжий");
         Header h2 = new Header(2, "Буда");
         Header h3 = new Header(3, "На микро");
@@ -32,7 +32,7 @@ class HeaderTests {
         try {
             new Header(8, "pupupu");
             fail();
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
         }
     }
 }

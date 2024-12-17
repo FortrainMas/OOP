@@ -12,12 +12,12 @@ class TableTests {
                 .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
                 .withRowLimit(8)
                 .addRow("Index", "Random");
-        for (int i = 1; i <= 5; i ++) {
+        for (int i = 1; i <= 5; i++) {
             if (i > 2) {
                 tableBuilder.addRow(i, new
-                        Text.Bold(String.valueOf(i*3)));
+                        Text.Bold(String.valueOf(i * 3)));
             } else {
-                tableBuilder.addRow(i, i*3);
+                tableBuilder.addRow(i, i * 3);
             }
         }
 
@@ -48,7 +48,7 @@ class TableTests {
                 .ordered()
                 .build();
 
-        for (int i = 1; i <= 5; i ++) {
+        for (int i = 1; i <= 5; i++) {
             tableBuilder.addRow(le, String.valueOf(i));
         }
 
@@ -72,9 +72,10 @@ class TableTests {
                 .withRowLimit(1)
                 .addRow("Index", "Random", "Empty for vibe");
 
-        try{
+        try {
             tableBuilder.addRow("Text");
             fail();
-        } catch(IllegalArgumentException e){}
+        } catch (IllegalArgumentException e) {
+        }
     }
 }

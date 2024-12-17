@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class QuoteTests {
     @Test
-    void simpleQuote () {
+    void simpleQuote() {
         String strContent = "Хорошо мне, садись - четыре";
         Quote q = new Quote(strContent);
 
@@ -19,7 +19,7 @@ class QuoteTests {
     }
 
     @Test
-    void multilineQuote () {
+    void multilineQuote() {
         String strContent = "Мне долгое время было очень плохо в Вене.\n" +
                 "Несколько месяцев я не ел горячей пищи. Питался молоком и чёрствым хлебом.\n" +
                 "Но зато тратил 13 крейцеров в день на сигареты. Выкуривал от 25 до 40 сигарет в день";
@@ -34,7 +34,7 @@ class QuoteTests {
     }
 
     @Test
-    void complexQuote () {
+    void complexQuote() {
         Quote q1 = new Quote("Blunt in my right hand");
         Quote q2 = new Quote("Cup in my left");
         Quote q2inner = new Quote(q2);

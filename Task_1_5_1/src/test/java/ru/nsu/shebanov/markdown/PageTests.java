@@ -12,12 +12,12 @@ public class PageTests {
                 .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
                 .withRowLimit(8)
                 .addRow("Index", "Random");
-        for (int i = 1; i <= 5; i ++) {
+        for (int i = 1; i <= 5; i++) {
             if (i > 2) {
                 tableBuilder.addRow(i, new
-                        Text.Bold(String.valueOf(i*3)));
+                        Text.Bold(String.valueOf(i * 3)));
             } else {
-                tableBuilder.addRow(i, i*3);
+                tableBuilder.addRow(i, i * 3);
             }
         }
 

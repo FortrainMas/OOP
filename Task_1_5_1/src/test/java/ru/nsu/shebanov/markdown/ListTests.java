@@ -33,7 +33,7 @@ class ListTests {
 
 
     @Test
-    void orderedList () {
+    void orderedList() {
         ListMD.ListBuilder lb = new ListMD.ListBuilder()
                 .ordered()
                 .add(new Text.Plain("крутые поинты"))
@@ -48,7 +48,7 @@ class ListTests {
     }
 
     @Test
-    void unorderedList () {
+    void unorderedList() {
         ListMD.ListBuilder lb = new ListMD.ListBuilder()
                 .unordered()
                 .add(new Text.Plain("крутые поинты"))
