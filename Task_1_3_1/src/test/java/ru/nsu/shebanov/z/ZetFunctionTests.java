@@ -63,7 +63,7 @@ class ZetFunctionTests {
         String filePath = "testFile.txt";
         try (FileWriter writer = new FileWriter(filePath)) {
             for (int i = 0; i < 1000000; i++) {
-                writer.write("АЧЁОН".repeat(3000000) + "?");
+                writer.write("АЧЁОН".repeat(300) + "?");
             }
         }
         List<Long> res = Zfunction.findInFile(filePath, "?");
