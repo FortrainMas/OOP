@@ -23,9 +23,9 @@ class ListTests {
                 .add(new Text.Plain("крутые поинты"))
                 .add(new Text.Plain("крутые поинты"));
 
-        String expected = "-   крутые поинты\n" +
-                "-   крутые поинты\n" +
-                "-   крутые поинты";
+        String expected = "-   крутые поинты\n"
+                + "-   крутые поинты\n"
+                + "-   крутые поинты";
         String actual = lb.build().toString();
         System.out.println(actual);
         assertEquals(expected, actual);
