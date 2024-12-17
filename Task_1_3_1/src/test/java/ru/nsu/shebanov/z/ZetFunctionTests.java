@@ -2,7 +2,6 @@ package ru.nsu.shebanov.z;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -63,12 +62,12 @@ class ZetFunctionTests {
     void testUsingBigFile() throws IOException {
         String filePath = "testFile.txt";
         try (FileWriter writer = new FileWriter(filePath)) {
-            for (int i = 0; i < 100; i++) {
-                writer.write("АЧЁОН".repeat(300) + "?");
+            for (int i = 0; i < 1000000; i++) {
+                writer.write("АЧЁОН".repeat(3000000) + "?");
             }
         }
         List<Long> res = Zfunction.findInFile(filePath, "?");
-        assertEquals(res.size(), 100);
-        new File(filePath).delete();
+        assertEquals(res.size(), 1000000);
+        (new File(filePath)).delete();
     }
 }
