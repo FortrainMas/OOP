@@ -1,9 +1,7 @@
 package ru.nsu.shebanov.z;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -11,10 +9,11 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Test;
 
-class ZFunctionTests {
+class ZetFunctionTests {
     @Test
-    void basicTest(){
+    void basicTest() {
         String str = "abracadabra";
         String pattern = "bra";
 
@@ -30,7 +29,7 @@ class ZFunctionTests {
 
 
     @Test
-    void hungarianTest(){
+    void hungarianTest() {
         String str1 = "Inkább magyar, mint Java";
         String pattern = "agy";
 
