@@ -76,6 +76,7 @@ class TableTests {
             tableBuilder.addRow("Text");
             fail();
         } catch (IllegalArgumentException e) {
+            System.out.println("SLAVA BOGU");
         }
     }
 }

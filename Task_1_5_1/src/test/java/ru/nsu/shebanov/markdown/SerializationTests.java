@@ -50,31 +50,31 @@ class SerializationTests {
     }
 
     @Test
-    void TextTest() {
+    void textTest() {
         Text.Italic serialized = new Text.Italic("text");
         checkSerialization(serialized, "text.txt");
     }
 
     @Test
-    void CodeBlockTest() {
+    void codeBlockTest() {
         CodeBlock serialized = new CodeBlock("CodeBlockTest();");
         checkSerialization(serialized, "text.txt");
     }
 
     @Test
-    void ImageTest() {
+    void imageTest() {
         Image serialized = new Image("https://clck.ru/3FEhRP", "important image");
         checkSerialization(serialized, "text.txt");
     }
 
     @Test
-    void QuoteTest() {
+    void quoteTest() {
         Quote serialized = new Quote("Deutschland ueber ...");
         checkSerialization(serialized, "text.txt");
     }
 
     @Test
-    void ListTests() {
+    void listTests() {
         ListMD.ListElement le = new ListMD.ListBuilder()
                 .add("first")
                 .add("second")
@@ -91,7 +91,7 @@ class SerializationTests {
     }
 
     @Test
-    void TaskTests() {
+    void taskTests() {
         ListMD.ListElement le = new ListMD.ListBuilder()
                 .add("first")
                 .add("second")
@@ -109,7 +109,7 @@ class SerializationTests {
     }
 
     @Test
-    void TableTests() {
+    void tableTests() {
         Table.TableBuilder tableBuilder = new Table.TableBuilder()
                 .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
                 .withRowLimit(8)
@@ -129,7 +129,7 @@ class SerializationTests {
     }
 
     @Test
-    void PageTests() {
+    void pageTests() {
         Table.TableBuilder tableBuilder = new Table.TableBuilder()
                 .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
                 .withRowLimit(8)
