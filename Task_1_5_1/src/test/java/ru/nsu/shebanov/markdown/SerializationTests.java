@@ -75,14 +75,14 @@ class SerializationTests {
 
     @Test
     void listTests() {
-        ListMD.ListElement le = new ListMD.ListBuilder()
+        ListMarkdown.ListElement le = new ListMarkdown.ListBuilder()
                 .add("first")
                 .add("second")
                 .add("third")
                 .ordered()
                 .build();
 
-        ListMD.ListElement serialized = new ListMD.ListBuilder()
+        ListMarkdown.ListElement serialized = new ListMarkdown.ListBuilder()
                 .add(le)
                 .add("enough")
                 .build();
@@ -92,7 +92,7 @@ class SerializationTests {
 
     @Test
     void taskTests() {
-        ListMD.ListElement le = new ListMD.ListBuilder()
+        ListMarkdown.ListElement le = new ListMarkdown.ListBuilder()
                 .add("first")
                 .add("second")
                 .add("third")
@@ -143,7 +143,7 @@ class SerializationTests {
             }
         }
 
-        ListMD.ListElement le = new ListMD.ListBuilder()
+        ListMarkdown.ListElement le = new ListMarkdown.ListBuilder()
                 .add("first")
                 .add("second")
                 .add("third")

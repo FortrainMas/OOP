@@ -8,7 +8,7 @@ class ListTests {
 
     @Test
     void emptyList() {
-        ListMD.ListBuilder lb = new ListMD.ListBuilder();
+        ListMarkdown.ListBuilder lb = new ListMarkdown.ListBuilder();
 
         String expected = "";
         String actual = lb.build().toString();
@@ -18,7 +18,7 @@ class ListTests {
 
     @Test
     void simpleList() {
-        ListMD.ListBuilder lb = new ListMD.ListBuilder()
+        ListMarkdown.ListBuilder lb = new ListMarkdown.ListBuilder()
                 .add(new Text.Plain("крутые поинты"))
                 .add(new Text.Plain("крутые поинты"))
                 .add(new Text.Plain("крутые поинты"));
@@ -34,7 +34,7 @@ class ListTests {
 
     @Test
     void orderedList() {
-        ListMD.ListBuilder lb = new ListMD.ListBuilder()
+        ListMarkdown.ListBuilder lb = new ListMarkdown.ListBuilder()
                 .ordered()
                 .add(new Text.Plain("крутые поинты"))
                 .add(new Text.Plain("крутые поинты"))
@@ -49,7 +49,7 @@ class ListTests {
 
     @Test
     void unorderedList() {
-        ListMD.ListBuilder lb = new ListMD.ListBuilder()
+        ListMarkdown.ListBuilder lb = new ListMarkdown.ListBuilder()
                 .unordered()
                 .add(new Text.Plain("крутые поинты"))
                 .add(new Text.Plain("крутые поинты"))
@@ -64,14 +64,14 @@ class ListTests {
 
     @Test
     void complexText() {
-        ListMD.ListElement le = new ListMD.ListBuilder()
+        ListMarkdown.ListElement le = new ListMarkdown.ListBuilder()
                 .add("first")
                 .add("second")
                 .add("third")
                 .ordered()
                 .build();
 
-        ListMD.ListElement fin = new ListMD.ListBuilder()
+        ListMarkdown.ListElement fin = new ListMarkdown.ListBuilder()
                 .add("first")
                 .add("second")
                 .add(le)

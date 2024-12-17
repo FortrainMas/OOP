@@ -40,7 +40,7 @@ class TableTests {
                 .withRowLimit(8)
                 .addRow("Index", "Random", "Empty for vibe");
 
-        ListMD.ListElement le = new ListMD.ListBuilder()
+        ListMarkdown.ListElement le = new ListMarkdown.ListBuilder()
                 .add("first")
                 .add("second")
                 .add("third")

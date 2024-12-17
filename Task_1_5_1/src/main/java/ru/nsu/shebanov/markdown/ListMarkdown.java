@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * Class for handling markdown list builder.
  */
-public class ListMD {
+public class ListMarkdown {
     /**
      * Markdown list element.
      */
@@ -25,7 +25,7 @@ public class ListMD {
 
         /**
          * Equality test.
-         * 
+         *
          * @param o object to compare with
          * @return idk
          */

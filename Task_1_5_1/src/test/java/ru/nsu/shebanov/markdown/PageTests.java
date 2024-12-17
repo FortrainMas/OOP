@@ -21,7 +21,7 @@ class PageTests {
             }
         }
 
-        ListMD.ListElement le = new ListMD.ListBuilder()
+        ListMarkdown.ListElement le = new ListMarkdown.ListBuilder()
                 .add("first")
                 .add("second")
                 .add("third")
@@ -33,7 +33,7 @@ class PageTests {
         pb.add(tableBuilder.build());
         pb.add(le);
 
-        ListMD.ListElement serialized = new ListMD.ListBuilder()
+        ListMarkdown.ListElement serialized = new ListMarkdown.ListBuilder()
                 .add(le)
                 .add("enough")
                 .build();
