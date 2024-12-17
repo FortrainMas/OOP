@@ -24,6 +24,8 @@ public class Table {
             this.alignments = alignments;
         }
 
+
+
         private String expandString(String str, int width) {
             return str + " ".repeat(width - str.length());
         }
@@ -65,12 +67,33 @@ public class Table {
                 sb.append("\n|");
                 for (int i = 0; i < tableWidth; i++) {
                     sb.append(" ");
-                    sb.append(expandString(line.get(i), this.width.get(i)));
+                    if(line.get(i).contains("\n")) {
+                        sb.append(line.get(i).replace("\n", "<br>"));
+                    }
+                    else {
+                        sb.append(expandString(line.get(i), this.width.get(i)));
+                    }
                     sb.append(" |");
                 }
             }
 
+            System.out.println("Actually there");
             return sb.toString();
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof TableElement)) return false;
+            TableElement that = (TableElement) o;
+            return Objects.equals(items, that.items)
+                    && Objects.equals(width, that.width)
+                    && Objects.equals(alignments, that.alignments);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(items, width, alignments);
         }
     }
 
@@ -104,6 +127,10 @@ public class Table {
         }
 
         public TableBuilder addRow(List<String> row){
+            if(this.elements.size() == this.limit) {
+                throw new IllegalArgumentException("Limit is achieved");
+            }
+
             this.elements.add(row);
             int widthLength = this.width.size();
             for(int i = widthLength; i < row.size(); i++) {

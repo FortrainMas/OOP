@@ -1,11 +1,26 @@
 package ru.nsu.shebanov.markdown;
 
+import java.util.Objects;
+
 public class Text {
     public static class Plain extends Element {
         public String value;
 
         public Plain(String text) {
             this.value = text;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Plain)) return false;
+            Plain plain = (Plain) o;
+            return Objects.equals(value, plain.value);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hashCode(value);
         }
 
         @Override

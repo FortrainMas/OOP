@@ -16,10 +16,10 @@ class TaskTests {
                     .add("ТУРНИК", false)
                     .add("АНЖУМАНИЯ", false).build();
 
-        String expected = "[x] ПРЕСС КАЧАТ\n" +
-                "[ ] БЕГИТ\n" +
-                "[ ] ТУРНИК\n" +
-                "[ ] АНЖУМАНИЯ";
+        String expected = "- [x] ПРЕСС КАЧАТ\n" +
+                "- [ ] БЕГИТ\n" +
+                "- [ ] ТУРНИК\n" +
+                "- [ ] АНЖУМАНИЯ";
 
         assertEquals(expected, te.toString());
     }
@@ -36,9 +36,9 @@ class TaskTests {
                 .add(h3, false)
                 .build();
 
-        String expected = "[x] # Smoke\n" +
-                "[x] ## Подойти к микрофону\n" +
-                "[ ] ### Записать все эти фразы";
+        String expected = "- [x] # Smoke\n" +
+                "- [x] ## Подойти к микрофону\n" +
+                "- [ ] ### Записать все эти фразы";
 
         assertEquals(expected, te.toString());
     }

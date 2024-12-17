@@ -1,6 +1,7 @@
 package ru.nsu.shebanov.markdown;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
@@ -24,5 +25,14 @@ class HeaderTests {
                 + h4 + h5 + h6;
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void illegalArgument() {
+        try {
+            new Header(8, "pupupu");
+            fail();
+        } catch (IllegalArgumentException e){
+        }
     }
 }

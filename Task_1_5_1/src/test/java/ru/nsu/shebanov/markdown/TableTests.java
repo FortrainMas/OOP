@@ -1,6 +1,7 @@
 package ru.nsu.shebanov.markdown;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
@@ -30,5 +31,50 @@ class TableTests {
         String actual = tableBuilder.build().toString();
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void complexTest() {
+        Table.TableBuilder tableBuilder = new Table.TableBuilder()
+                .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
+                .withRowLimit(8)
+                .addRow("Index", "Random", "Empty for vibe");
+
+        ListMD.ListElement le = new ListMD.ListBuilder()
+                .add("first")
+                .add("second")
+                .add("third")
+                .add("fourth")
+                .ordered()
+                .build();
+
+        for (int i = 1; i <= 5; i ++) {
+            tableBuilder.addRow(le, String.valueOf(i));
+        }
+
+        Table.TableElement te = tableBuilder.build();
+
+        String expected = "| Index    | Random | Empty for vibe |\n" +
+                "| -------: | :----- | :------------- |\n" +
+                "| - first<br>- second<br>- third<br>- fourth | 1      |                |\n" +
+                "| - first<br>- second<br>- third<br>- fourth | 2      |                |\n" +
+                "| - first<br>- second<br>- third<br>- fourth | 3      |                |\n" +
+                "| - first<br>- second<br>- third<br>- fourth | 4      |                |\n" +
+                "| - first<br>- second<br>- third<br>- fourth | 5      |                |";
+
+        assertEquals(expected, te.toString());
+    }
+
+    @Test
+    void limitTest() {
+        Table.TableBuilder tableBuilder = new Table.TableBuilder()
+                .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
+                .withRowLimit(1)
+                .addRow("Index", "Random", "Empty for vibe");
+
+        try{
+            tableBuilder.addRow("Text");
+            fail();
+        } catch(IllegalArgumentException e){}
     }
 }

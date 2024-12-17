@@ -2,6 +2,7 @@ package ru.nsu.shebanov.markdown;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ListMD {
     public static class ListElement extends Element {
@@ -9,6 +10,19 @@ public class ListMD {
 
         public ListElement(List<String> items) {
             this.items = items;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof ListElement)) return false;
+            ListElement that = (ListElement) o;
+            return Objects.equals(items, that.items);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hashCode(items);
         }
 
         @Override
@@ -41,8 +55,8 @@ public class ListMD {
         }
 
         public ListBuilder add(Element element) {
-            String itemMarkdown = element.toString();
-            return add(itemMarkdown);
+            String itemMarkdown = element.toString().replace("\n", "\n    ");
+            return add("  " + itemMarkdown);
         }
 
         public ListElement build() {
