@@ -90,7 +90,6 @@ public class Table {
                 }
             }
 
-            System.out.println("Actually there");
             return sb.toString();
         }
 

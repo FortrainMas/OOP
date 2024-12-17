@@ -33,8 +33,12 @@ public class Header extends Element {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Header)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Header)) {
+            return false;
+        }
         Header header = (Header) o;
         return level == header.level && Objects.equals(content, header.content);
     }

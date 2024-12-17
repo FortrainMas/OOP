@@ -29,8 +29,12 @@ public class Text {
          */
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof Plain)) return false;
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof Plain)) {
+                return false;
+            }
             Plain plain = (Plain) o;
             return Objects.equals(value, plain.value);
         }

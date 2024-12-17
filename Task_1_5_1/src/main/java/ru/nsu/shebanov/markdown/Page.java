@@ -31,8 +31,12 @@ public class Page {
          */
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof PageElement)) return false;
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof PageElement)) {
+                return false;
+            }
             PageElement that = (PageElement) o;
             return Objects.equals(content, that.content);
         }

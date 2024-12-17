@@ -30,8 +30,12 @@ public class ListMD {
          */
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof ListElement)) return false;
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof ListElement)) {
+                return false;
+            }
             ListElement that = (ListElement) o;
             return Objects.equals(items, that.items);
         }

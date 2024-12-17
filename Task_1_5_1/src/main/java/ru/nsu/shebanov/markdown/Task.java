@@ -33,8 +33,12 @@ public class Task extends Element {
          */
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof TaskElement)) return false;
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof TaskElement)) {
+                return false;
+            }
             TaskElement that = (TaskElement) o;
             return Objects.equals(items, that.items) && Objects.equals(content, that.content);
         }

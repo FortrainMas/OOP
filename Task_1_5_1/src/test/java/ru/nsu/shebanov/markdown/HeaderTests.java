@@ -33,6 +33,7 @@ class HeaderTests {
             new Header(8, "pupupu");
             fail();
         } catch (IllegalArgumentException e) {
+            System.out.println("SLAVA BOGU");
         }
     }
 }
