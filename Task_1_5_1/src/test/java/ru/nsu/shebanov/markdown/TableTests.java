@@ -21,13 +21,13 @@ class TableTests {
             }
         }
 
-        String expected = "| Index | Random |\n" +
-                "| ----: | :----- |\n" +
-                "| 1     | 3      |\n" +
-                "| 2     | 6      |\n" +
-                "| 3     | **9**  |\n" +
-                "| 4     | **12** |\n" +
-                "| 5     | **15** |";
+        String expected = "| Index | Random |\n"
+                + "| ----: | :----- |\n"
+                + "| 1     | 3      |\n"
+                + "| 2     | 6      |\n"
+                + "| 3     | **9**  |\n"
+                + "| 4     | **12** |\n"
+                + "| 5     | **15** |";
         String actual = tableBuilder.build().toString();
 
         assertEquals(expected, actual);
@@ -54,13 +54,13 @@ class TableTests {
 
         Table.TableElement te = tableBuilder.build();
 
-        String expected = "| Index    | Random | Empty for vibe |\n" +
-                "| -------: | :----- | :------------- |\n" +
-                "| - first<br>- second<br>- third<br>- fourth | 1      |                |\n" +
-                "| - first<br>- second<br>- third<br>- fourth | 2      |                |\n" +
-                "| - first<br>- second<br>- third<br>- fourth | 3      |                |\n" +
-                "| - first<br>- second<br>- third<br>- fourth | 4      |                |\n" +
-                "| - first<br>- second<br>- third<br>- fourth | 5      |                |";
+        String expected = "| Index    | Random | Empty for vibe |\n"
+                + "| -------: | :----- | :------------- |\n"
+                + "| - first<br>- second<br>- third<br>- fourth | 1      |                |\n"
+                + "| - first<br>- second<br>- third<br>- fourth | 2      |                |\n"
+                + "| - first<br>- second<br>- third<br>- fourth | 3      |                |\n"
+                + "| - first<br>- second<br>- third<br>- fourth | 4      |                |\n"
+                + "| - first<br>- second<br>- third<br>- fourth | 5      |                |";
 
         assertEquals(expected, te.toString());
     }

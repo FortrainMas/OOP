@@ -41,24 +41,24 @@ public class PageTests {
         pb.add("Text");
 
 
-        String expected = "| Index | Random |\n" +
-                "| ----: | :----- |\n" +
-                "| 1     | 3      |\n" +
-                "| 2     | 6      |\n" +
-                "| 3     | **9**  |\n" +
-                "| 4     | **12** |\n" +
-                "| 5     | **15** |\n" +
-                "\n" +
-                "- first\n" +
-                "- second\n" +
-                "- third\n" +
-                "\n" +
-                "-   - first\n" +
-                "    - second\n" +
-                "    - third\n" +
-                "- enough\n" +
-                "\n" +
-                "Text";
+        String expected = "| Index | Random |\n"
+                + "| ----: | :----- |\n"
+                + "| 1     | 3      |\n"
+                + "| 2     | 6      |\n"
+                + "| 3     | **9**  |\n"
+                + "| 4     | **12** |\n"
+                + "| 5     | **15** |\n"
+                + "\n"
+                + "- first\n"
+                + "- second\n"
+                + "- third\n"
+                + "\n"
+                + "-   - first\n"
+                + "    - second\n"
+                + "    - third\n"
+                + "- enough\n"
+                + "\n"
+                + "Text";
         assertEquals(expected, pb.build().toString());
     }
 }
