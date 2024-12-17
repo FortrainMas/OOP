@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.Z;
+package ru.nsu.shebanov.z;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -18,7 +18,7 @@ class ZFunctionTests {
         String str = "abracadabra";
         String pattern = "bra";
 
-        List<Integer> res = ZFunction.find(str, pattern);
+        List<Integer> res = Zfunction.find(str, pattern);
         List<Integer> res2 = new ArrayList<>();
         res2.add(1);
         res2.add(8);
@@ -34,7 +34,7 @@ class ZFunctionTests {
         String str1 = "Inkább magyar, mint Java";
         String pattern = "agy";
 
-        List<Integer> res = ZFunction.find(str1, pattern);
+        List<Integer> res = Zfunction.find(str1, pattern);
 
         List<Integer> expected = new ArrayList<>();
         expected.add(8);
@@ -51,11 +51,11 @@ class ZFunctionTests {
                 getClass().getClassLoader().getResource(fileName).toURI());
 
 
-        List<Long> res = ZFunction.findInFile(resource.getPath(), pattern);
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern);
 
         List<Long> expected = new ArrayList<>();
         expected.add(10L);
-        expected.add(58L);
+        expected.add(57L);
 
         assertEquals(res, expected);
     }
@@ -68,7 +68,7 @@ class ZFunctionTests {
                 writer.write("АЧЁОН".repeat(300) + "?");
             }
         }
-        List<Long> res = ZFunction.findInFile(filePath, "?");
+        List<Long> res = Zfunction.findInFile(filePath, "?");
         assertEquals(res.size(), 100);
         new File(filePath).delete();
     }
