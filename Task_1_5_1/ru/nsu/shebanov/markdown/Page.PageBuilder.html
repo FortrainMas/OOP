@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
+var data = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,6 +136,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public static class <span class="typeNameLabel">Page.PageBuilder</span>
 extends java.lang.Object</pre>
+<div class="block">Builder for page.</div>
 </li>
 </ul>
 </div>
@@ -157,7 +158,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">PageBuilder</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructor for page builder.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -180,22 +183,23 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(java.lang.String)">add</a></span>&#8203;(java.lang.String&nbsp;element)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add new string element.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#add(ru.nsu.shebanov.markdown.Element)">add</a></span>&#8203;(<a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element</a>&nbsp;element)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add new element.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Page.PageElement.html" title="class in ru.nsu.shebanov.markdown">Page.PageElement</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build()">build</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pop()">pop</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Build and produce page.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -228,6 +232,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>PageBuilder</h4>
 <pre>public&nbsp;PageBuilder()</pre>
+<div class="block">Constructor for page builder.</div>
 </li>
 </ul>
 </li>
@@ -247,6 +252,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>add</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;add&#8203;(java.lang.String&nbsp;element)</pre>
+<div class="block">Add new string element.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>element</code> - string element</dd>
+</dl>
 </li>
 </ul>
 <a id="add(ru.nsu.shebanov.markdown.Element)">
@@ -256,15 +266,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>add</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;add&#8203;(<a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element</a>&nbsp;element)</pre>
-</li>
-</ul>
-<a id="pop()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>pop</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;pop()</pre>
+<div class="block">Add new element.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>element</code> - not string element</dd>
+</dl>
 </li>
 </ul>
 <a id="build()">
@@ -274,6 +280,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>build</h4>
 <pre class="methodSignature">public&nbsp;<a href="Page.PageElement.html" title="class in ru.nsu.shebanov.markdown">Page.PageElement</a>&nbsp;build()</pre>
+<div class="block">Build and produce page.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>markdown of page</dd>
+</dl>
 </li>
 </ul>
 </li>

@@ -88,13 +88,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -136,12 +136,46 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public static class <span class="typeNameLabel">Table.TableBuilder</span>
 extends java.lang.Object</pre>
+<div class="block">Builder for table.</div>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>java.util.List&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#alignments">alignments</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;java.util.List&lt;java.lang.String&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#elements">elements</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>java.util.List&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#width">width</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section>
 <ul class="blockList">
@@ -157,7 +191,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">TableBuilder</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Produce new table builder.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -181,28 +217,36 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code><a href="Table.TableBuilder.html" title="class in ru.nsu.shebanov.markdown">Table.TableBuilder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addRow(java.lang.Object...)">addRow</a></span>&#8203;(java.lang.Object...&nbsp;row)</code></th>
 <td class="colLast">
-<div class="block">IDIOTIC FORM OF SUPPORTING EVERYTHING IN THE WORLD</div>
+<div class="block">add new row.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="Table.TableBuilder.html" title="class in ru.nsu.shebanov.markdown">Table.TableBuilder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addRow(java.util.List)">addRow</a></span>&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;row)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Add new row to table.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Table.TableElement.html" title="class in ru.nsu.shebanov.markdown">Table.TableElement</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build()">build</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Build table element.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="Table.TableBuilder.html" title="class in ru.nsu.shebanov.markdown">Table.TableBuilder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#withAlignments(java.lang.Integer...)">withAlignments</a></span>&#8203;(java.lang.Integer...&nbsp;alignments)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Set alignments.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="Table.TableBuilder.html" title="class in ru.nsu.shebanov.markdown">Table.TableBuilder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#withRowLimit(int)">withRowLimit</a></span>&#8203;(int&nbsp;limit)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Set row limit.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -221,6 +265,43 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="elements">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>elements</h4>
+<pre>public&nbsp;java.util.List&lt;java.util.List&lt;java.lang.String&gt;&gt; elements</pre>
+</li>
+</ul>
+<a id="width">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>width</h4>
+<pre>public&nbsp;java.util.List&lt;java.lang.Integer&gt; width</pre>
+</li>
+</ul>
+<a id="alignments">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>alignments</h4>
+<pre>public&nbsp;java.util.List&lt;java.lang.Integer&gt; alignments</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section>
 <ul class="blockList">
@@ -235,6 +316,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>TableBuilder</h4>
 <pre>public&nbsp;TableBuilder()</pre>
+<div class="block">Produce new table builder.</div>
 </li>
 </ul>
 </li>
@@ -254,6 +336,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>withAlignments</h4>
 <pre class="methodSignature">public&nbsp;<a href="Table.TableBuilder.html" title="class in ru.nsu.shebanov.markdown">Table.TableBuilder</a>&nbsp;withAlignments&#8203;(java.lang.Integer...&nbsp;alignments)</pre>
+<div class="block">Set alignments.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>alignments</code> - some sequence of numbers -1, 0, 1</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>itself</dd>
+</dl>
 </li>
 </ul>
 <a id="withRowLimit(int)">
@@ -263,6 +352,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>withRowLimit</h4>
 <pre class="methodSignature">public&nbsp;<a href="Table.TableBuilder.html" title="class in ru.nsu.shebanov.markdown">Table.TableBuilder</a>&nbsp;withRowLimit&#8203;(int&nbsp;limit)</pre>
+<div class="block">Set row limit.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>limit</code> - limit</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>itself</dd>
+</dl>
 </li>
 </ul>
 <a id="addRow(java.util.List)">
@@ -272,6 +368,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addRow</h4>
 <pre class="methodSignature">public&nbsp;<a href="Table.TableBuilder.html" title="class in ru.nsu.shebanov.markdown">Table.TableBuilder</a>&nbsp;addRow&#8203;(java.util.List&lt;java.lang.String&gt;&nbsp;row)</pre>
+<div class="block">Add new row to table.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>row</code> - new row</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>itself</dd>
+</dl>
 </li>
 </ul>
 <a id="addRow(java.lang.Object...)">
@@ -281,7 +384,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addRow</h4>
 <pre class="methodSignature">public&nbsp;<a href="Table.TableBuilder.html" title="class in ru.nsu.shebanov.markdown">Table.TableBuilder</a>&nbsp;addRow&#8203;(java.lang.Object...&nbsp;row)</pre>
-<div class="block">IDIOTIC FORM OF SUPPORTING EVERYTHING IN THE WORLD</div>
+<div class="block">add new row.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>row</code> - arbitrary values</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>itself</dd>
+</dl>
 </li>
 </ul>
 <a id="build()">
@@ -291,6 +400,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>build</h4>
 <pre class="methodSignature">public&nbsp;<a href="Table.TableElement.html" title="class in ru.nsu.shebanov.markdown">Table.TableElement</a>&nbsp;build()</pre>
+<div class="block">Build table element.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Table element</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -344,13 +458,13 @@ extends java.lang.Object</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

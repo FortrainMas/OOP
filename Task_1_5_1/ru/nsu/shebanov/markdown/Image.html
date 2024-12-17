@@ -141,6 +141,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Image</span>
 extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element</a></pre>
+<div class="block">Image object for markdown.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../serialized-form.html#ru.nsu.shebanov.markdown.Image">Serialized Form</a></dd>
@@ -167,7 +168,9 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String)">Image</a></span>&#8203;(java.lang.String&nbsp;src,
      java.lang.String&nbsp;alt)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructor of image.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -190,17 +193,23 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;o)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Test for equality.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Hash code.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Markdown text</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -234,6 +243,12 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <h4>Image</h4>
 <pre>public&nbsp;Image&#8203;(java.lang.String&nbsp;src,
              java.lang.String&nbsp;alt)</pre>
+<div class="block">Constructor of image.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>src</code> - source of image</dd>
+<dd><code>alt</code> - alternative text</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -253,9 +268,14 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <li class="blockList">
 <h4>equals</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;equals&#8203;(java.lang.Object&nbsp;o)</pre>
+<div class="block">Test for equality.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>o</code> - object to compare with</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if equal, false otherwise</dd>
 </dl>
 </li>
 </ul>
@@ -266,9 +286,12 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <li class="blockList">
 <h4>hashCode</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;hashCode()</pre>
+<div class="block">Hash code.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>hashCode</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>hash code</dd>
 </dl>
 </li>
 </ul>
@@ -279,9 +302,12 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <li class="blockList">
 <h4>toString</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
+<div class="block">Markdown text</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>![alt](src)</dd>
 </dl>
 </li>
 </ul>

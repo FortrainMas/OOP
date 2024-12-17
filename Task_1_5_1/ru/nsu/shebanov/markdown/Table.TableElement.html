@@ -88,13 +88,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -145,6 +145,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public static class <span class="typeNameLabel">Table.TableElement</span>
 extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element</a></pre>
+<div class="block">Markdown element table.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../serialized-form.html#ru.nsu.shebanov.markdown.Table.TableElement">Serialized Form</a></dd>
@@ -155,6 +156,39 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>java.util.List&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#alignments">alignments</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>java.util.List&lt;java.util.List&lt;java.lang.String&gt;&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#items">items</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>java.util.List&lt;java.lang.Integer&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#width">width</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section>
 <ul class="blockList">
@@ -172,7 +206,9 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.util.List,java.util.List,java.util.List)">TableElement</a></span>&#8203;(java.util.List&lt;java.lang.Integer&gt;&nbsp;width,
             java.util.List&lt;java.util.List&lt;java.lang.String&gt;&gt;&nbsp;items,
             java.util.List&lt;java.lang.Integer&gt;&nbsp;alignments)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Produce table element in-place.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -195,17 +231,23 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#equals(java.lang.Object)">equals</a></span>&#8203;(java.lang.Object&nbsp;o)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Test for equality.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hashCode()">hashCode</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Hashcode of table.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Get markdown representation of table.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -224,6 +266,43 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="items">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>items</h4>
+<pre>public&nbsp;java.util.List&lt;java.util.List&lt;java.lang.String&gt;&gt; items</pre>
+</li>
+</ul>
+<a id="width">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>width</h4>
+<pre>public&nbsp;java.util.List&lt;java.lang.Integer&gt; width</pre>
+</li>
+</ul>
+<a id="alignments">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>alignments</h4>
+<pre>public&nbsp;java.util.List&lt;java.lang.Integer&gt; alignments</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section>
 <ul class="blockList">
@@ -240,6 +319,13 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <pre>public&nbsp;TableElement&#8203;(java.util.List&lt;java.lang.Integer&gt;&nbsp;width,
                     java.util.List&lt;java.util.List&lt;java.lang.String&gt;&gt;&nbsp;items,
                     java.util.List&lt;java.lang.Integer&gt;&nbsp;alignments)</pre>
+<div class="block">Produce table element in-place.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>width</code> - width of each column</dd>
+<dd><code>items</code> - items as rows.</dd>
+<dd><code>alignments</code> - alignments of columns</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -259,9 +345,12 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <li class="blockList">
 <h4>toString</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
+<div class="block">Get markdown representation of table.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>string</dd>
 </dl>
 </li>
 </ul>
@@ -272,9 +361,14 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <li class="blockList">
 <h4>equals</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;equals&#8203;(java.lang.Object&nbsp;o)</pre>
+<div class="block">Test for equality.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>o</code> - object to compare with</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if something, false otherwise</dd>
 </dl>
 </li>
 </ul>
@@ -285,9 +379,12 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <li class="blockList">
 <h4>hashCode</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;hashCode()</pre>
+<div class="block">Hashcode of table.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>hashCode</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>value</dd>
 </dl>
 </li>
 </ul>
@@ -342,13 +439,13 @@ extends <a href="Element.html" title="class in ru.nsu.shebanov.markdown">Element
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
