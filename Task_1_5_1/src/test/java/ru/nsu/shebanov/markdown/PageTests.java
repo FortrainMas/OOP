@@ -88,8 +88,7 @@ class PageTests {
                 .build();
 
         tableBuilder.addRow(inTableList);
-        tableBuilder.addRow(
-        );
+        tableBuilder.addRow();
 
         ListMarkdown.ListElement le = new ListMarkdown.ListBuilder()
                 .ordered()
