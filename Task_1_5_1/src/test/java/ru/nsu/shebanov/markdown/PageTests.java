@@ -120,12 +120,12 @@ class PageTests {
         pb.add(fancyList);
 
 
-        String multilineCode = """
-                ListMarkdown.ListElement lst = new ListMarkdown.ListBuilder()
-                                .add(le)
-                                .add("enough")
-                                .build();
-                        pb.add(lst);""";
+        String multilineCode = "ListMarkdown.ListElement lst = new ListMarkdown.ListBuilder()\n"
+                + "                .add(le)\n"
+                + "                .add(\"enough\")\n"
+                + "                .build();\n"
+                + "        pb.add(new Header(3, \"Fancy list\"));\n"
+                + "        pb.add(lst);";
         pb.add(new Header(2, "Multiline code"));
         pb.add(new CodeBlock(multilineCode));
 
@@ -200,8 +200,10 @@ class PageTests {
                 + "                .add(le)\n"
                 + "                .add(\"enough\")\n"
                 + "                .build();\n"
+                + "        pb.add(new Header(3, \"Fancy list\"));\n"
                 + "        pb.add(lst);\n"
-                + "```\n"
+                + "```"
+                + "\n"
                 + "\n"
                 + "## Fancy quote\n"
                 + "\n"
