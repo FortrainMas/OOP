@@ -21,7 +21,7 @@ public class Zfunction {
      * @return indices of find patterns
      */
     public static List<Long> findInFile(String fileName, String pattern) {
-        return findInFile(fileName, pattern, 10);
+        return findInFile(fileName, pattern, 1000);
     }
 
     /**
@@ -60,14 +60,20 @@ public class Zfunction {
                 }
 
                 for (int i = 0; i < tempRes.size() && curPos != 0; i++) {
+                    System.out.println(tempBuffer);
+                    System.out.println(tempRes.get(i));
+                    System.out.println(curPos);
+                    System.out.println(subStringLength);
                     res.add(tempRes.get(i) + curPos - subStringLength);
                 }
 
                 tempBuffer = new StringBuilder();
 
-                for (int j = bufferSize - subStringLength + 1; j < bufferSize; j++) {
+                for (int j = bufferSize - subStringLength; j < bufferSize; j++) {
                     tempBuffer.append(buffer[j]);
                 }
+                System.out.println(buffer);
+                System.out.println(tempBuffer + " " + tempBuffer.length());
 
                 curPos += bufferSize;
             }

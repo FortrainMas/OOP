@@ -26,6 +26,22 @@ class ZetFunctionTests {
         assertEquals(res, res2);
     }
 
+    @Test
+    void edgeTest() throws URISyntaxException {
+        String fileName = "edge.txt";
+        String pattern = "edge test";
+
+        File resource = new File(
+                getClass().getClassLoader().getResource(fileName).toURI());
+
+
+        List<Long> res = Zfunction.findInFile(resource.getPath(), pattern, 10);
+
+        List<Long> expected = new ArrayList<>();
+        expected.add(5L);
+
+        assertEquals(res, expected);
+    }
 
     @Test
     void hungarianTest() {
@@ -53,7 +69,7 @@ class ZetFunctionTests {
 
         List<Long> expected = new ArrayList<>();
         expected.add(10L);
-        expected.add(57L);
+        expected.add(58L);
 
         assertEquals(res, expected);
     }
