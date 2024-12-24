@@ -60,20 +60,14 @@ public class Zfunction {
                 }
 
                 for (int i = 0; i < tempRes.size() && curPos != 0; i++) {
-                    System.out.println(tempBuffer);
-                    System.out.println(tempRes.get(i));
-                    System.out.println(curPos);
-                    System.out.println(subStringLength);
-                    res.add(tempRes.get(i) + curPos - subStringLength);
+                    res.add(tempRes.get(i) + curPos + 1 - subStringLength);
                 }
 
                 tempBuffer = new StringBuilder();
 
-                for (int j = bufferSize - subStringLength; j < bufferSize; j++) {
+                for (int j = bufferSize - subStringLength + 1; j < bufferSize; j++) {
                     tempBuffer.append(buffer[j]);
                 }
-                System.out.println(buffer);
-                System.out.println(tempBuffer + " " + tempBuffer.length());
 
                 curPos += bufferSize;
             }
