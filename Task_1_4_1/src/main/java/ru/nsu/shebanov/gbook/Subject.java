@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Class for subject.
@@ -80,19 +79,13 @@ public class Subject {
      * @return true of false
      */
     public boolean lastSemesterOnlyFives() {
-        AtomicBoolean res = new AtomicBoolean(true);
-
         int ls = semesterNumbers.get(lastSemester);
 
-        this.semesters.get(ls).marks.keySet().forEach(key ->
-                this.semesters.get(ls).marks.get(key).forEach(value -> {
-                    if (value < 5) {
-                        res.set(false);
-                    }
-                }));
-
-        return res.get();
+        return this.semesters.get(ls).marks.values().stream()
+                .flatMap(List::stream)
+                .allMatch(value -> value == 5);
     }
+
 
     /**
      * Last semester no C.
@@ -100,19 +93,11 @@ public class Subject {
      * @return true or false
      */
     public boolean lastSemesterNoC() {
-        AtomicBoolean res = new AtomicBoolean(true);
-
         int ls = semesterNumbers.get(lastSemester);
 
-        this.semesters.get(ls).marks.keySet().forEach(key -> {
-            this.semesters.get(ls).marks.get(key).forEach(value -> {
-                if (value < 4) {
-                    res.set(false);
-                }
-            });
-        });
-
-        return res.get();
+        return this.semesters.get(ls).marks.values().stream()
+                .flatMap(List::stream)
+                .allMatch(value -> value >= 4);
     }
 
     /**
@@ -121,16 +106,8 @@ public class Subject {
      * @return true or false
      */
     public boolean allTimeNocForExams() {
-        AtomicBoolean res = new AtomicBoolean(true);
-
-        this.semesters.forEach(semester -> {
-            if (!semester.noExamC()) {
-                res.set(false);
-            }
-        });
-
-
-        return res.get();
+        return this.semesters.stream()
+                .allMatch(Semester::noExamC);
     }
 
 

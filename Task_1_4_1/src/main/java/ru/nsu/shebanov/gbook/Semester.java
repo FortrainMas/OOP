@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Class for semester entity.
@@ -63,19 +62,13 @@ public class Semester {
      * @return is true or not
      */
     public boolean noExamC() {
-        AtomicBoolean res = new AtomicBoolean(true);
-
-        marks.keySet().forEach(key -> {
-            if (Objects.equals(key, "зачёт") || Objects.equals(key, "дифференцированный зачёт")
-                    || Objects.equals(key, "экзамен")) {
-                marks.get(key).forEach(value -> {
-                    if (value < 4) {
-                        res.set(false);
-                    }
-                });
-            }
-        });
-
-        return res.get();
+        return marks.entrySet().stream()
+                .filter(entry ->
+                        Objects.equals(entry.getKey(), "зачёт") ||
+                                Objects.equals(entry.getKey(), "дифференцированный зачёт") ||
+                                Objects.equals(entry.getKey(), "экзамен")
+                )
+                .flatMap(entry -> entry.getValue().stream())
+                .allMatch(value -> value >= 4);
     }
 }
