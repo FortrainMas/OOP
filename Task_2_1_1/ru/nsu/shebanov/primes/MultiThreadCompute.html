@@ -81,6 +81,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">MultiThreadCompute</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="ComputerPrimes.html" title="interface in ru.nsu.shebanov.primes">ComputerPrimes</a></span></div>
+<div class="block">Class for non-prime computing in multithreading.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -110,13 +111,19 @@ implements <a href="ComputerPrimes.html" title="interface in ru.nsu.shebanov.pri
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#compute()" class="member-name-link">compute</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Check if non-prime is in the list.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setList(java.util.List)" class="member-name-link">setList</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;list)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set list to find non-primes.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setThreadsNumber(int)" class="member-name-link">setThreadsNumber</a><wbr>(int&nbsp;threadsNumber)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set specific number of threads.</div>
+</div>
 </div>
 </div>
 </div>
@@ -152,9 +159,12 @@ implements <a href="ComputerPrimes.html" title="interface in ru.nsu.shebanov.pri
 <section class="detail" id="setList(java.util.List)">
 <h3>setList</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setList</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;list)</span></div>
+<div class="block">Set list to find non-primes.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ComputerPrimes.html#setList(java.util.List)">setList</a></code>&nbsp;in interface&nbsp;<code><a href="ComputerPrimes.html" title="interface in ru.nsu.shebanov.primes">ComputerPrimes</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>list</code> - list to search in</dd>
 </dl>
 </section>
 </li>
@@ -162,15 +172,23 @@ implements <a href="ComputerPrimes.html" title="interface in ru.nsu.shebanov.pri
 <section class="detail" id="setThreadsNumber(int)">
 <h3>setThreadsNumber</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setThreadsNumber</span><wbr><span class="parameters">(int&nbsp;threadsNumber)</span></div>
+<div class="block">Set specific number of threads.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>threadsNumber</code> - number of needed threads</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="compute()">
 <h3>compute</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">compute</span>()</div>
+<div class="block">Check if non-prime is in the list.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ComputerPrimes.html#compute()">compute</a></code>&nbsp;in interface&nbsp;<code><a href="ComputerPrimes.html" title="interface in ru.nsu.shebanov.primes">ComputerPrimes</a></code></dd>
+<dt>Returns:</dt>
+<dd>result of operation</dd>
 </dl>
 </section>
 </li>
