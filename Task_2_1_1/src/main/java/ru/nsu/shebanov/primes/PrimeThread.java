@@ -34,6 +34,7 @@ public class PrimeThread extends Thread {
 
     /**
      * Function to determine if number is prime except for 1.
+     *
      * @param x number to check
      * @return is number prime or prime for 1
      */
