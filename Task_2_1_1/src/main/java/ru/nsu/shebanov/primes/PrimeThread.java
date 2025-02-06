@@ -7,6 +7,7 @@ public class PrimeThread extends Thread {
     private final int start;
     private final int end;
     public static volatile boolean result = false;
+
     public static void resetResult() {
         result = false;
     }
@@ -18,7 +19,7 @@ public class PrimeThread extends Thread {
     }
 
     private boolean isPrime(int x) {
-        for(int i = 2; i * i <= x; i++){
+        for (int i = 2; i * i <= x; i++) {
             if (x % i == 0) {
                 return false;
             }
@@ -28,7 +29,7 @@ public class PrimeThread extends Thread {
 
     @Override
     public void run() {
-        for(int i = this.start; i < this.end && !result; i++){
+        for (int i = this.start; i < this.end && !result; i++) {
             if (!isPrime(list.get(i))) {
                 result = true;
                 break;

@@ -2,7 +2,7 @@ package ru.nsu.shebanov.primes;
 
 import java.util.List;
 
-public class ParallelStreamsCompute implements ComputerPrimes{
+public class ParallelStreamsCompute implements ComputerPrimes {
     private List<Integer> list;
 
     @Override
@@ -11,7 +11,7 @@ public class ParallelStreamsCompute implements ComputerPrimes{
     }
 
     private boolean isPrime(int x) {
-        for(int i = 2; i * i <= x; i++){
+        for (int i = 2; i * i <= x; i++) {
             if (x % i == 0) {
                 return false;
             }

@@ -11,7 +11,7 @@ public class SingleThreadCompute implements ComputerPrimes {
     }
 
     private boolean isPrime(int x) {
-        for(int i = 2; i * i <= x; i++){
+        for (int i = 2; i * i <= x; i++) {
             if (x % i == 0) {
                 return false;
             }
@@ -21,7 +21,7 @@ public class SingleThreadCompute implements ComputerPrimes {
 
     @Override
     public boolean compute() {
-        for(var num : this.list) {
+        for (var num : this.list) {
             if (!isPrime((num))) {
                 return true;
             }
