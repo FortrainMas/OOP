@@ -3,19 +3,37 @@ package ru.nsu.shebanov.primes;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for non-prime computing in multithreading.
+ */
 public class MultiThreadCompute implements ComputerPrimes {
     private List<Integer> list;
     private int threadsNumber = 5;
 
+    /**
+     * Set list to find non-primes.
+     *
+     * @param list list to search in
+     */
     @Override
     public void setList(List<Integer> list) {
         this.list = list;
     }
 
+    /**
+     * Set specific number of threads.
+     *
+     * @param threadsNumber number of needed threads
+     */
     public void setThreadsNumber(int threadsNumber) {
         this.threadsNumber = threadsNumber;
     }
 
+    /**
+     * Check if non-prime is in the list.
+     *
+     * @return result of operation
+     */
     @Override
     public boolean compute() {
         PrimeThread.resetResult();

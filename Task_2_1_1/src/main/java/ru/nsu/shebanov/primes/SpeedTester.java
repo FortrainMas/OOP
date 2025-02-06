@@ -3,22 +3,30 @@ package ru.nsu.shebanov.primes;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Tester for stats.
+ */
 public class SpeedTester {
     private static final int LIMIT = 100_000_0;
 
-    private static List<Integer> generatePrimes(int n) {
-        boolean[] sieve = new boolean[n + 1];
+    /**
+     * Generate list of all prime less than LIMIT.
+     *
+     * @return list of primes
+     */
+    private static List<Integer> generatePrimes() {
+        boolean[] sieve = new boolean[SpeedTester.LIMIT + 1];
         List<Integer> primes = new ArrayList<>();
 
-        for (int i = 2; i * i <= n; i++) {
+        for (int i = 2; i * i <= SpeedTester.LIMIT; i++) {
             if (!sieve[i]) {
-                for (int j = i * i; j <= n; j += i) {
+                for (int j = i * i; j <= SpeedTester.LIMIT; j += i) {
                     sieve[j] = true;
                 }
             }
         }
 
-        for (int i = 2; i <= n; i++) {
+        for (int i = 2; i <= SpeedTester.LIMIT; i++) {
             if (!sieve[i]) {
                 primes.add(i);
             }
@@ -26,6 +34,13 @@ public class SpeedTester {
         return primes;
     }
 
+    /**
+     * Test for a computer.
+     *
+     * @param primes list of prime numbers
+     * @param cp computer
+     * @return time in nanoseconds
+     */
     private static long testComputer(List<Integer> primes, ComputerPrimes cp) {
         cp.setList(primes);
         long res = 0;
@@ -39,8 +54,13 @@ public class SpeedTester {
         return res / testsNumber;
     }
 
+    /**
+     * Run tests on all kind of computers.
+     *
+     * @param args process args
+     */
     public static void main(String[] args) {
-        List<Integer> primes = generatePrimes(LIMIT);
+        List<Integer> primes = generatePrimes();
 
         SingleThreadCompute stc = new SingleThreadCompute();
         long stcResult = testComputer(primes, stc);
