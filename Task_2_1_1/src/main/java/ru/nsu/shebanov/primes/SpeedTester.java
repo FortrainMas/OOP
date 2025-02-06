@@ -29,7 +29,7 @@ public class SpeedTester {
     private static long testComputer(List<Integer> primes, ComputerPrimes cp) {
         cp.setList(primes);
         long res = 0;
-        int testsNumber = 400;
+        int testsNumber = 10;
         for(int i = 0; i < testsNumber; i++){
             long startTime = System.nanoTime();
             cp.compute();
