@@ -76,6 +76,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Storage</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">List of synchronized cooked non-delivered orders.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -88,7 +89,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int)" class="member-name-link">Storage</a><wbr>(int&nbsp;T)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates storage with capacity T.</div>
+</div>
 </div>
 </section>
 </li>
@@ -105,13 +108,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#add(ru.nsu.shebanov.Order)" class="member-name-link">add</a><wbr>(<a href="Order.html" title="class in ru.nsu.shebanov">Order</a>&nbsp;order)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Add cooked order to the storage.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#closeStorage()" class="member-name-link">closeStorage</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Closes the storage.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Order.html" title="class in ru.nsu.shebanov">Order</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#take(int)" class="member-name-link">take</a><wbr>(int&nbsp;maxSize)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Grants list of orders to the courier.</div>
+</div>
 </div>
 </div>
 </div>
@@ -133,6 +142,11 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(int)">
 <h3>Storage</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Storage</span><wbr><span class="parameters">(int&nbsp;T)</span></div>
+<div class="block">Creates storage with capacity T.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>T</code> - capacity of the storage</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -147,18 +161,34 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="add(ru.nsu.shebanov.Order)">
 <h3>add</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">add</span><wbr><span class="parameters">(<a href="Order.html" title="class in ru.nsu.shebanov">Order</a>&nbsp;order)</span></div>
+<div class="block">Add cooked order to the storage.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>order</code> - order</dd>
+<dt>Returns:</dt>
+<dd>return false is storage is closed, true, otherwise</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="take(int)">
 <h3>take</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Order.html" title="class in ru.nsu.shebanov">Order</a>&gt;</span>&nbsp;<span class="element-name">take</span><wbr><span class="parameters">(int&nbsp;maxSize)</span></div>
+<div class="block">Grants list of orders to the courier.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>maxSize</code> - maximum accumulated size of orders</dd>
+<dt>Returns:</dt>
+<dd>list of orders that total less than the maxSize</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="closeStorage()">
 <h3>closeStorage</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">closeStorage</span>()</div>
+<div class="block">Closes the storage.
+ After call to closeStorage no more orders can be added or taken</div>
 </section>
 </li>
 </ul>

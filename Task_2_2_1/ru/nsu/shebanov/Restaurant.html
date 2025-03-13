@@ -76,6 +76,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Restaurant</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Class for simulating restaurant behaviour.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -90,7 +91,9 @@ loadScripts(document, 'script');</script>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,int,int)" class="member-name-link">Restaurant</a><wbr>(int&nbsp;numCooks,
  int&nbsp;numCouriers,
  int&nbsp;storageSize)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Constructor for restaurant.</div>
+</div>
 </div>
 </section>
 </li>
@@ -107,13 +110,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#closeOrders()" class="member-name-link">closeOrders</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Close orders in the restaurant.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#closeShift()" class="member-name-link">closeShift</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Close all operation on storage and orders.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createOrder(int)" class="member-name-link">createOrder</a><wbr>(int&nbsp;amount)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Create an order in the restaurant.</div>
+</div>
 </div>
 </div>
 </div>
@@ -137,6 +146,13 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Restaurant</span><wbr><span class="parameters">(int&nbsp;numCooks,
  int&nbsp;numCouriers,
  int&nbsp;storageSize)</span></div>
+<div class="block">Constructor for restaurant.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>numCooks</code> - number of cooks</dd>
+<dd><code>numCouriers</code> - number of couriers</dd>
+<dd><code>storageSize</code> - size of storage</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -151,18 +167,29 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="createOrder(int)">
 <h3>createOrder</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createOrder</span><wbr><span class="parameters">(int&nbsp;amount)</span></div>
+<div class="block">Create an order in the restaurant.
+ Possibly order may be split into multiple orders.
+ Such behaviour depends on the maximum delivery size.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>amount</code> - amount of pizzas in the order</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="closeOrders()">
 <h3>closeOrders</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">closeOrders</span>()</div>
+<div class="block">Close orders in the restaurant.
+ After call to closeOrders() no orders may be created</div>
 </section>
 </li>
 <li>
 <section class="detail" id="closeShift()">
 <h3>closeShift</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">closeShift</span>()</div>
+<div class="block">Close all operation on storage and orders.
+ No more orders can be taken by couriers or cooks</div>
 </section>
 </li>
 </ul>
