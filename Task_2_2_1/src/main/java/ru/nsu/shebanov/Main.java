@@ -4,13 +4,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Restaurant rest = new Restaurant(3, 1, 10);
+        Restaurant rest = ConfigLoader.loadConfig();
 
-        for(int i = 0; i < 8; i++) {
-
+        for (int i = 0; i < 8; i++) {
             rest.createOrder(i);
         }
-
 
         Scanner scanner = new Scanner(System.in);
         int amount = scanner.nextInt();

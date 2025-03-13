@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Courier implements Runnable{
-    private final int size;
+public class Courier implements Runnable {
+    public final int size;
     private final Storage storage;
 
     public Courier(Storage storage) {
-        this.size = new Random().nextInt(20 ) + 5;
+        this.size = new Random().nextInt(20) + 5;
         this.storage = storage;
     }
 
     @Override
     public void run() {
         List<Order> orders;
-        while(!(orders = storage.take(size)).isEmpty()) {
-            for(var order: orders){
+        while (!(orders = storage.take(size)).isEmpty()) {
+            for (var order : orders) {
                 try {
                     Thread.sleep(order.size * 1500L);
                 } catch (InterruptedException e) {

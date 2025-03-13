@@ -6,15 +6,15 @@ import java.util.List;
 public class Storage {
     private final List<Order> ordersList = new ArrayList<>();
     private boolean shiftFinished = false;
-    private final int maxSize;
+    private final int storageCapacity;
     private int currentSize = 0;
 
     public Storage(int T) {
-        this.maxSize = T;
+        this.storageCapacity = T;
     }
 
     public synchronized boolean add(Order order) {
-        while ((currentSize + order.size > maxSize) && !shiftFinished) {
+        while ((currentSize + order.size > storageCapacity) && !shiftFinished) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -36,10 +36,9 @@ public class Storage {
         return true;
     }
 
-    public synchronized List<Order> take(int maxAmount) {
+    public synchronized List<Order> take(int maxSize) {
         while (ordersList.isEmpty() && !shiftFinished) {
             try {
-                System.out.println(maxAmount);
                 wait();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
@@ -47,19 +46,22 @@ public class Storage {
             }
         }
 
-        if (shiftFinished && ordersList.isEmpty()) {
+        if (shiftFinished) {
             return new ArrayList<>();
         }
 
         List<Order> takenOrders = new ArrayList<>();
         int takenSize = 0;
 
-        while (!ordersList.isEmpty() && takenSize + ordersList.get(0).size <= maxAmount) {
-            Order order = ordersList.remove(0);
-            takenSize += order.size;
-            takenOrders.add(order);
-            System.out.printf("[%d][Granted to the courier]\n", order.number);
+        for (var order : ordersList) {
+            if (order.size + takenSize <= maxSize) {
+                takenOrders.add(order);
+                takenSize += order.size;
+                System.out.printf("[%d][Granted to the courier]\n", order.number);
+            }
         }
+
+        ordersList.removeAll(takenOrders);
 
         currentSize -= takenSize;
         notifyAll();
