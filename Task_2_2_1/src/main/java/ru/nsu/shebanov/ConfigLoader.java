@@ -2,7 +2,6 @@ package ru.nsu.shebanov;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
@@ -23,7 +22,8 @@ public class ConfigLoader {
                 .create();
 
         try (Reader reader = new InputStreamReader(
-                Objects.requireNonNull(ConfigLoader.class.getClassLoader().getResourceAsStream("config.json")),
+                Objects.requireNonNull(ConfigLoader.class.getClassLoader()
+                        .getResourceAsStream("config.json")),
                 StandardCharsets.UTF_8)) {
 
             return gson.fromJson(reader, Restaurant.class);

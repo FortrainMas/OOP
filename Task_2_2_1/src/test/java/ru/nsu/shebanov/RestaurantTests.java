@@ -4,7 +4,7 @@ import static java.lang.Thread.sleep;
 
 import org.junit.jupiter.api.Test;
 
-public class RestaurantTests {
+class RestaurantTests {
     @Test
     void simpleTest() throws InterruptedException {
         Restaurant rest = ConfigLoader.loadConfig();

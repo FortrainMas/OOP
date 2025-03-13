@@ -1,14 +1,26 @@
 package ru.nsu.shebanov;
 
+/**
+ * Class for thread simulating cook.
+ */
 public class Cook implements Runnable {
     private final Orders orders;
     private final Storage storage;
 
+    /**
+     * Constructor for cook.
+     *
+     * @param orders list of orders
+     * @param storage storage to save cooked orders
+     */
     public Cook(Orders orders, Storage storage) {
         this.orders = orders;
         this.storage = storage;
     }
 
+    /**
+     * Thread behaviour.
+     */
     @Override
     public void run() {
         Order order;
