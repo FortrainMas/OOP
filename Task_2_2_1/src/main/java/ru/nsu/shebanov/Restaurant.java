@@ -47,7 +47,7 @@ public class Restaurant {
      */
     public synchronized void createOrder(int amount) {
         while (amount > 0) {
-            int orderSize = Math.min(amount, courierCapacity);
+            int orderSize = 1;
             Order order = new Order(ordersCount, orderSize);
             amount -= orderSize;
             ordersCount += 1;
