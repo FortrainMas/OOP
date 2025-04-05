@@ -51,7 +51,13 @@ public class GameController {
                 } else if(gs.field[row][col] == GameState.GameObjects.APPLE) {
                     square.setFill(Color.RED);
                 } else if(gs.field[row][col] == GameState.GameObjects.PLAYER) {
-                    square.setFill(Color.BLUEVIOLET);
+                    square.setFill(Color.AQUA);
+                } else if(gs.field[row][col] == GameState.GameObjects.COD) {
+                    square.setFill(Color.PURPLE);
+                } else if(gs.field[row][col] == GameState.GameObjects.MINE) {
+                    square.setFill(Color.BLACK);
+                } else if(gs.field[row][col] == GameState.GameObjects.INVERTER) {
+                    square.setFill(Color.BISQUE);
                 }
             }
         }
@@ -63,6 +69,7 @@ public class GameController {
             case DOWN -> gameState.setUserDirection(GameState.Directions.DOWN);
             case LEFT -> gameState.setUserDirection(GameState.Directions.LEFT);
             case RIGHT -> gameState.setUserDirection(GameState.Directions.RIGHT);
+            case R ->  gameState = new GameState();
         }
     }
 
