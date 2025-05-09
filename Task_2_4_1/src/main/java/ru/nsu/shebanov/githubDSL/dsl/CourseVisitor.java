@@ -1,7 +1,4 @@
-package ru.nsu.shebanov.githubDSL;
-
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
+package ru.nsu.shebanov.githubDSL.dsl;
 
 import ru.nsu.shebanov.githubDSL.antlr.CourseDSLBaseVisitor;
 import ru.nsu.shebanov.githubDSL.antlr.CourseDSLParser;

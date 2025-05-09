@@ -5,6 +5,8 @@ import org.antlr.v4.runtime.tree.*;
 
 import ru.nsu.shebanov.githubDSL.antlr.CourseDSLLexer;
 import ru.nsu.shebanov.githubDSL.antlr.CourseDSLParser;
+import ru.nsu.shebanov.githubDSL.dsl.Course;
+import ru.nsu.shebanov.githubDSL.dsl.CourseVisitor;
 
 public class Main {
     public static void main(String[] args) throws Exception {
