@@ -21,7 +21,7 @@ public class Main {
         Course course = (Course) visitor.visit(tree);
 
 
-        var executor = new ExecutorDownload(course);
-        executor.execute();
+        var tester = new Tester(course);
+        tester.startTesting();
     }
 }
