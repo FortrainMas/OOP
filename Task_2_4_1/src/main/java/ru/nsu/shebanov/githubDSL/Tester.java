@@ -1,6 +1,7 @@
 package ru.nsu.shebanov.githubDSL;
 
 import ru.nsu.shebanov.githubDSL.dsl.Course;
+import ru.nsu.shebanov.githubDSL.results.Result;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,8 +24,9 @@ public class Tester {
         List<String> folders = getSubfolders(downloadFolder);
 
         List<Thread> studentThreads = new ArrayList<>();
+        Result globalResult = new Result();
         for(var student : course.students) {
-            Runnable task = new UserExecutor(folders, student, course);
+            Runnable task = new UserExecutor(folders, student, course, globalResult);
             Thread virtualThread = Thread.ofVirtual().unstarted(task);
             studentThreads.add(virtualThread);
             virtualThread.start();

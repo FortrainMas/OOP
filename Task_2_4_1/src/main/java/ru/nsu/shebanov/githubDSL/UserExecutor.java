@@ -2,6 +2,9 @@ package ru.nsu.shebanov.githubDSL;
 
 import ru.nsu.shebanov.githubDSL.dsl.Course;
 import ru.nsu.shebanov.githubDSL.dsl.Student;
+import ru.nsu.shebanov.githubDSL.results.Result;
+import ru.nsu.shebanov.githubDSL.results.TaskResults;
+import ru.nsu.shebanov.githubDSL.results.UserResults;
 import ru.nsu.shebanov.githubDSL.workers.Pull;
 
 import java.io.IOException;
@@ -17,12 +20,14 @@ public class UserExecutor implements Runnable{
     private final Student student;
     private final String downloadFolder;
     private final Course course;
+    private final Result globalResult;
 
-    public UserExecutor(List<String> foldersBeforeExecution, Student student, Course course) {
+    public UserExecutor(List<String> foldersBeforeExecution, Student student, Course course, Result globalResult) {
         this.foldersBeforeExecution = foldersBeforeExecution;
         this.student = student;
         this.course = course;
         this.downloadFolder = course.downloadFolder;
+        this.globalResult = globalResult;
     }
 
 
@@ -44,8 +49,22 @@ public class UserExecutor implements Runnable{
         }
 
         List<Thread> taskThreads = new ArrayList<>();
+        UserResults ur = new UserResults(course, this.student.name);
         for(var task : tasks) {
-            Runnable taskThread = new TaskExecutor(task);
+            String[] split = task.split("\\\\");
+            String cur_task_name = split[split.length - 1];
+            boolean isPresent = false;
+            for(var task_name : course.tasks) {
+                isPresent = isPresent || task_name.name.equals(cur_task_name);
+            }
+            if (!isPresent) {
+                System.out.println("For task '" + cur_task_name + "' nothing found");
+                continue;
+            }
+            TaskResults tr = new TaskResults(cur_task_name);
+            ur.tr.add(tr);
+
+            Runnable taskThread = new TaskExecutor(course, task, tr);
             Thread virtualThread = Thread.ofVirtual().unstarted(taskThread);
             taskThreads.add(virtualThread);
             virtualThread.start();
@@ -57,6 +76,11 @@ public class UserExecutor implements Runnable{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+        }
+
+        ur.appendEmpty();
+        for(var result : ur.tr) {
+            System.out.println(result);
         }
 
     }

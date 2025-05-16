@@ -1,0 +1,60 @@
+package ru.nsu.shebanov.githubDSL.workers;
+
+import ru.nsu.shebanov.githubDSL.dsl.Course;
+import ru.nsu.shebanov.githubDSL.results.TaskResults;
+
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+
+public class CheckStyle {
+    public String checkstylePath = "D:/programm_files/javadog/checkstyle.jar";
+    public String configPath = "D:/programm_files/javadog/google_checks.xml";
+
+    public Course course;
+    public String taskPath;
+    public TaskResults tr;
+
+    public CheckStyle(Course course, TaskResults tr, String taskPath) {
+        this.course = course;
+        this.taskPath = taskPath;
+        this.tr = tr;
+    }
+
+    public void run() throws IOException, InterruptedException {
+        String command = String.format("cd '%s'; java -jar %s -c %s src/", taskPath, checkstylePath, configPath);
+        ProcessBuilder builder = new ProcessBuilder("powershell", "-Command", command);
+
+        builder.redirectErrorStream(true);  // объединяет stderr и stdout
+        Process process = builder.start();
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        StringBuilder output = new StringBuilder();
+        String line;
+        boolean hasWarn = false;
+
+        while ((line = reader.readLine()) != null) {
+            output.append(line).append("\n");
+            if (line.contains("[WARN]")) {
+                hasWarn = true;
+            }
+        }
+
+        int exitCode = process.waitFor();
+
+        if (exitCode == 0) {
+            if (hasWarn) {
+                System.out.println(taskPath + " has warnings:");
+                System.out.println(output);
+            } else {
+                tr.codeStyleResults = true;
+                System.out.println(taskPath + " OK — no warnings.");
+            }
+        } else {
+            System.out.println(taskPath + " FAILED (exit code " + exitCode + ")");
+            System.out.println(output);
+        }
+
+    }
+}

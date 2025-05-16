@@ -1,16 +1,21 @@
 package ru.nsu.shebanov.githubDSL.workers;
 
-import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.*;
+import ru.nsu.shebanov.githubDSL.results.TaskResults;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import java.io.File;
 import java.io.IOException;
 
 public class Test {
     private final String taskPath;
+    public TaskResults tr;
 
-    public Test(String taskPath) {
+    public Test(String taskPath, TaskResults tr) {
         this.taskPath = taskPath;
+        this.tr = tr;
     }
 
     public void run() throws IOException, InterruptedException {
@@ -32,7 +37,13 @@ public class Test {
         }
 
         try {
-            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xmlFile);
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+            factory.setFeature("http://xml.org/sax/features/validation", false);
+            factory.setNamespaceAware(false);
+
+            DocumentBuilder builderXML = factory.newDocumentBuilder();
+            Document doc = builderXML.parse(xmlFile);
             NodeList counters = doc.getElementsByTagName("counter");
 
             for (int i = 0; i < counters.getLength(); i++) {
@@ -42,8 +53,10 @@ public class Test {
                     int missed = Integer.parseInt(counter.getAttribute("missed"));
                     double coverage = 100.0 * covered / (covered + missed);
 
+                    tr.testScore = coverage;
                     if (coverage >= 80.0) {
-                        System.out.println(taskPath + " ok");
+                        tr.testResults = true;
+                        System.out.printf(taskPath + " ok (coverage %.2f%%)%n", coverage);
                     } else {
                         System.out.printf(taskPath + " failed (coverage %.2f%%)%n", coverage);
                     }
@@ -56,4 +69,5 @@ public class Test {
             System.out.println(taskPath + " failed (XML parse error)");
         }
     }
+
 }
