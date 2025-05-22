@@ -84,7 +84,7 @@ public class UserExecutor implements Runnable{
                 throw new RuntimeException(e);
             }
         }
-
+        executor.shutdown();
         ur.appendEmpty();
         this.globalResult.add(ur);
 

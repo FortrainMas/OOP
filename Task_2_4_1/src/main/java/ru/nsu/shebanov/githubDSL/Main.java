@@ -11,9 +11,14 @@ import ru.nsu.shebanov.githubDSL.results.Result;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        CharStream input =
-                CharStreams.fromFileName(
-                        "D:\\Z\\Programming\\_Univeristy\\NSU\\OOP\\_OOP\\Task_2_4_1\\src\\main\\java\\ru\\nsu\\shebanov\\githubDSL\\config.dsl");
+        if (args.length < 1) {
+            System.err.println("Ошибка: укажи путь к файлу как аргумент командной строки.");
+            System.exit(1);
+        }
+
+        String filePath = args[0];
+        CharStream input = CharStreams.fromFileName(filePath);
+
         CourseDSLLexer lexer = new CourseDSLLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         CourseDSLParser parser = new CourseDSLParser(tokens);
@@ -24,6 +29,6 @@ public class Main {
         Course course = (Course) visitor.visit(tree);
 
         var tester = new Tester(course);
-        tester.startTesting();
+        tester.dryRun();
     }
 }

@@ -1,14 +1,17 @@
 package ru.nsu.shebanov.githubDSL.results;
 
 import org.antlr.v4.runtime.misc.Array2DHashSet;
+import ru.nsu.shebanov.githubDSL.dsl.Course;
 
 import java.util.*;
 
 public class Result {
     List<UserResults> userResults;
+    private final Course course;
 
-    public Result () {
+    public Result (Course course) {
         userResults = new ArrayList<>();
+        this.course = course;
     }
 
     public synchronized void add(UserResults userResult) {
@@ -38,14 +41,20 @@ public class Result {
         for(var user : userResults) {
             str.append("|").append(user.userName).append("|");
 
-            for(var task : taskNames) {
+            for(var task : course.tasks) {
                 for (var userTask : user.tr) {
-                    if (Objects.equals(userTask.task_name, task)) {
-                        str.append(String.format(" (build: %d test: %d code style: %d) |",
-                                userTask.buildSuccessfully ? 1 : 0,
-                                userTask.testResults ? 1 : 0,
-                                userTask.codeStyleResults ? 1 : 0
+                    if (Objects.equals(userTask.task_name, task.name)) {
+                        int build = userTask.buildSuccessfully ? 1 : 0;
+                        int test = userTask.testResults ? 1 : 0;
+                        int codeStyle = userTask.codeStyleResults ? 1 : 0;
+
+                        str.append(String.format(" (build: %d test: %d code style: %d points:%d) |",
+                                build,
+                                test,
+                                codeStyle,
+                                task.maxPoints * build * test
                         ));
+
                     }
                 }
             }

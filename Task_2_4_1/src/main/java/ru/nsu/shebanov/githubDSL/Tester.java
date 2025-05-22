@@ -2,6 +2,8 @@ package ru.nsu.shebanov.githubDSL;
 
 import ru.nsu.shebanov.githubDSL.dsl.Course;
 import ru.nsu.shebanov.githubDSL.results.Result;
+import ru.nsu.shebanov.githubDSL.results.TaskResults;
+import ru.nsu.shebanov.githubDSL.results.UserResults;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,7 +31,7 @@ public class Tester {
 
         List<Future<?>> studentThreads = new ArrayList<>();
         ExecutorService executor = Executors.newFixedThreadPool(10);
-        Result globalResult = new Result();
+        Result globalResult = new Result(course);
         for(var student : course.students) {
             Future<?> future = executor.submit(new UserExecutor(folders, student, course, globalResult));
             studentThreads.add(future);
@@ -37,6 +39,26 @@ public class Tester {
 
         for(var thread : studentThreads) {
             thread.get();
+        }
+        executor.shutdown();
+
+        System.out.println(globalResult);
+        System.out.println("Finished testing");
+    }
+
+    void dryRun() {
+        Result globalResult = new Result(course);
+
+        for(var student : course.students) {
+            UserResults userResult = new UserResults(course, student.name);
+            for (var task : course.tasks) {
+                TaskResults taskResult = new TaskResults(task.name);
+                taskResult.buildSuccessfully = true;
+                taskResult.codeStyleResults = true;
+                taskResult.testResults = true;
+                userResult.tr.add(taskResult);
+            }
+            globalResult.add(userResult);
         }
 
         System.out.println(globalResult);
