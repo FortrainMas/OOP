@@ -12,6 +12,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 import java.nio.file.*;
 
@@ -48,8 +52,10 @@ public class UserExecutor implements Runnable{
             throw new RuntimeException(e);
         }
 
-        List<Thread> taskThreads = new ArrayList<>();
+        List<Future<?>> taskThreads = new ArrayList<>();
         UserResults ur = new UserResults(course, this.student.name);
+
+        ExecutorService executor = Executors.newFixedThreadPool(10);
         for(var task : tasks) {
             String[] split = task.split("\\\\");
             String cur_task_name = split[split.length - 1];
@@ -64,24 +70,23 @@ public class UserExecutor implements Runnable{
             TaskResults tr = new TaskResults(cur_task_name);
             ur.tr.add(tr);
 
-            Runnable taskThread = new TaskExecutor(course, task, tr);
-            Thread virtualThread = Thread.ofVirtual().unstarted(taskThread);
-            taskThreads.add(virtualThread);
-            virtualThread.start();
+
+
+
+            Future<?> future = executor.submit(new TaskExecutor(course, task, tr));
+            taskThreads.add(future);
         }
 
-        for(var taskThread : taskThreads) {
+        for(var future : taskThreads) {
             try {
-                taskThread.join();
-            } catch (InterruptedException e) {
+                future.get();
+            } catch (InterruptedException | ExecutionException e) {
                 throw new RuntimeException(e);
             }
         }
 
         ur.appendEmpty();
-        for(var result : ur.tr) {
-            System.out.println(result);
-        }
+        this.globalResult.add(ur);
 
     }
 

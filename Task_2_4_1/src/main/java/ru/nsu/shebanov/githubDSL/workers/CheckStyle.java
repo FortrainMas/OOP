@@ -6,6 +6,7 @@ import ru.nsu.shebanov.githubDSL.results.TaskResults;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.concurrent.TimeUnit;
 
 
 public class CheckStyle {
@@ -16,10 +17,14 @@ public class CheckStyle {
     public String taskPath;
     public TaskResults tr;
 
+    private final int timeout;
+
     public CheckStyle(Course course, TaskResults tr, String taskPath) {
         this.course = course;
         this.taskPath = taskPath;
         this.tr = tr;
+
+        this.timeout = 120;
     }
 
     public void run() throws IOException, InterruptedException {
@@ -41,7 +46,13 @@ public class CheckStyle {
             }
         }
 
-        int exitCode = process.waitFor();
+        boolean isFinished = process.waitFor(this.timeout, TimeUnit.SECONDS);
+        if(!isFinished) {
+            tr.codeStyleResults=false;
+            System.out.println(taskPath + "checkstyle timeout");
+        }
+
+        int exitCode = process.exitValue();
 
         if (exitCode == 0) {
             if (hasWarn) {

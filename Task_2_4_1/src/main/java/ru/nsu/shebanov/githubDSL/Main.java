@@ -7,6 +7,7 @@ import ru.nsu.shebanov.githubDSL.antlr.CourseDSLLexer;
 import ru.nsu.shebanov.githubDSL.antlr.CourseDSLParser;
 import ru.nsu.shebanov.githubDSL.dsl.Course;
 import ru.nsu.shebanov.githubDSL.dsl.CourseVisitor;
+import ru.nsu.shebanov.githubDSL.results.Result;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -21,7 +22,6 @@ public class Main {
 
         var visitor = new CourseVisitor();
         Course course = (Course) visitor.visit(tree);
-
 
         var tester = new Tester(course);
         tester.startTesting();

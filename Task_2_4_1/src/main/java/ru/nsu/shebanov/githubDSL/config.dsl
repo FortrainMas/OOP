@@ -14,10 +14,15 @@ tasks {
 };
 
 students {
+    student(nickname: "KirShelestov", name: "Kirill Pipe", repository: "https://github.com/KirShelestov/OOP")
+    student(nickname: "ArtemChepenkov", name: "Artem Igorevich", repository: "https://github.com/ArtemChepenkov/OOP")
+    student(nickname: "SibSeven", name: "Vadim Lavrenenkov", repository: "https://github.com/Sibseven/OOP")
+    student(nickname: "Vovadinamik8913", name: "Vladimir Abramovich", repository: "https://github.com/Vovadinamik8913/OOP")
     student(nickname: "filimonq", name: "Ildarik", repository: "https://github.com/filimonq/OOP")
 };
 
 groups {
+    group(name: "23215", students: ["KirShelestov", "ArtemChepenkov", "SibSeven", "Vovadinamik8913"])
     group(name: "23215", students: ["filimonq"])
 };
 

@@ -8,14 +8,18 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class Test {
     private final String taskPath;
     public TaskResults tr;
+    private final int timeout;
 
     public Test(String taskPath, TaskResults tr) {
         this.taskPath = taskPath;
         this.tr = tr;
+
+        this.timeout = 70;
     }
 
     public void run() throws IOException, InterruptedException {
@@ -23,7 +27,14 @@ public class Test {
         ProcessBuilder builder = new ProcessBuilder("powershell", "-Command", command);
         builder.redirectErrorStream(true);
         Process process = builder.start();
-        int exitCode = process.waitFor();
+
+        boolean isFinished = process.waitFor(this.timeout, TimeUnit.SECONDS);
+        if (!isFinished) {
+            System.out.println(taskPath + " failed test (timeout)");
+            return;
+        }
+
+        int exitCode = process.exitValue();
 
         if (exitCode != 0) {
             System.out.println(taskPath + " failed (test or report error)");

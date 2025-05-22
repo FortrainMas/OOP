@@ -13,6 +13,7 @@ public class UserResults {
     public UserResults(Course course, String userName) {
         tr = new ArrayList<>();
         this.userName = userName;
+        this.course = course;
     }
 
     public void appendEmpty() {

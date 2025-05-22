@@ -3,14 +3,17 @@ package ru.nsu.shebanov.githubDSL.workers;
 import ru.nsu.shebanov.githubDSL.results.TaskResults;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class Run {
     private final String taskPath;
     public TaskResults tr;
+    private final int timeout;
 
     public Run(String taskPath, TaskResults tr) {
         this.taskPath = taskPath;
         this.tr = tr;
+        this.timeout = 180;
     }
 
     public void run() throws IOException, InterruptedException {
@@ -19,7 +22,13 @@ public class Run {
 
         builder.redirectErrorStream(true);
         Process process = builder.start();
-        int exitCode = process.waitFor();
+
+        boolean isFinished = process.waitFor(this.timeout, TimeUnit.SECONDS);
+        if(!isFinished) {
+            System.out.println(taskPath + " build failed (timeout)");
+            return;
+        }
+        int exitCode = process.exitValue();
 
         if (exitCode == 0) {
             tr.buildSuccessfully = true;
