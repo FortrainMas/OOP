@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.shebanov.primes"},{"l":"ru.nsu.shebanov.primes.client"},{"l":"ru.nsu.shebanov.primes.common"},{"l":"ru.nsu.shebanov.primes.server"}];updateSearchResults();
