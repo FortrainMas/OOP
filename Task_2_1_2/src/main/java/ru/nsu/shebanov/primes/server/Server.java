@@ -1,21 +1,24 @@
 package ru.nsu.shebanov.primes.server;
 
-import java.io.*;
-import java.net.*;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.nio.ByteBuffer;
-import java.nio.channels.*;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+import java.util.ArrayList;
 import java.util.Iterator;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
 import ru.nsu.shebanov.primes.common.KnownPrimes;
 import ru.nsu.shebanov.primes.common.Submission;
 import ru.nsu.shebanov.primes.common.Task;
 
+/**
+ * Class for project running as an instance of server.
+ */
 public class Server {
     public final int port;
     public final Selector selector;
@@ -23,24 +26,35 @@ public class Server {
     public final List<Socket> clients;
     public final List<Integer> checkTask;
 
+    /**
+     * Constructor for server instance.
+     *
+     * @param port port to run
+     * @param checkTask sequence of numbers to check
+     * @throws IOException really throws
+     */
     public Server(int port, List<Integer> checkTask) throws IOException {
         this.port = port;
         this.checkTask = checkTask;
-
 
         this.selector = Selector.open();
         this.clients = new ArrayList<>();
 
         this.serverChannel = ServerSocketChannel.open();
-        InetSocketAddress localAddress = (InetSocketAddress) serverChannel.getLocalAddress();
-        String ip = localAddress.getAddress().getHostAddress();
         this.serverChannel.bind(new InetSocketAddress(port));
         this.serverChannel.configureBlocking(false);
         this.serverChannel.register(selector, SelectionKey.OP_ACCEPT);
 
+        InetSocketAddress localAddress = (InetSocketAddress) serverChannel.getLocalAddress();
+        String ip = localAddress.getAddress().getHostAddress();
         System.out.printf("Started on ip: %s \n", ip);
     }
 
+    /**
+     * Start.
+     *
+     * @throws IOException really throws
+     */
     public void run() throws IOException {
         KnownPrimes knownPrimes = new KnownPrimes();
         CheckResult checkResult = new CheckResult();

@@ -1,7 +1,6 @@
 package ru.nsu.shebanov.primes.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ru.nsu.shebanov.primes.common.PrimesDelta;
 import ru.nsu.shebanov.primes.common.Submission;
 import ru.nsu.shebanov.primes.common.Task;
 
@@ -12,12 +11,22 @@ import java.nio.channels.SocketChannel;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Class for project running as an instance of client.
+ */
 public class Client {
 
     public final String host;
     public final int port;
     public final SocketChannel client;
 
+    /**
+     * Constructor for client instance.
+     *
+     * @param host host to connect.
+     * @param port port to connect.
+     * @throws IOException really throws.
+     */
     public Client(String host, int port) throws IOException {
         this.host = host;
         this.port = port;
@@ -27,6 +36,9 @@ public class Client {
         client.connect(address);
     }
 
+    /**
+     * Run instance.
+     */
     public void run() {
         ObjectMapper mapper = new ObjectMapper();
         ByteBuffer buffer = ByteBuffer.allocate(4096);
@@ -55,8 +67,8 @@ public class Client {
                 Set<Integer> primes = new HashSet<>();
                 for (int i = task.minimum; i < task.maximum; i++) {
                     boolean isPrime = true;
-                    for(var knownPrime : task.knownPrimes.primes) {
-                        if(i % knownPrime == 0) {
+                    for (var knownPrime : task.knownPrimes.primes) {
+                        if (i % knownPrime == 0) {
                             isPrime = false;
                             break;
                         }
@@ -65,19 +77,21 @@ public class Client {
                         break;
                     }
 
-                    for(int j = task.knownPrimes.maximum; j < Math.sqrt(i) + 1; i++) {
+                    for (int j = task.knownPrimes.maximum; j < Math.sqrt(i) + 1; i++) {
                         if (i % j == 0) {
                             isPrime = false;
                             break;
                         }
                     }
 
-                    if(isPrime) {
+                    if (isPrime) {
                         primes.add(i);
                     }
                 }
 
-                Submission submission = new Submission(task.minimum, task.maximum, task.step, task.numWorkers, primes);
+                Submission submission =
+                        new Submission(
+                                task.minimum, task.maximum, task.step, task.numWorkers, primes);
                 byte[] jsonData = mapper.writeValueAsBytes(submission);
                 buffer = ByteBuffer.wrap(jsonData);
                 while (buffer.hasRemaining()) {
@@ -89,7 +103,8 @@ public class Client {
         } finally {
             try {
                 client.close();
-            } catch (IOException ignored) {}
+            } catch (IOException ignored) {
+            }
         }
     }
 }

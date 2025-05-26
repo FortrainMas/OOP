@@ -1,9 +1,16 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group = 'ru.nsu.shebanov.primes'
 version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 repositories {
     mavenCentral()
@@ -17,4 +24,13 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+    }
 }
