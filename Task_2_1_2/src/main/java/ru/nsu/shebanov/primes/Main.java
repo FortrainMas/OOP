@@ -1,15 +1,22 @@
 package ru.nsu.shebanov.primes;
 
-import ru.nsu.shebanov.primes.client.Client;
-import ru.nsu.shebanov.primes.server.Server;
-
 import java.io.IOException;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import ru.nsu.shebanov.primes.client.Client;
+import ru.nsu.shebanov.primes.server.Server;
 
+/**
+ * Entry class.
+ */
 public class Main {
+    /**
+     * Entry function.
+     *
+     * @param args args
+     * @throws IOException really throws
+     */
     public static void main(String[] args) throws IOException {
         if (args.length == 1) {
             int port = Integer.parseInt(args[0]);
@@ -22,7 +29,6 @@ public class Main {
             for (String part : parts) {
                 task.add(Integer.parseInt(part));
             }
-
 
             Server server = new Server(port, task);
             server.run();

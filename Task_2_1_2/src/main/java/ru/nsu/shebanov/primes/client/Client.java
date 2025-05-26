@@ -1,19 +1,16 @@
 package ru.nsu.shebanov.primes.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ru.nsu.shebanov.primes.common.Submission;
-import ru.nsu.shebanov.primes.common.Task;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.util.HashSet;
 import java.util.Set;
+import ru.nsu.shebanov.primes.common.Submission;
+import ru.nsu.shebanov.primes.common.Task;
 
-/**
- * Class for project running as an instance of client.
- */
+/** Class for project running as an instance of client. */
 public class Client {
 
     public final String host;
@@ -36,9 +33,7 @@ public class Client {
         client.connect(address);
     }
 
-    /**
-     * Run instance.
-     */
+    /** Run instance. */
     public void run() {
         ObjectMapper mapper = new ObjectMapper();
         ByteBuffer buffer = ByteBuffer.allocate(4096);
