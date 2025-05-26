@@ -16,6 +16,7 @@ public class KnownPrimes {
     public KnownPrimes() {
         this.maximum = 2;
         this.primes = new HashSet<>();
+        this.primes.add(2);
     }
 
     /**
