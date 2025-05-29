@@ -29,6 +29,6 @@ public class Main {
         Course course = (Course) visitor.visit(tree);
 
         var tester = new Tester(course);
-        tester.startTesting();
+        tester.dryRun();
     }
 }
