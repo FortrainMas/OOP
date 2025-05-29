@@ -3,9 +3,8 @@ package ru.nsu.shebanov.primes;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import ru.nsu.shebanov.primes.server.Server;
-
 import org.junit.jupiter.api.Test;
+import ru.nsu.shebanov.primes.server.Server;
 
 /** Checks server behavior. */
 public class CheckServerTest {
