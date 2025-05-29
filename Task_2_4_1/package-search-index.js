@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.shebanov.githubDSL"},{"l":"ru.nsu.shebanov.githubDSL.antlr"},{"l":"ru.nsu.shebanov.githubDSL.dsl"},{"l":"ru.nsu.shebanov.githubDSL.results"},{"l":"ru.nsu.shebanov.githubDSL.workers"}];updateSearchResults();
