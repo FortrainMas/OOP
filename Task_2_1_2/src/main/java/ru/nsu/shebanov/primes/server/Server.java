@@ -64,10 +64,10 @@ public class Server {
         checkerThread.start();
 
         while (checkerThread.isAlive()) {
-            selector.select();
+            selector.select(100);
             Iterator<SelectionKey> keyIterator = selector.selectedKeys().iterator();
 
-            while (keyIterator.hasNext() && checkerThread.isAlive()) {
+            while (checkerThread.isAlive() && keyIterator.hasNext()) {
                 SelectionKey key = keyIterator.next();
                 keyIterator.remove();
 
