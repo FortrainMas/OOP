@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'antlr'
+    id 'jacoco'
 }
 
 group = 'ru.nsu.shebanov.githubDSL'
@@ -10,7 +11,14 @@ repositories {
     mavenCentral()
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
 dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
     antlr 'org.antlr:antlr4:4.13.2'
     implementation 'org.antlr:antlr4-runtime:4.13.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
@@ -35,4 +43,13 @@ tasks.withType(JavaCompile).configureEach {
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+    }
 }
