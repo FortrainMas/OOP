@@ -1,12 +1,5 @@
 package ru.nsu.shebanov.githubDSL;
 
-import ru.nsu.shebanov.githubDSL.dsl.Course;
-import ru.nsu.shebanov.githubDSL.results.TaskResults;
-import ru.nsu.shebanov.githubDSL.workers.Pull;
-import ru.nsu.shebanov.githubDSL.results.Result;
-import ru.nsu.shebanov.githubDSL.dsl.Student;
-import ru.nsu.shebanov.githubDSL.results.UserResults;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,6 +11,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.List;
 import java.util.stream.Collectors;
+import ru.nsu.shebanov.githubDSL.dsl.Course;
+import ru.nsu.shebanov.githubDSL.results.TaskResults;
+import ru.nsu.shebanov.githubDSL.workers.Pull;
+import ru.nsu.shebanov.githubDSL.results.Result;
+import ru.nsu.shebanov.githubDSL.dsl.Student;
+import ru.nsu.shebanov.githubDSL.results.UserResults;
 
 public class UserExecutor implements Runnable {
     private final List<String> foldersBeforeExecution;

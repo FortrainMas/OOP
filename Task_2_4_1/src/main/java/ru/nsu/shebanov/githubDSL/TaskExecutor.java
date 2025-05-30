@@ -25,10 +25,13 @@ public class TaskExecutor implements Runnable {
         CheckStyle style = new CheckStyle(course, tr, taskPath);
         try {
             run.run();
-            if (!tr.buildSuccessfully) return;
-            ;
+            if (!tr.buildSuccessfully) {
+                return;
+            }
             test.run();
-            if (!tr.testResults) return;
+            if (!tr.testResults) {
+                return;
+            }
             style.run();
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);

@@ -2,14 +2,14 @@ package ru.nsu.shebanov.githubDSL;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import ru.nsu.shebanov.githubDSL.antlr.CourseDSLLexer;
-import ru.nsu.shebanov.githubDSL.antlr.CourseDSLParser;
-import ru.nsu.shebanov.githubDSL.dsl.Course;
-import ru.nsu.shebanov.githubDSL.dsl.CourseVisitor;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
+import ru.nsu.shebanov.githubDSL.antlr.CourseDSLLexer;
+import ru.nsu.shebanov.githubDSL.antlr.CourseDSLParser;
+import ru.nsu.shebanov.githubDSL.dsl.Course;
+import ru.nsu.shebanov.githubDSL.dsl.CourseVisitor;
 
 public class Main {
     public static void main(String[] args) throws Exception {
