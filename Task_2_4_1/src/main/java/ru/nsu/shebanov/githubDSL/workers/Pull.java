@@ -5,17 +5,33 @@ import java.util.List;
 import ru.nsu.shebanov.githubDSL.dsl.Course;
 import ru.nsu.shebanov.githubDSL.dsl.Student;
 
+/**
+ * Pull tasks for user.
+ */
 public class Pull {
     private final Student student;
     private final List<String> foldersBeforeExecution;
     private final String downloadFolder;
 
+    /**
+     * Constructs task.
+     *
+     * @param course course
+     * @param student student
+     * @param foldersBeforeExecution folder of user
+     */
     public Pull(Course course, Student student, List<String> foldersBeforeExecution) {
         this.student = student;
         this.foldersBeforeExecution = foldersBeforeExecution;
         this.downloadFolder = course.downloadFolder;
     }
 
+    /**
+     * Pull task.
+     *
+     * @throws IOException actually throws
+     * @throws InterruptedException actually throws
+     */
     public void pull() throws IOException, InterruptedException {
         if (foldersBeforeExecution.contains(student.nickname)) {
             String setDirectory = "cd " + downloadFolder + "/" + student.nickname + "; ";

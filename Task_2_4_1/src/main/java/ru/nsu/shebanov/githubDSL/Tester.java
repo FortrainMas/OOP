@@ -16,13 +16,28 @@ import ru.nsu.shebanov.githubDSL.results.Result;
 import ru.nsu.shebanov.githubDSL.results.TaskResults;
 import ru.nsu.shebanov.githubDSL.results.UserResults;
 
+/**
+ * Tester entity.
+ */
 public class Tester {
     private final Course course;
 
+    /**
+     * Constructs task for tester.
+     *
+     * @param course course
+     */
     public Tester(Course course) {
         this.course = course;
     }
 
+    /**
+     * Main logic.
+     *
+     * @throws IOException actually throws
+     * @throws InterruptedException actually throws
+     * @throws ExecutionException actually throws
+     */
     void startTesting() throws IOException, InterruptedException, ExecutionException {
         String downloadFolder = course.downloadFolder;
         List<String> folders = getSubfolders(downloadFolder);
@@ -45,6 +60,9 @@ public class Tester {
         System.out.println("Finished testing");
     }
 
+    /**
+     * Dry run without any logic.
+     */
     void dryRun() {
         Result globalResult = new Result(course);
         Random random = new Random();

@@ -1,5 +1,8 @@
 package ru.nsu.shebanov.githubDSL.results;
 
+/**
+ * Task results.
+ */
 public class TaskResults {
     public String taskName;
     public boolean isPresent;
@@ -8,6 +11,11 @@ public class TaskResults {
     public boolean testResults;
     public boolean codeStyleResults;
 
+    /**
+     * Task results constructor.
+     *
+     * @param taskName task name
+     */
     public TaskResults(String taskName) {
         this.taskName = taskName;
         this.buildSuccessfully = false;
@@ -17,6 +25,11 @@ public class TaskResults {
         this.isPresent = false;
     }
 
+    /**
+     * Construct string for task result.
+     *
+     * @return simple markdown output
+     */
     @Override
     public String toString() {
         return String.format(

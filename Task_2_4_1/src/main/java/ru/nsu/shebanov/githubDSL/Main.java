@@ -11,7 +11,16 @@ import ru.nsu.shebanov.githubDSL.antlr.CourseDSLParser;
 import ru.nsu.shebanov.githubDSL.dsl.Course;
 import ru.nsu.shebanov.githubDSL.dsl.CourseVisitor;
 
+/**
+ * Enter point.
+ */
 public class Main {
+    /**
+     * Entry point function.
+     *
+     * @param args args
+     * @throws Exception actually throws
+     */
     public static void main(String[] args) throws Exception {
         if (args.length < 1) {
             System.err.println("Ошибка: укажи путь к файлу как аргумент командной строки.");

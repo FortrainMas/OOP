@@ -8,19 +8,37 @@ import java.util.Objects;
 import java.util.Set;
 import ru.nsu.shebanov.githubDSL.dsl.Course;
 
+/**
+ * Result entity.
+ */
 public class Result {
     List<UserResults> userResults;
     private final Course course;
 
+    /**
+     * Result constructor.
+     *
+     * @param course course
+     */
     public Result(Course course) {
         userResults = new ArrayList<>();
         this.course = course;
     }
 
+    /**
+     * Add new result.
+     *
+     * @param userResult user result
+     */
     public synchronized void add(UserResults userResult) {
         userResults.add(userResult);
     }
 
+    /**
+     * Construct string for result.
+     *
+     * @return markdown output
+     */
     @Override
     public String toString() {
         Set<String> taskNamesSet = new HashSet<>();

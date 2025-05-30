@@ -10,11 +10,20 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import ru.nsu.shebanov.githubDSL.results.TaskResults;
 
+/**
+ * Task Test.
+ */
 public class Test {
     private final String taskPath;
     public TaskResults tr;
     private final int timeout;
 
+    /**
+     * Constructs test task.
+     *
+     * @param taskPath path to the task
+     * @param tr task results
+     */
     public Test(String taskPath, TaskResults tr) {
         this.taskPath = taskPath;
         this.tr = tr;
@@ -22,6 +31,12 @@ public class Test {
         this.timeout = 70;
     }
 
+    /**
+     * Runs the task.
+     *
+     * @throws IOException actually throws
+     * @throws InterruptedException actually throws
+     */
     public void run() throws IOException, InterruptedException {
         String command = String.format("cd '%s'; ./gradlew test jacocoTestReport", taskPath);
         ProcessBuilder builder = new ProcessBuilder("powershell", "-Command", command);

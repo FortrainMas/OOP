@@ -4,17 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 import ru.nsu.shebanov.githubDSL.dsl.Course;
 
+/**
+ * User results.
+ */
 public class UserResults {
     public List<TaskResults> tr;
     public String userName;
     public Course course;
 
+    /**
+     * Constructor for user result.
+     *
+     * @param course course
+     * @param userName user name
+     */
     public UserResults(Course course, String userName) {
         tr = new ArrayList<>();
         this.userName = userName;
         this.course = course;
     }
 
+    /**
+     * Append missing tasks for user.
+     */
     public void appendEmpty() {
         for (var task : course.tasks) {
             boolean cont = false;
@@ -27,6 +39,11 @@ public class UserResults {
         }
     }
 
+    /**
+     * Construct string from results.
+     *
+     * @return simple markdown output
+     */
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder(this.userName);

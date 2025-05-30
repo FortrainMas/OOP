@@ -8,6 +8,9 @@ import ru.nsu.shebanov.githubDSL.dsl.Course;
 import ru.nsu.shebanov.githubDSL.results.TaskResults;
 
 
+/**
+ * Checkstyle task.
+ */
 public class CheckStyle {
     public String checkstylePath = "D:/programm_files/javadog/checkstyle.jar";
     public String configPath = "D:/programm_files/javadog/google_checks.xml";
@@ -18,6 +21,13 @@ public class CheckStyle {
 
     private final int timeout;
 
+    /**
+     * Constructs check style task.
+     *
+     * @param course course
+     * @param tr task results
+     * @param taskPath path to the task
+     */
     public CheckStyle(Course course, TaskResults tr, String taskPath) {
         this.course = course;
         this.taskPath = taskPath;
@@ -26,6 +36,12 @@ public class CheckStyle {
         this.timeout = 120;
     }
 
+    /**
+     * Run the check style.
+     *
+     * @throws IOException actually throws
+     * @throws InterruptedException actually throws
+     */
     public void run() throws IOException, InterruptedException {
         String command =
                 String.format(

@@ -18,6 +18,9 @@ import ru.nsu.shebanov.githubDSL.results.Result;
 import ru.nsu.shebanov.githubDSL.results.UserResults;
 import ru.nsu.shebanov.githubDSL.workers.Pull;
 
+/**
+ * Executor for user.
+ */
 public class UserExecutor implements Runnable {
     private final List<String> foldersBeforeExecution;
     private final Student student;
@@ -25,6 +28,14 @@ public class UserExecutor implements Runnable {
     private final Course course;
     private final Result globalResult;
 
+    /**
+     * Constructor for user executor.
+     *
+     * @param foldersBeforeExecution list of folders for users
+     * @param student student
+     * @param course course
+     * @param globalResult global result
+     */
     public UserExecutor(
             List<String> foldersBeforeExecution,
             Student student,
@@ -37,6 +48,9 @@ public class UserExecutor implements Runnable {
         this.globalResult = globalResult;
     }
 
+    /**
+     * Run the executor.
+     */
     @Override
     public void run() {
         Pull pull = new Pull(course, student, foldersBeforeExecution);
@@ -88,6 +102,13 @@ public class UserExecutor implements Runnable {
         this.globalResult.add(ur);
     }
 
+    /**
+     * Parse paths.
+     *
+     * @param parentPath parent folder
+     * @return list of folders
+     * @throws IOException throws exception
+     */
     public static List<String> getFullPaths(String parentPath) throws IOException {
         try (var stream = Files.walk(Paths.get(parentPath), 1)) {
             return stream.filter(Files::isDirectory)
