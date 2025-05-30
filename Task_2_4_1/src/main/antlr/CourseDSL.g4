@@ -1,7 +1,7 @@
 grammar CourseDSL;
 
 @header {
-    package ru.nsu.shebanov.githubDomainSpecificLanguage.antlr;
+    package ru.nsu.shebanov.githubdsl.antlr;
 }
 
 course    : tasks ';' students ';' groups ';' config ';';

@@ -1,8 +1,8 @@
-package ru.nsu.shebanov.githubDomainSpecificLanguage.workers;
+package ru.nsu.shebanov.githubdsl.workers;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import ru.nsu.shebanov.githubDomainSpecificLanguage.results.TaskResults;
+import ru.nsu.shebanov.githubdsl.results.TaskResults;
 
 /**
  * Run the build task.

@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.githubDomainSpecificLanguage;
+package ru.nsu.shebanov.githubdsl;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,10 +11,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
-import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.Course;
-import ru.nsu.shebanov.githubDomainSpecificLanguage.results.Result;
-import ru.nsu.shebanov.githubDomainSpecificLanguage.results.TaskResults;
-import ru.nsu.shebanov.githubDomainSpecificLanguage.results.UserResults;
+import ru.nsu.shebanov.githubdsl.dsl.Course;
+import ru.nsu.shebanov.githubdsl.results.Result;
+import ru.nsu.shebanov.githubdsl.results.TaskResults;
+import ru.nsu.shebanov.githubdsl.results.UserResults;
 
 /**
  * Tester entity.

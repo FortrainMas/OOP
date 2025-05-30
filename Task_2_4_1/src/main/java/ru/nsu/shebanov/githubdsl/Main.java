@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.githubDomainSpecificLanguage;
+package ru.nsu.shebanov.githubdsl;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
@@ -6,10 +6,10 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import ru.nsu.shebanov.githubDomainSpecificLanguage.antlr.CourseDSLLexer;
-import ru.nsu.shebanov.githubDomainSpecificLanguage.antlr.CourseDSLParser;
-import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.Course;
-import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.CourseVisitor;
+import ru.nsu.shebanov.githubdsl.antlr.CourseDSLLexer;
+import ru.nsu.shebanov.githubdsl.antlr.CourseDSLParser;
+import ru.nsu.shebanov.githubdsl.dsl.Course;
+import ru.nsu.shebanov.githubdsl.dsl.CourseVisitor;
 
 /**
  * Enter point.

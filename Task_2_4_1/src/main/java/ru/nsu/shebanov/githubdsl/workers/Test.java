@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.githubDomainSpecificLanguage.workers;
+package ru.nsu.shebanov.githubdsl.workers;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import ru.nsu.shebanov.githubDomainSpecificLanguage.results.TaskResults;
+import ru.nsu.shebanov.githubdsl.results.TaskResults;
 
 /**
  * Task Test.
