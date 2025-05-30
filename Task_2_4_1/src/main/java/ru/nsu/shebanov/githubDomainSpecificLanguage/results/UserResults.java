@@ -1,8 +1,8 @@
-package ru.nsu.shebanov.githubDSL.results;
+package ru.nsu.shebanov.githubDomainSpecificLanguage.results;
 
 import java.util.ArrayList;
 import java.util.List;
-import ru.nsu.shebanov.githubDSL.dsl.Course;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.Course;
 
 /**
  * User results.

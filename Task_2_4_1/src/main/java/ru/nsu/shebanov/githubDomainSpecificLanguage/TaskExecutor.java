@@ -1,11 +1,11 @@
-package ru.nsu.shebanov.githubDSL;
+package ru.nsu.shebanov.githubDomainSpecificLanguage;
 
 import java.io.IOException;
-import ru.nsu.shebanov.githubDSL.dsl.Course;
-import ru.nsu.shebanov.githubDSL.results.TaskResults;
-import ru.nsu.shebanov.githubDSL.workers.CheckStyle;
-import ru.nsu.shebanov.githubDSL.workers.Run;
-import ru.nsu.shebanov.githubDSL.workers.Test;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.Course;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.results.TaskResults;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.workers.CheckStyle;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.workers.Run;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.workers.Test;
 
 /**
  * Worker for tasks.

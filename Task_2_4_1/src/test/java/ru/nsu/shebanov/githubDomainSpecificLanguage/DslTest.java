@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.githubDSL;
+package ru.nsu.shebanov.githubDomainSpecificLanguage;
 
 import java.net.URL;
 import java.nio.file.Path;

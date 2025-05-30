@@ -1,9 +1,9 @@
-package ru.nsu.shebanov.githubDSL.dsl;
+package ru.nsu.shebanov.githubDomainSpecificLanguage.dsl;
 
 import java.time.LocalDate;
 import java.util.List;
-import ru.nsu.shebanov.githubDSL.antlr.CourseDSLBaseVisitor;
-import ru.nsu.shebanov.githubDSL.antlr.CourseDSLParser;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.antlr.CourseDSLBaseVisitor;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.antlr.CourseDSLParser;
 
 /**
  * Antlr visitor entity.

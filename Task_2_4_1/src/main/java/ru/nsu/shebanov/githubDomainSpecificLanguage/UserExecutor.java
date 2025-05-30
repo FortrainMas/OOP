@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.githubDSL;
+package ru.nsu.shebanov.githubDomainSpecificLanguage;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,12 +11,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
-import ru.nsu.shebanov.githubDSL.dsl.Course;
-import ru.nsu.shebanov.githubDSL.dsl.Student;
-import ru.nsu.shebanov.githubDSL.results.TaskResults;
-import ru.nsu.shebanov.githubDSL.results.Result;
-import ru.nsu.shebanov.githubDSL.results.UserResults;
-import ru.nsu.shebanov.githubDSL.workers.Pull;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.Course;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.Student;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.results.Result;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.results.TaskResults;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.results.UserResults;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.workers.Pull;
 
 /**
  * Executor for user.

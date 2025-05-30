@@ -1,9 +1,9 @@
-package ru.nsu.shebanov.githubDSL.workers;
+package ru.nsu.shebanov.githubDomainSpecificLanguage.workers;
 
 import java.io.IOException;
 import java.util.List;
-import ru.nsu.shebanov.githubDSL.dsl.Course;
-import ru.nsu.shebanov.githubDSL.dsl.Student;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.Course;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.Student;
 
 /**
  * Pull tasks for user.

@@ -1,11 +1,11 @@
-package ru.nsu.shebanov.githubDSL.workers;
+package ru.nsu.shebanov.githubDomainSpecificLanguage.workers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
-import ru.nsu.shebanov.githubDSL.dsl.Course;
-import ru.nsu.shebanov.githubDSL.results.TaskResults;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.Course;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.results.TaskResults;
 
 
 /**

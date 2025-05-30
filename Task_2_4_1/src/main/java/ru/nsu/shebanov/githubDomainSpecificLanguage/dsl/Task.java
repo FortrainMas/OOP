@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.githubDSL.dsl;
+package ru.nsu.shebanov.githubDomainSpecificLanguage.dsl;
 
 import java.time.LocalDate;
 

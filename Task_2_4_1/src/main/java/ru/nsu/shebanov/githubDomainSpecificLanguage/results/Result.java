@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.githubDSL.results;
+package ru.nsu.shebanov.githubDomainSpecificLanguage.results;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import ru.nsu.shebanov.githubDSL.dsl.Course;
+import ru.nsu.shebanov.githubDomainSpecificLanguage.dsl.Course;
 
 /**
  * Result entity.

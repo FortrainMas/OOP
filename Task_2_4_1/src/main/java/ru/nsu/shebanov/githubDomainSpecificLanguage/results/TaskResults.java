@@ -1,4 +1,4 @@
-package ru.nsu.shebanov.githubDSL.results;
+package ru.nsu.shebanov.githubDomainSpecificLanguage.results;
 
 /**
  * Task results.
