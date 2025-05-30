@@ -5,7 +5,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Just like test.
+ */
 public class DslTest {
+    /**
+     * Simple and satisfactory test.
+     *
+     * @throws Exception actually throws
+     */
     @Test
     void runMainWithDslFile() throws Exception {
         URL resource = getClass().getClassLoader().getResource("config.dsl");
