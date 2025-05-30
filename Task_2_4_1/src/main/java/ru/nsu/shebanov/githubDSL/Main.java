@@ -1,13 +1,15 @@
 package ru.nsu.shebanov.githubDSL;
 
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
-
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import ru.nsu.shebanov.githubDSL.antlr.CourseDSLLexer;
 import ru.nsu.shebanov.githubDSL.antlr.CourseDSLParser;
 import ru.nsu.shebanov.githubDSL.dsl.Course;
 import ru.nsu.shebanov.githubDSL.dsl.CourseVisitor;
-import ru.nsu.shebanov.githubDSL.results.Result;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -15,6 +17,8 @@ public class Main {
             System.err.println("Ошибка: укажи путь к файлу как аргумент командной строки.");
             System.exit(1);
         }
+        PrintStream utf8out = new PrintStream(System.out, true, StandardCharsets.UTF_8);
+        System.setOut(utf8out);
 
         String filePath = args[0];
         CharStream input = CharStreams.fromFileName(filePath);

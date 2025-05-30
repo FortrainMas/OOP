@@ -1,9 +1,8 @@
 package ru.nsu.shebanov.githubDSL.results;
 
-import ru.nsu.shebanov.githubDSL.dsl.Course;
-
 import java.util.ArrayList;
 import java.util.List;
+import ru.nsu.shebanov.githubDSL.dsl.Course;
 
 public class UserResults {
     public List<TaskResults> tr;
@@ -19,10 +18,10 @@ public class UserResults {
     public void appendEmpty() {
         for (var task : course.tasks) {
             boolean cont = false;
-            for(var addedTask : tr) {
+            for (var addedTask : tr) {
                 cont = cont || addedTask.task_name.equals(task.name);
             }
-            if(!cont) {
+            if (!cont) {
                 tr.add(new TaskResults(task.name));
             }
         }
@@ -36,5 +35,4 @@ public class UserResults {
         }
         return res.toString();
     }
-
 }

@@ -1,15 +1,18 @@
 package ru.nsu.shebanov.githubDSL.results;
 
-import org.antlr.v4.runtime.misc.Array2DHashSet;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import ru.nsu.shebanov.githubDSL.dsl.Course;
-
-import java.util.*;
 
 public class Result {
     List<UserResults> userResults;
     private final Course course;
 
-    public Result (Course course) {
+    public Result(Course course) {
         userResults = new ArrayList<>();
         this.course = course;
     }
@@ -32,33 +35,40 @@ public class Result {
         Collections.sort(taskNames);
 
         StringBuilder str = new StringBuilder("| User | ");
-        for(var task : taskNames) {
-            str.append(task).append(" |");
+        for (var task : taskNames) {
+            str.append(task).append("<br>(build/test/code style/points) |");
         }
+        str.append(" Total |");
         str.append("\n|");
-        str.append("-|".repeat(Math.max(0, taskNames.size() + 1)));
+        str.append("-|".repeat(Math.max(0, taskNames.size() + 2)));
         str.append("\n");
-        for(var user : userResults) {
-            str.append("|").append(user.userName).append("|");
+        for (var user : userResults) {
+            int userTotalScore = 0;
+            str.append("|").append(String.format("%s", user.userName)).append("|");
 
-            for(var task : course.tasks) {
+            for (var task : course.tasks) {
                 for (var userTask : user.tr) {
                     if (Objects.equals(userTask.task_name, task.name)) {
-                        int build = userTask.buildSuccessfully ? 1 : 0;
-                        int test = userTask.testResults ? 1 : 0;
-                        int codeStyle = userTask.codeStyleResults ? 1 : 0;
-
-                        str.append(String.format(" (build: %d test: %d code style: %d points:%d) |",
-                                build,
-                                test,
-                                codeStyle,
-                                task.maxPoints * build * test
-                        ));
-
+                        String build = userTask.buildSuccessfully ? "✅" : "❌";
+                        String test = userTask.testResults ? "✅" : "❌";
+                        String codeStyle = userTask.codeStyleResults ? "✅" : "❌";
+                        str.append(
+                                String.format(
+                                        " (%s %s %s %d) |",
+                                        build,
+                                        test,
+                                        codeStyle,
+                                        userTask.buildSuccessfully && userTask.testResults
+                                                ? task.maxPoints
+                                                : 0));
+                        userTotalScore +=
+                                userTask.buildSuccessfully && userTask.testResults
+                                        ? task.maxPoints
+                                        : 0;
                     }
                 }
             }
-            str.append("\n");
+            str.append(String.format(" %d |\n", userTotalScore));
         }
 
         return str.toString();

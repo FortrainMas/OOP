@@ -1,12 +1,11 @@
 package ru.nsu.shebanov.githubDSL.workers;
 
-import ru.nsu.shebanov.githubDSL.dsl.Course;
-import ru.nsu.shebanov.githubDSL.results.TaskResults;
-
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
+import ru.nsu.shebanov.githubDSL.dsl.Course;
+import ru.nsu.shebanov.githubDSL.results.TaskResults;
 
 
 public class CheckStyle {
@@ -28,10 +27,12 @@ public class CheckStyle {
     }
 
     public void run() throws IOException, InterruptedException {
-        String command = String.format("cd '%s'; java -jar %s -c %s src/", taskPath, checkstylePath, configPath);
+        String command =
+                String.format(
+                        "cd '%s'; java -jar %s -c %s src/", taskPath, checkstylePath, configPath);
         ProcessBuilder builder = new ProcessBuilder("powershell", "-Command", command);
 
-        builder.redirectErrorStream(true);  // объединяет stderr и stdout
+        builder.redirectErrorStream(true); // объединяет stderr и stdout
         Process process = builder.start();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -47,8 +48,8 @@ public class CheckStyle {
         }
 
         boolean isFinished = process.waitFor(this.timeout, TimeUnit.SECONDS);
-        if(!isFinished) {
-            tr.codeStyleResults=false;
+        if (!isFinished) {
+            tr.codeStyleResults = false;
             System.out.println(taskPath + "checkstyle timeout");
         }
 
@@ -66,6 +67,5 @@ public class CheckStyle {
             System.out.println(taskPath + " FAILED (exit code " + exitCode + ")");
             System.out.println(output);
         }
-
     }
 }

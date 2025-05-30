@@ -1,9 +1,9 @@
 package ru.nsu.shebanov.githubDSL;
-import org.junit.jupiter.api.Test;
 
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import org.junit.jupiter.api.Test;
 
 public class DslTest {
     @Test
@@ -14,7 +14,7 @@ public class DslTest {
         }
 
         Path absolutePath = Paths.get(resource.toURI());
-        String[] args = { absolutePath.toString() };
+        String[] args = {absolutePath.toString()};
 
         Main.main(args);
     }

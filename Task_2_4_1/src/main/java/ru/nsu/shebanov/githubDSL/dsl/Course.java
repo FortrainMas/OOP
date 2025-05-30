@@ -8,11 +8,11 @@ public class Course {
     public List<Group> groups;
     public String downloadFolder;
 
-    public Course(List<Task> tasks, List<Student> students, List<Group> groups, String downloadFolder) {
+    public Course(
+            List<Task> tasks, List<Student> students, List<Group> groups, String downloadFolder) {
         this.tasks = tasks;
         this.students = students;
         this.groups = groups;
         this.downloadFolder = downloadFolder;
     }
 }
-

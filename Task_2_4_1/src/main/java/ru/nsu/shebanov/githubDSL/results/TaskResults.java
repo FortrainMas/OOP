@@ -21,10 +21,6 @@ public class TaskResults {
     public String toString() {
         return String.format(
                 "|'%s' b: %s, ts: %s, cs: %s|",
-                task_name,
-                buildSuccessfully,
-                testResults,
-                codeStyleResults
-        );
+                task_name, buildSuccessfully, testResults, codeStyleResults);
     }
 }

@@ -1,14 +1,14 @@
 package ru.nsu.shebanov.githubDSL.workers;
 
-import org.w3c.dom.*;
-import ru.nsu.shebanov.githubDSL.results.TaskResults;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import ru.nsu.shebanov.githubDSL.results.TaskResults;
 
 public class Test {
     private final String taskPath;
@@ -49,7 +49,8 @@ public class Test {
 
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+            factory.setFeature(
+                    "http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
             factory.setFeature("http://xml.org/sax/features/validation", false);
             factory.setNamespaceAware(false);
 
@@ -80,5 +81,4 @@ public class Test {
             System.out.println(taskPath + " failed (XML parse error)");
         }
     }
-
 }

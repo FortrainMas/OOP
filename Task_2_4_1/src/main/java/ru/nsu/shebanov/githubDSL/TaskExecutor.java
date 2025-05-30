@@ -1,15 +1,13 @@
 package ru.nsu.shebanov.githubDSL;
 
-import ru.nsu.shebanov.githubDSL.dsl.Task;
+import java.io.IOException;
+import ru.nsu.shebanov.githubDSL.dsl.Course;
 import ru.nsu.shebanov.githubDSL.results.TaskResults;
 import ru.nsu.shebanov.githubDSL.workers.CheckStyle;
 import ru.nsu.shebanov.githubDSL.workers.Run;
 import ru.nsu.shebanov.githubDSL.workers.Test;
-import ru.nsu.shebanov.githubDSL.dsl.Course;
 
-import java.io.IOException;
-
-public class TaskExecutor implements Runnable{
+public class TaskExecutor implements Runnable {
     private final String taskPath;
     public Course course;
     public TaskResults tr;
@@ -27,13 +25,13 @@ public class TaskExecutor implements Runnable{
         CheckStyle style = new CheckStyle(course, tr, taskPath);
         try {
             run.run();
-            if(!tr.buildSuccessfully) return;;
+            if (!tr.buildSuccessfully) return;
+            ;
             test.run();
-            if(!tr.testResults) return;
+            if (!tr.testResults) return;
             style.run();
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

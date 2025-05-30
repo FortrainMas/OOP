@@ -1,9 +1,8 @@
 package ru.nsu.shebanov.githubDSL.workers;
 
-import ru.nsu.shebanov.githubDSL.results.TaskResults;
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import ru.nsu.shebanov.githubDSL.results.TaskResults;
 
 public class Run {
     private final String taskPath;
@@ -24,7 +23,7 @@ public class Run {
         Process process = builder.start();
 
         boolean isFinished = process.waitFor(this.timeout, TimeUnit.SECONDS);
-        if(!isFinished) {
+        if (!isFinished) {
             System.out.println(taskPath + " build failed (timeout)");
             return;
         }
@@ -37,6 +36,4 @@ public class Run {
             System.out.println(taskPath + " build failed");
         }
     }
-
-
 }

@@ -1,10 +1,9 @@
 package ru.nsu.shebanov.githubDSL.dsl;
 
-import ru.nsu.shebanov.githubDSL.antlr.CourseDSLBaseVisitor;
-import ru.nsu.shebanov.githubDSL.antlr.CourseDSLParser;
-
 import java.time.LocalDate;
 import java.util.List;
+import ru.nsu.shebanov.githubDSL.antlr.CourseDSLBaseVisitor;
+import ru.nsu.shebanov.githubDSL.antlr.CourseDSLParser;
 
 public class CourseVisitor extends CourseDSLBaseVisitor<Object> {
 

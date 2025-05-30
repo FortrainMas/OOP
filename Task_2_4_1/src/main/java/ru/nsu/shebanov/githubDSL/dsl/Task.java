@@ -9,7 +9,8 @@ public class Task {
     public LocalDate softDeadline;
     public LocalDate hardDeadline;
 
-    public Task(int id, String name, int maxPoints, LocalDate softDeadline, LocalDate hardDeadline) {
+    public Task(
+            int id, String name, int maxPoints, LocalDate softDeadline, LocalDate hardDeadline) {
         this.id = id;
         this.name = name;
         this.maxPoints = maxPoints;

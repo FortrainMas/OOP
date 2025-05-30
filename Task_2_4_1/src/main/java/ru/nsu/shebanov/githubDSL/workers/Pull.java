@@ -1,10 +1,9 @@
 package ru.nsu.shebanov.githubDSL.workers;
 
-import ru.nsu.shebanov.githubDSL.dsl.Course;
-import ru.nsu.shebanov.githubDSL.dsl.Student;
-
 import java.io.IOException;
 import java.util.List;
+import ru.nsu.shebanov.githubDSL.dsl.Course;
+import ru.nsu.shebanov.githubDSL.dsl.Student;
 
 public class Pull {
     private final Student student;
@@ -26,8 +25,7 @@ public class Pull {
             pullCommand.inheritIO();
             Process process = pullCommand.start();
             process.waitFor();
-        }
-        else {
+        } else {
             String setDirectory = "cd " + downloadFolder + "; ";
             String command =
                     setDirectory
