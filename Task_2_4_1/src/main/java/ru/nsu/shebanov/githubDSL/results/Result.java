@@ -27,7 +27,7 @@ public class Result {
 
         for (var user : userResults) {
             for (var task : user.tr) {
-                taskNamesSet.add(task.task_name);
+                taskNamesSet.add(task.taskName);
             }
         }
 
@@ -48,7 +48,7 @@ public class Result {
 
             for (var task : course.tasks) {
                 for (var userTask : user.tr) {
-                    if (Objects.equals(userTask.task_name, task.name)) {
+                    if (Objects.equals(userTask.taskName, task.name)) {
                         String build = userTask.buildSuccessfully ? "✅" : "❌";
                         String test = userTask.testResults ? "✅" : "❌";
                         String codeStyle = userTask.codeStyleResults ? "✅" : "❌";

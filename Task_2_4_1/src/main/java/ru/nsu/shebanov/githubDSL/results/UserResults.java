@@ -19,7 +19,7 @@ public class UserResults {
         for (var task : course.tasks) {
             boolean cont = false;
             for (var addedTask : tr) {
-                cont = cont || addedTask.task_name.equals(task.name);
+                cont = cont || addedTask.taskName.equals(task.name);
             }
             if (!cont) {
                 tr.add(new TaskResults(task.name));
