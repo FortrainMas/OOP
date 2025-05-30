@@ -1,5 +1,5 @@
-ru.nsu.shebanov.githubDomainSpecificLanguage
-ru.nsu.shebanov.githubDomainSpecificLanguage.antlr
-ru.nsu.shebanov.githubDomainSpecificLanguage.dsl
-ru.nsu.shebanov.githubDomainSpecificLanguage.results
-ru.nsu.shebanov.githubDomainSpecificLanguage.workers
+ru.nsu.shebanov.githubdsl
+ru.nsu.shebanov.githubdsl.antlr
+ru.nsu.shebanov.githubdsl.dsl
+ru.nsu.shebanov.githubdsl.results
+ru.nsu.shebanov.githubdsl.workers
