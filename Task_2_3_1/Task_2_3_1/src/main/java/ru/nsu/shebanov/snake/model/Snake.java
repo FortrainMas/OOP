@@ -5,6 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import static ru.nsu.shebanov.snake.model.GameState.GameObjects.*;
+import static ru.nsu.shebanov.snake.model.GameState.GameObjects.MINE;
+
 public class Snake {
     boolean isAlive;
     boolean eatApple;
@@ -20,13 +23,16 @@ public class Snake {
     GameState.Directions direction;
     boolean directionLock = false;
 
-    public Snake(int rows, int cols, int headX, int headY, GameState.Directions direction) {
+    private GameState gameState;
+
+    public Snake(int rows, int cols, int headX, int headY, GameState gameState) {
         this.rows = rows;
         this.cols = cols;
 
         head = new Coordinates(headX, headY);
 
         body.add(new Coordinates(headX, headY));
+        this.gameState = gameState;
 
         isAlive = true;
     }
@@ -61,7 +67,7 @@ public class Snake {
     }
 
     public Snake move() {
-
+        System.out.println("TRYNNA MOVE");
         GameState.Directions direction = this.direction;
         if(onCodeine > 0) {
             onCodeine -= 1;
@@ -109,11 +115,45 @@ public class Snake {
 
         body.addFirst(newHead);
         this.head = newHead;
-        if(!eatApple){
-            body.removeLast();
-        }else {
-            eatApple = false;
+
+
+
+
+
+        var field = gameState.field;
+
+        if (field[this.head.x][this.head.y] == APPLE) {
+            this.eatApple = true;
+            gameState.applesCount -= 1;
+            field[this.head.x][this.head.y] = PLAYER;
+        } else {
+            var last = body.removeLast();
+            field[last.x][last.y] = FIELD;
         }
+        if (field[this.head.x][this.head.y] == COD) {
+            this.onCodeine = 5;
+            gameState.codCount -=1;
+            field[this.head.x][this.head.y] = PLAYER;
+        }
+        else if (field[this.head.x][this.head.y] == INVERTER) {
+            this.invert();
+            gameState.invertersCount -= 1;
+            field[this.head.x][this.head.y] = PLAYER;
+        }
+        else if (field[this.head.x][this.head.y] == MINE) {
+            this.isAlive = false;
+            gameState.minesCount -= 1;
+            field[this.head.x][this.head.y] = PLAYER;
+        }
+
+        for(var snake : gameState.snakes) {
+            for(var coordinate : snake.body.subList(1, snake.body.size())) {
+                if(coordinate.x == this.body.getFirst().x && coordinate.y == this.body.getFirst().y) {
+                    this.isAlive = false;
+                }
+            }
+        }
+
         return this;
     }
 }

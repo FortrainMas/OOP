@@ -13,6 +13,11 @@ public class GameState {
     int INVERTERS_NUMBER = 5;
     int MINES_NUMBER = 5;
 
+    public int applesCount = 0;
+    public int codCount = 0;
+    public int invertersCount = 0;
+    public int minesCount = 0;
+
     public enum Directions {
         UP, DOWN, LEFT, RIGHT
     };
@@ -44,7 +49,7 @@ public class GameState {
             }
         }
 
-        player = new Snake(rows, cols, rows/2, cols/2, Directions.RIGHT);
+        player = new Snake(rows, cols, rows/2, cols/2, this);
         snakes.add(player);
 
         direction = Directions.RIGHT;
@@ -59,74 +64,19 @@ public class GameState {
     private void validateSnakes () {
         snakes.replaceAll(Snake::move);
 
-        for(int i = 0; i < snakes.size(); i++){
-            Snake snake = snakes.get(i);
-            for(int j = i; j < snakes.size(); j++) {
-                if ( snakes.get(j).body.subList(1, snakes.get(j).body.size()).contains(snake.head)) {
-                    snake.isAlive = false;
-                    break;
-                }
-            }
-        }
-
         snakes.removeIf(snake -> !snake.isAlive);
 
-        for(var snake:snakes) {
-            if (field[snake.head.x][snake.head.y] == APPLE) {
-                snake.eatApple = true;
-            }
-            if (field[snake.head.x][snake.head.y] == COD) {
-                snake.onCodeine = 5;
-            }
-            if (field[snake.head.x][snake.head.y] == INVERTER) {
-                snake.invert();
-            }
-            if (field[snake.head.x][snake.head.y] == MINE) {
-                snake.isAlive = false;
+        for(var snake : snakes) {
+            if (snake.isAlive) {
+                for (var coordinate : snake.body) {
+                    this.field[coordinate.x][coordinate.y] = PLAYER;
+                }
             }
         }
     }
 
     public GameState nextState() {
         validateSnakes();
-
-        int countApples = 0;
-        int countCod = 0;
-        int countInverters = 0;
-        int countMines = 0;
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if (field[i][j] == APPLE) {
-                    field[i][j] = APPLE;
-                    countApples += 1;
-                } else if(field[i][j] == COD) {
-                    countCod += 1;
-                } else if(field[i][j] == MINE) {
-                    countMines += 1;
-                } else if(field[i][j] == INVERTER) {
-                    countInverters += 1;
-                } else {
-                    field[i][j] = FIELD;
-                }
-            }
-        }
-
-        for(var snake:snakes) {
-            if(field[snake.head.x][snake.head.y] == APPLE) {
-                countApples -= 1;
-            } else if (field[snake.head.x][snake.head.y] == MINE) {
-                countMines -= 1;
-            } else if (field[snake.head.x][snake.head.y] == COD) {
-                countCod -= 1;
-            } else if(field[snake.head.x][snake.head.y] == INVERTER) {
-                countInverters -= 1;
-            }
-
-            for(var coordinate :snake.body) {
-                field[coordinate.x][coordinate.y] = PLAYER;
-            }
-        }
 
         List<Coordinates> freeCoordinates = new ArrayList<>();
 
@@ -139,18 +89,27 @@ public class GameState {
         }
 
         Collections.shuffle(freeCoordinates);
-        for(var coordinate : freeCoordinates.subList(0, Math.min(5-countApples, freeCoordinates.size()))) {
+        int pos = Math.min(5-applesCount, freeCoordinates.size());
+        for(var coordinate : freeCoordinates.subList(0, pos)) {
             field[coordinate.x][coordinate.y] = APPLE;
+            applesCount += 1;
         }
-        for(var coordinate : freeCoordinates.subList(0, Math.min(5-countCod, freeCoordinates.size()))) {
+        for(var coordinate : freeCoordinates.subList(pos+1, pos + 1 + Math.min(5-codCount, freeCoordinates.size()))) {
             field[coordinate.x][coordinate.y] = COD;
+            codCount += 1;
         }
-        for(var coordinate : freeCoordinates.subList(0, Math.min(5-countInverters, freeCoordinates.size()))) {
+        pos += Math.min(5-codCount, freeCoordinates.size()) + 2;
+        for(var coordinate : freeCoordinates.subList(pos, pos + Math.min(5-invertersCount, freeCoordinates.size()))) {
             field[coordinate.x][coordinate.y] = INVERTER;
+            invertersCount += 1;
         }
-        for(var coordinate : freeCoordinates.subList(0, Math.min(5-countMines, freeCoordinates.size()))) {
+        pos += Math.min(5-invertersCount, freeCoordinates.size()) + 1;
+        for(var coordinate : freeCoordinates.subList(pos, pos + Math.min(5-minesCount, freeCoordinates.size()))) {
             field[coordinate.x][coordinate.y] = MINE;
+            minesCount += 1;
         }
+
+
 
 
         return this;
