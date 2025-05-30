@@ -1,8 +1,8 @@
 package ru.nsu.shebanov.githubDSL.workers;
 
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
 import ru.nsu.shebanov.githubDSL.dsl.Course;
 import ru.nsu.shebanov.githubDSL.results.TaskResults;

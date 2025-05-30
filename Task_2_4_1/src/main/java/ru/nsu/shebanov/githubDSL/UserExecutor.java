@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 import ru.nsu.shebanov.githubDSL.dsl.Course;
 import ru.nsu.shebanov.githubDSL.dsl.Student;
 import ru.nsu.shebanov.githubDSL.results.TaskResults;
-import ru.nsu.shebanov.githubDSL.results.UserResults;
 import ru.nsu.shebanov.githubDSL.results.Result;
+import ru.nsu.shebanov.githubDSL.results.UserResults;
 import ru.nsu.shebanov.githubDSL.workers.Pull;
 
 public class UserExecutor implements Runnable {
@@ -62,8 +62,8 @@ public class UserExecutor implements Runnable {
             String[] split = task.split("\\\\");
             String curTaskName = split[split.length - 1];
             boolean isPresent = false;
-            for (var task_name : course.tasks) {
-                isPresent = isPresent || task_name.name.equals(curTaskName);
+            for (var taskName : course.tasks) {
+                isPresent = isPresent || taskName.name.equals(curTaskName);
             }
             if (!isPresent) {
                 System.out.println("For task '" + curTaskName + "' nothing found");
