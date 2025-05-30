@@ -92,6 +92,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Pull</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Pull tasks for user.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -106,7 +107,9 @@ loadScripts(document, 'script');</script>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(ru.nsu.shebanov.githubDSL.dsl.Course,ru.nsu.shebanov.githubDSL.dsl.Student,java.util.List)" class="member-name-link">Pull</a><wbr>(<a href="../dsl/Course.html" title="class in ru.nsu.shebanov.githubDSL.dsl">Course</a>&nbsp;course,
  <a href="../dsl/Student.html" title="class in ru.nsu.shebanov.githubDSL.dsl">Student</a>&nbsp;student,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;foldersBeforeExecution)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Constructs task.</div>
+</div>
 </div>
 </section>
 </li>
@@ -123,7 +126,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pull()" class="member-name-link">pull</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Pull task.</div>
+</div>
 </div>
 </div>
 </div>
@@ -147,6 +152,13 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Pull</span><wbr><span class="parameters">(<a href="../dsl/Course.html" title="class in ru.nsu.shebanov.githubDSL.dsl">Course</a>&nbsp;course,
  <a href="../dsl/Student.html" title="class in ru.nsu.shebanov.githubDSL.dsl">Student</a>&nbsp;student,
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;foldersBeforeExecution)</span></div>
+<div class="block">Constructs task.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>course</code> - course</dd>
+<dd><code>student</code> - student</dd>
+<dd><code>foldersBeforeExecution</code> - folder of user</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -163,10 +175,11 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">pull</span>()
           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
 <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></span></div>
+<div class="block">Pull task.</div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - actually throws</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/InterruptedException.html" title="class or interface in java.lang" class="external-link">InterruptedException</a></code> - actually throws</dd>
 </dl>
 </section>
 </li>
